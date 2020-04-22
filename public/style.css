@@ -1,6 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=Dokdo&display=swap");
+
 * {
     box-sizing: border-box;
 }
 body {
     margin: 0;
+}
+#login,
+#loggedin {
+    display: none;
+}
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 500px;
+}
+h1,
+h2,
+h3 {
+    font-size: 4em;
+    font-family: "Dokdo", "Courier", "Helvetica Neue", "Lato", "Segoe UI",
+        Helvetica, Arial, sans-serif;
+    color: rgba(56, 7, 56, 0.438);
+    text-align: center;
+}
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+}
+main {
+    display: block;
+    text-align: center;
+    margin-bottom: 5%;
+}
+#header {
+    min-height: 10vh;
+    width: 100vw;
+    flex-direction: row;
+    align-content: space-between;
+    background-color: #ffe7e7c4;
+    border-bottom: lightcoral;
+}
+#header .link {
+    margin: 2%;
+    font-size: 3em;
+    text-decoration: none;
+    font-family: "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+img#logo-pic {
+    max-height: 18vh;
+    margin: 10px;
+    float: left;
+    align-self: flex-start;
 }

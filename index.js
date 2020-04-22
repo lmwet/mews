@@ -1,21 +1,21 @@
 const express = require("express");
-const app = express();
 const compression = require("compression");
-const http = require("http");
-const { hash, compare } = require("./utils/bcrypt");
-const db = require("./utils/db.js");
-const conf = require("./config.json");
+// const http = require("http");
+// const { hash, compare } = require("./utils/bcrypt");
+// const db = require("./utils/db.js");
+// const conf = require("./config.json");
+const app = express();
 const server = require("http").Server(app);
-const io = require("socket.io")(server, { origins: "localhost:8080" });
+const io = require("socket.io")(server, { origins: "localhost:8888" });
 const request = require("request"); // "Request" library
 const cors = require("cors");
 const querystring = require("querystring");
 const cookieParser = require("cookie-parser");
+const cookieSession = require("cookie-session");
 const { CLIENT_ID, CLIENT_SECRET } = require("./secrets.json");
-
-const client_id = CLIENT_ID;
-const client_secret = CLIENT_SECRET;
-const redirect_uri = "http://mews.herokuapp.com/welcome#";
+var client_id = CLIENT_ID; // Your client id
+var client_secret = CLIENT_SECRET; // Your secret
+var redirect_uri = "http://localhost:8888/callback"; // Your redirect uri
 
 //////////// MIDDLEWARE /////////////
 
@@ -31,19 +31,34 @@ if (process.env.NODE_ENV != "production") {
 } else {
     app.use("/bundle.js", (req, res) => res.sendFile(`${__dirname}/bundle.js`));
 }
+app.use(compression());
+app.use(express.json());
+app.use(
+    express.urlencoded({
+        extended: false,
+    })
+);
 
-app.get("*", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
+const cookieSessionMiddleware = cookieSession({
+    secret: `secret`,
+    maxAge: 1000 * 60 * 60 * 24 * 90,
 });
+
+app.use(cookieSessionMiddleware);
+
+// app.get("*", function (req, res) {
+//     res.sendFile(__dirname + "/index.html");
+// });
 
 /////////////// END MIDDLEWARE ///////////////
 
 //////// AUTHORIZATION SPOTIFY ////////////
 
-//  * Generates a random string containing numbers and letters
-//  * @param  {number} length The length of the string
-//  * @return {string} The generated string
-//  */
+/**
+ * Generates a random string containing numbers and letters
+ * @param  {number} length The length of the string
+ * @return {string} The generated string
+ */
 
 var generateRandomString = function (length) {
     var text = "";
@@ -62,9 +77,12 @@ app.use(express.static(__dirname + "/public"))
     .use(cors())
     .use(cookieParser());
 
+//The first call is the service ‘/authorize’ endpoint, passing to it the client ID, scopes, and redirect URI.
+//This is the call that starts the process of authenticating to user and gets the user’s authorization to access data.
 app.get("/login", function (req, res) {
     var state = generateRandomString(16);
     res.cookie(stateKey, state);
+    console.log("login route running");
 
     // your application requests authorization
     var scope =
@@ -80,17 +98,30 @@ app.get("/login", function (req, res) {
                 state: state,
             })
     );
+    console.log("redirect ran");
+});
+
+app.get("/", async (req, res) => {
+    try {
+        res.sendFile(__dirname + "/index.html");
+        console.log("get / route ran");
+    } catch (e) {
+        console.log("err in get /");
+    }
 });
 
 app.get("/callback", function (req, res) {
     // your application requests refresh and access tokens
     // after checking the state parameter
+    console.log("callbak running");
 
     var code = req.query.code || null;
     var state = req.query.state || null;
     var storedState = req.cookies ? req.cookies[stateKey] : null;
 
     if (state === null || state !== storedState) {
+        console.log("first if statement");
+
         res.redirect(
             "/#" +
                 querystring.stringify({
@@ -98,6 +129,7 @@ app.get("/callback", function (req, res) {
                 })
         );
     } else {
+        console.log(" else statement");
         res.clearCookie(stateKey);
         var authOptions = {
             url: "https://accounts.spotify.com/api/token",
@@ -117,11 +149,13 @@ app.get("/callback", function (req, res) {
         };
 
         request.post(authOptions, function (error, response, body) {
+            console.log("running request.post");
+
             if (!error && response.statusCode === 200) {
                 var access_token = body.access_token,
                     refresh_token = body.refresh_token;
 
-                var options = {
+                const options = {
                     url: "https://api.spotify.com/v1/me",
                     headers: { Authorization: "Bearer " + access_token },
                     json: true,
@@ -131,8 +165,11 @@ app.get("/callback", function (req, res) {
                 request.get(options, function (error, response, body) {
                     console.log("access token body request", body);
                 });
+                req.session.access_token = querystring.stringify({
+                    access_token: access_token,
+                    refresh_token: refresh_token,
+                });
 
-                // we can also pass the token to the browser to make requests from there
                 res.redirect(
                     "/#" +
                         querystring.stringify({
@@ -178,6 +215,12 @@ app.get("/refresh_token", function (req, res) {
         }
     });
 });
-app.listen(8080, function () {
+
+app.get("/blue", (req, res) => {
+    console.log("req.session", req.session);
+    res.json(req.session);
+});
+
+app.listen(8888, function () {
     console.log("I'm listening.");
 });
