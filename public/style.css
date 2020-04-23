@@ -54,3 +54,17 @@ div.category {
 img.cat-pic {
     max-height: 28vh;
 }
+div.song-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: dotted 1px grey;
+}
+div.artist-container {
+    margin: 5%;
+}
+p.author {
+    margin-left: 5px;
+    margin-right: 5px;
+}

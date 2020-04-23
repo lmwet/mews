@@ -13,8 +13,6 @@ import reducer from "./reducer";
 
 // let elem = <img id="banner-img" src="/images/mews.png" />;
 
-// look at url and know if user is logged in or not
-
 const store = createStore(
     reducer,
     composeWithDevTools(applyMiddleware(reduxPromise))

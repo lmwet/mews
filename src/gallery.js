@@ -1,15 +1,14 @@
 import React from "react";
-import axios from "./axios";
 import ElectroSpring from "./electro_spring";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export default function Gallery() {
+export default function Gallery(props) {
     return (
         <React.Fragment>
             <h2>Take a tour</h2>
             <div className="gallery-container">
-                <Link to="/kahraba">
+                <Link to="/kahrabiat">
                     <div className="category">
                         <h3>Electro-arabic Spring</h3>
                         <img
@@ -30,16 +29,7 @@ export default function Gallery() {
                         />
                     </div>
                 </Link>
-                <Link to="/legends">
-                    <div className="category">
-                        <h3>Queer-fem Legends</h3>
-                        <img
-                            className="cat-pic"
-                            src="/images/chavela.jpg"
-                            alt="queer-fem-legends"
-                        />
-                    </div>
-                </Link>
+
                 <Link to="/brujas">
                     <div className="category">
                         <h3>Brujas</h3>

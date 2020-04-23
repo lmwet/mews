@@ -66,10 +66,8 @@ app.get("/login", (req, res) => {
         "",
         config.showDialog
     );
-    console.log("client ID", CLIENT_ID, "REDIRECT_URI", REDIRECT_URI);
-    console.log("uri", uri);
+
     res.redirect(uri);
-    console.log("req.query", req.query);
 });
 
 app.get("/callback", (req, res) => {
@@ -89,6 +87,44 @@ app.get("/callback", (req, res) => {
         });
 
     res.send(CLIENT_SECRET);
+});
+
+app.get("/kahrabiat.json", (req, res) => {
+    // Retrieve an access token
+    spotifyApi
+        .clientCredentialsGrant()
+        .then(function (data) {
+            // Set the access token on the API object so that it's used in all future requests
+            spotifyApi.setAccessToken(data.body["access_token"]);
+
+            // Get the most popular tracks by David Bowie in Great Britain
+            return spotifyApi.getArtistTopTracks(
+                "3M3dqhDqNK2DsZPIbopgUA",
+                "DE"
+            );
+        })
+        .then(function (data) {
+            console.log("The most popular tracks for MS");
+
+            res.json(data.body.tracks);
+            data.body.tracks.forEach(function (track, index) {
+                console.log(
+                    index +
+                        1 +
+                        ". " +
+                        track.name +
+                        " (popularity is " +
+                        track.popularity +
+                        ")"
+                );
+            });
+        })
+        .catch(function (err) {
+            console.log(
+                "Unfortunately, something has gone wrong.",
+                err.message
+            );
+        });
 });
 
 //last route

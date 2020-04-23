@@ -10,7 +10,6 @@ import Gallery from "./gallery";
 
 export default function App() {
     // const code = useSelector((state) => state && state.code);
-    const dispatch = useDispatch();
 
     return (
         <React.Fragment>
