@@ -4,3 +4,53 @@
 body {
     margin: 0;
 }
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+}
+main {
+    display: block;
+    text-align: center;
+    margin-bottom: 5%;
+}
+#header {
+    min-height: 10vh;
+    width: 100vw;
+    flex-direction: row;
+    align-content: space-between;
+    background-color: #ffe7e7c4;
+}
+#header .link {
+    margin: 2%;
+    font-size: 3em;
+    text-decoration: none;
+    font-family: "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+img#logo-pic {
+    max-height: 18vh;
+    margin: 10px;
+    float: left;
+    align-self: flex-start;
+}
+div.gallery-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    overflow-x: scroll;
+    border-bottom: 1px dotted lightcoral;
+}
+div.category {
+    height: 33vh;
+    width: 15vw;
+    padding: 15px;
+    margin: 3em;
+}
+img.cat-pic {
+    max-height: 28vh;
+}

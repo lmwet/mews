@@ -42,23 +42,6 @@ app.use(cookieSessionMiddleware);
 
 /////// web api Authorization //////
 
-// // Retrieve an access token.
-// spotifyApi.clientCredentialsGrant().then(
-//     function (data) {
-//         console.log("The access token expires in " + data.body["expires_in"]);
-//         console.log("The access token is " + data.body["access_token"]);
-
-//         // Save the access token so that it's used in future calls
-//         spotifyApi.setAccessToken(data.body["access_token"]);
-//     },
-//     function (err) {
-//         console.log(
-//             "Something went wrong when retrieving an access token",
-//             err
-//         );
-//     }
-// );
-
 const config = {
     scope: [
         "user-read-email",
@@ -83,33 +66,37 @@ app.get("/login", (req, res) => {
         "",
         config.showDialog
     );
-    console.log(CLIENT_ID, REDIRECT_URI);
-    console.log(uri);
+    console.log("client ID", CLIENT_ID, "REDIRECT_URI", REDIRECT_URI);
+    console.log("uri", uri);
     res.redirect(uri);
+    console.log("req.query", req.query);
 });
 
 app.get("/callback", (req, res) => {
     console.log("callback running");
 
     const { code } = req.query;
+    console.log("code", code);
+
     spotifyApi
         .authorizationCodeGrant(code)
         .then(function (data) {
-            console.log(data);
+            console.log("Retrieved access token", data.body["access_token"]);
+            spotifyApi.setAccessToken(data.body["access_token"]);
         })
         .catch(function (error) {
             console.log(error);
         });
-    console.log(code);
+
     res.send(CLIENT_SECRET);
 });
 
 //last route
 app.get("*", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
+    console.log("all routes runnin");
 });
 
 server.listen(8080, function () {
-    //server will send all the non-websocket requests to app
     console.log("I'm listening.");
 });

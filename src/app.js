@@ -1,17 +1,24 @@
-import React from "react";
-// import axios from "./axios"; //we import it from the file so it comes with the csurf stuff
-import Header from "./header";
-import Login from "./login";
+// import axios from "./axios";
 import { BrowserRouter, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getCode } from "./actions";
+
+import Header from "./header";
+import ElectroSpring from "./electro_spring";
+import Gallery from "./gallery";
 
 export default function App() {
+    // const code = useSelector((state) => state && state.code);
+    const dispatch = useDispatch();
+
     return (
         <React.Fragment>
             <BrowserRouter>
                 <div>
                     <Header />
-                    <Route exact path="/" component={Login} />
-                    {/* <Route path="/gallery" component={Gallery} /> */}
+                    <Gallery />
+                    <Route path="/kahrabiat" component={ElectroSpring} />
                 </div>
             </BrowserRouter>
         </React.Fragment>

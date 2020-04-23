@@ -21,7 +21,7 @@ export default function Header(props) {
                 <a href="/login" className="link">
                     Log in
                 </a>
-                <a href="/logout" className="link">
+                <a href="/callback" className="link">
                     Log Out
                 </a>
             </div>
