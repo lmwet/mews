@@ -3,6 +3,8 @@
 }
 body {
     margin: 0;
+    width: auto;
+    overflow-x: hidden;
 }
 body {
     font-family: "Source Sans Pro", sans-serif;
@@ -81,4 +83,10 @@ p.author {
 }
 img.artist-pic {
     max-width: 15vw;
+}
+.player {
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }

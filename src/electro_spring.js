@@ -9,6 +9,8 @@ export default function ElectroSpring() {
     const [songsAya, setSongsAya] = useState([]);
     const [songsMaii, setSongsMaii] = useState([]);
     const [songsEmel, setSongsEmel] = useState([]);
+    const [currentTrack, setCurrentTrack] = useState("");
+    const playerIsVisible = true;
 
     useEffect(() => {
         (async () => {
@@ -33,6 +35,15 @@ export default function ElectroSpring() {
         })();
     }, []);
 
+    const handleclick = (e) => {
+        e.preventDefault();
+
+        const elem = e.target;
+        let url = elem.getAttribute("href");
+        console.log("url of song clicked", url);
+        setCurrentTrack(url);
+    };
+
     return (
         <div>
             <h2>Arab Electronic@s | إلكترونيات</h2>
@@ -52,8 +63,12 @@ export default function ElectroSpring() {
                                     <p className="author">
                                         {song.artists[0].name}
                                     </p>
-                                    <a href={song.external_urls}>
-                                        <p>{song.name}</p>
+                                    <a
+                                        onClick={handleclick}
+                                        className="spotify-url"
+                                        href={song.external_urls.spotify}
+                                    >
+                                        {song.name}
                                     </a>
                                 </div>
                             );
@@ -82,8 +97,13 @@ export default function ElectroSpring() {
                                     <p className="author">
                                         {song.artists[0].name}
                                     </p>
-                                    <a href={song.external_urls}>
+                                    <a
+                                        onClick={handleclick}
+                                        className="spotify-url"
+                                        href={song.external_urls.spotify}
+                                    >
                                         <p>{song.name}</p>
+                                        <p className="play-button"> &#9658;</p>
                                     </a>
                                 </div>
                             );
@@ -112,8 +132,13 @@ export default function ElectroSpring() {
                                     <p className="author">
                                         {song.artists[0].name}
                                     </p>
-                                    <a href={song.external_urls}>
+                                    <a
+                                        onClick={handleclick}
+                                        className="spotify-url"
+                                        href={song.external_urls.spotify}
+                                    >
                                         <p>{song.name}</p>
+                                        <p className="play-button"> &#9658;</p>
                                     </a>
                                 </div>
                             );
@@ -139,8 +164,13 @@ export default function ElectroSpring() {
                                     <p className="author">
                                         {song.artists[0].name}
                                     </p>
-                                    <a href={song.external_urls}>
+                                    <a
+                                        onClick={handleclick}
+                                        className="spotify-url"
+                                        href={song.external_urls.spotify}
+                                    >
                                         <p>{song.name}</p>
+                                        <p className="play-button"> &#9658;</p>
                                     </a>
                                 </div>
                             );
@@ -150,6 +180,17 @@ export default function ElectroSpring() {
                     <img className="artist-pic" src="/images/maii_walled.jpg" />
                 </div>
             </div>
+
+            <iframe
+                className="player"
+                src="https://open.spotify.com/track/2m4uvRhmcfqbBX8GdqlMrF"
+                width="100%"
+                height="90"
+                background-color="white"
+                frameBorder="0"
+                allowtransparency="true"
+                allow="encrypted-media"
+            ></iframe>
         </div>
     );
 } //closes cpnt

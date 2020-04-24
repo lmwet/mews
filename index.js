@@ -49,6 +49,7 @@ const config = {
         "user-read-email",
         "user-read-private",
         "user-top-read",
+        "streaming",
         "user-follow-read",
         "user-modify-playback-state",
         "user-read-currently-playing",
@@ -82,10 +83,6 @@ app.get("/callback", (req, res) => {
         .then(function (data) {
             console.log("Retrieved access token", data.body["access_token"]);
             spotifyApi.setAccessToken(data.body["access_token"]);
-            req.session.token = data.body["access_token"];
-            console.log("token in session", req.session.token);
-            req.session.code = code;
-            console.log("code in session cookie", req.session.code);
         })
         .catch(function (error) {
             console.log(error);
