@@ -62,9 +62,23 @@ div.song-div {
     border-bottom: dotted 1px grey;
 }
 div.artist-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
     margin: 5%;
+}
+div.songs-container {
+    width: 60vh;
+}
+div.artist-pic-wrapper {
+    padding: 5%;
+    max-width: 40vh;
 }
 p.author {
     margin-left: 5px;
     margin-right: 5px;
+}
+img.artist-pic {
+    max-width: 15vw;
 }

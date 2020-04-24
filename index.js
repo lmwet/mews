@@ -74,60 +74,101 @@ app.get("/callback", (req, res) => {
     console.log("callback running");
 
     const { code } = req.query;
-    console.log("code", code);
 
     spotifyApi
         .authorizationCodeGrant(code)
         .then(function (data) {
             console.log("Retrieved access token", data.body["access_token"]);
             spotifyApi.setAccessToken(data.body["access_token"]);
+            req.session.token = data.body["access_token"];
+            console.log("token in session", req.session.token);
+            req.session.code = code;
+            console.log("code in session cookie", req.session.code);
         })
         .catch(function (error) {
             console.log(error);
         });
-
-    res.send(CLIENT_SECRET);
+    res.redirect("/");
 });
 
-app.get("/kahrabiat.json", (req, res) => {
-    // Retrieve an access token
-    spotifyApi
-        .clientCredentialsGrant()
-        .then(function (data) {
-            // Set the access token on the API object so that it's used in all future requests
-            spotifyApi.setAccessToken(data.body["access_token"]);
-
-            // Get the most popular tracks by David Bowie in Great Britain
-            return spotifyApi.getArtistTopTracks(
-                "3M3dqhDqNK2DsZPIbopgUA",
-                "DE"
-            );
-        })
-        .then(function (data) {
-            console.log("The most popular tracks for MS");
-
-            res.json(data.body.tracks);
-            data.body.tracks.forEach(function (track, index) {
-                console.log(
-                    index +
-                        1 +
-                        ". " +
-                        track.name +
-                        " (popularity is " +
-                        track.popularity +
-                        ")"
-                );
-            });
-        })
-        .catch(function (err) {
-            console.log(
-                "Unfortunately, something has gone wrong.",
-                err.message
-            );
-        });
+app.get("/mariam.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "3M3dqhDqNK2DsZPIbopgUA",
+            "DE"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in mariam",
+            err.message
+        );
+    }
 });
 
-//last route
+app.get("/aya.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "0Od49f50ljr4kmQgclwHkm",
+            "DE"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in aya",
+            err.message
+        );
+    }
+});
+
+app.get("/emel.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "06MtOym27ALcfdtVOsRcaA",
+            "EG"
+        );
+        res.json(topTen.body.tracks);
+        console.log("maii sent", topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in emel",
+            err.message
+        );
+    }
+});
+
+app.get("/maii.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "1e9RnsEdnC3LG7vHcAozc8",
+            "DE"
+        );
+        res.json(topTen.body.tracks);
+        console.log("maii sent", topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in maii",
+            err.message
+        );
+    }
+});
+
 app.get("*", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
     console.log("all routes runnin");
