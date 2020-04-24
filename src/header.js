@@ -18,6 +18,7 @@ export default function Header(props) {
         <React.Fragment>
             <div id="header">
                 <img id="logo-pic" src="/images/mews.png" alt="logo" />
+                <h1 id="title">mews</h1>
                 <a href="/login" className="link">
                     Log in
                 </a>

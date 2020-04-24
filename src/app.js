@@ -1,9 +1,9 @@
-// import axios from "./axios";
 import { BrowserRouter, Route } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCode } from "./actions";
 
+//components
 import Header from "./header";
 import ElectroSpring from "./electro_spring";
 import Gallery from "./gallery";
@@ -14,11 +14,14 @@ export default function App() {
     return (
         <React.Fragment>
             <BrowserRouter>
-                <div>
-                    <Header />
-                    <Gallery />
-                    <Route path="/kahrabiat" component={ElectroSpring} />
-                </div>
+                <Header />
+                <Route exact path="/" component={Gallery} />
+                <Route path="/kahrabiat" component={ElectroSpring} />
+                {/* <Route path="/legends" component={Legends} />
+                <Route path="/devil-dykes" component={DevilDykes} />
+                <Route path="/black-pride" component={BlackPride} />
+                <Route path="/wilad" component={Wilad} />
+                <Route path="/femi-hip-hop" component={FemHip} /> */}
             </BrowserRouter>
         </React.Fragment>
     );

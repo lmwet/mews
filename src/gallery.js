@@ -2,11 +2,11 @@ import React from "react";
 import ElectroSpring from "./electro_spring";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { BrowserRouter, Route } from "react-router-dom";
 
 export default function Gallery(props) {
     return (
         <React.Fragment>
-            <h2>Take a tour</h2>
             <div className="gallery-container">
                 <Link to="/kahrabiat">
                     <div className="category">
@@ -21,7 +21,7 @@ export default function Gallery(props) {
 
                 <Link to="/legends">
                     <div className="category">
-                        <h3>Queer-fem Legends</h3>
+                        <h3>Queer Legends</h3>
                         <img
                             className="cat-pic"
                             src="/images/chavela.jpg"
@@ -32,21 +32,41 @@ export default function Gallery(props) {
 
                 <Link to="/brujas">
                     <div className="category">
-                        <h3>Brujas</h3>
+                        <h3>Devil Dykes</h3>
                         <img
                             className="cat-pic"
-                            src="/images/brujas.jpg"
+                            src="/images/2dykes.jpg"
                             alt="queer-fem-legends"
                         />
                     </div>
                 </Link>
                 <Link to="/xodade">
                     <div className="category">
-                        <h3>Xodade</h3>
+                        <h3>Black Pride</h3>
                         <img
                             className="cat-pic"
-                            src="/images/xodade.jpg"
-                            alt="queer-fem-legends"
+                            src="/images/trumpetGrl.jpg"
+                            alt="xodade"
+                        />
+                    </div>
+                </Link>
+                <Link to="/wilad">
+                    <div className="category">
+                        <h3>Children of Night</h3>
+                        <img
+                            className="cat-pic"
+                            src="/images/wiladAlLeil.jpg"
+                            alt="gayboys-here"
+                        />
+                    </div>
+                </Link>
+                <Link to="/wilad">
+                    <div className="category">
+                        <h3>Feminist Hip-Hop</h3>
+                        <img
+                            className="cat-pic"
+                            src="/images/fam-hiphop.jpg"
+                            alt="fem-hip-hop"
                         />
                     </div>
                 </Link>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Dokdo&display=swap");
+
 * {
     box-sizing: border-box;
 }
@@ -24,13 +26,24 @@ main {
     width: 100vw;
     flex-direction: row;
     align-content: space-between;
-    background-color: #ffe7e7c4;
+}
+h1,
+h2,
+h3 {
+    font-family: "Dokdo", "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+}
+#title {
+    position: fixed;
+    top: 6vh;
+    left: 6vh;
+    font-size: 70px;
 }
 #header .link {
     margin: 2%;
-    font-size: 3em;
+    font-size: 2em;
     text-decoration: none;
-    font-family: "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: "Dokdo", "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
 }
 img#logo-pic {
     max-height: 18vh;

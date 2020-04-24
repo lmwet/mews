@@ -10,6 +10,7 @@ export default function ElectroSpring() {
     const [songsMaii, setSongsMaii] = useState([]);
     const [songsEmel, setSongsEmel] = useState([]);
     const [currentTrack, setCurrentTrack] = useState("");
+    const [handleclick] = usePlay(e);
     const playerIsVisible = true;
 
     useEffect(() => {
@@ -37,21 +38,39 @@ export default function ElectroSpring() {
 
     const handleclick = (e) => {
         e.preventDefault();
-
         const elem = e.target;
         let url = elem.getAttribute("href");
-        console.log("url of song clicked", url);
-        setCurrentTrack(url);
+        const embedUrl = url.replace("track", "embed/track");
+        setCurrentTrack(embedUrl);
     };
 
     return (
         <div>
-            <h2>Arab Electronic@s | إلكترونيات</h2>
+            <h2>Arab Electronic@s إلكترونيات</h2>
+            {images &&
+                images.map((song, index) => {
+                    return (
+                        <div className="song-div" key={index}>
+                            <img
+                                className="song-pic"
+                                src={song.album.images[2].url}
+                            />
+                            <p className="author">{song.artists[0].name}</p>
+                            <a
+                                onClick={handleclick}
+                                className="spotify-url"
+                                href={song.external_urls.spotify}
+                            >
+                                {song.name}
+                            </a>
+                        </div>
+                    );
+                })}
 
             {/* MARIAM SALEH */}
             <div className="artist-container">
                 <div className="songs-container">
-                    <h3>Mariam Saleh | مريم صالح</h3>
+                    <h3>Mariam Saleh مريم صالح</h3>
                     {songsMS &&
                         songsMS.map((song, index) => {
                             return (
@@ -85,7 +104,7 @@ export default function ElectroSpring() {
             {/* AYA METWALLI */}
             <div className="artist-container">
                 <div className="songs-container">
-                    <h3>Aya Metwalli| آية متولّي</h3>
+                    <h3>Aya Metwalli آية متولّي</h3>
                     {songsAya &&
                         songsAya.map((song, index) => {
                             return (
@@ -102,8 +121,7 @@ export default function ElectroSpring() {
                                         className="spotify-url"
                                         href={song.external_urls.spotify}
                                     >
-                                        <p>{song.name}</p>
-                                        <p className="play-button"> &#9658;</p>
+                                        {song.name}
                                     </a>
                                 </div>
                             );
@@ -120,7 +138,7 @@ export default function ElectroSpring() {
             {/* Emel Mathlouthi */}
             <div className="artist-container">
                 <div className="songs-container">
-                    <h3>Emel Mathlouthi | آمال المثلوثي‎</h3>
+                    <h3>Emel Mathlouthi آمال المثلوثي‎</h3>
                     {songsEmel &&
                         songsEmel.map((song, index) => {
                             return (
@@ -137,8 +155,7 @@ export default function ElectroSpring() {
                                         className="spotify-url"
                                         href={song.external_urls.spotify}
                                     >
-                                        <p>{song.name}</p>
-                                        <p className="play-button"> &#9658;</p>
+                                        {song.name}
                                     </a>
                                 </div>
                             );
@@ -150,7 +167,7 @@ export default function ElectroSpring() {
             </div>
 
             {/* Maii Waleed */}
-            <div className="artist-container">
+            {/* <div className="artist-container">
                 <div className="songs-container">
                     <h3>Maii Waleed | مريم صالح</h3>
                     {songsMaii &&
@@ -179,14 +196,13 @@ export default function ElectroSpring() {
                 <div className="artist-pic-wrapper">
                     <img className="artist-pic" src="/images/maii_walled.jpg" />
                 </div>
-            </div>
+            </div> */}
 
             <iframe
                 className="player"
-                src="https://open.spotify.com/track/2m4uvRhmcfqbBX8GdqlMrF"
+                src={currentTrack}
                 width="100%"
                 height="90"
-                background-color="white"
                 frameBorder="0"
                 allowtransparency="true"
                 allow="encrypted-media"
