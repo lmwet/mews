@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import axios from "./axios";
+import usePlay from "./hooks/usePlay";
 
 export default function ElectroSpring() {
     // const elemRef = useRef();
@@ -10,7 +9,7 @@ export default function ElectroSpring() {
     const [songsMaii, setSongsMaii] = useState([]);
     const [songsEmel, setSongsEmel] = useState([]);
     const [currentTrack, setCurrentTrack] = useState("");
-    const [handleclick] = usePlay(e);
+    // const [handleclick] = usePlay();
     const playerIsVisible = true;
 
     useEffect(() => {
@@ -47,7 +46,7 @@ export default function ElectroSpring() {
     return (
         <div>
             <h2>Arab Electronic@s إلكترونيات</h2>
-            {images &&
+            {/* {images &&
                 images.map((song, index) => {
                     return (
                         <div className="song-div" key={index}>
@@ -65,7 +64,7 @@ export default function ElectroSpring() {
                             </a>
                         </div>
                     );
-                })}
+                })} */}
 
             {/* MARIAM SALEH */}
             <div className="artist-container">

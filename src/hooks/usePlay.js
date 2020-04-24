@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-export function usePlay(trackId) {
-    const [tracks, setTracks] = useState();
+export function usePlay() {
+    const [embedUrl, setCurrentTrack] = useState();
 
-    const submitTrack = () => {
-        setTracks({
-            ...tracks,
-            trackId,
-        });
+    const handleclick = (e) => {
+        e.preventDefault();
+        const elem = e.target;
+        let url = elem.getAttribute("href");
+        const embedUrl = url.replace("track", "embed/track");
+        setCurrentTrack(embedUrl);
     };
-    return { tracks, submitTrack };
+    return { embedUrl, handleclick };
 }

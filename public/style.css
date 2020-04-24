@@ -48,8 +48,9 @@ h3 {
 img#logo-pic {
     max-height: 18vh;
     margin: 10px;
-    float: left;
-    align-self: flex-start;
+    position: fixed;
+    top: 1vh;
+    left: 2vw;
 }
 div.gallery-container {
     display: flex;
@@ -81,7 +82,7 @@ div.artist-container {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin: 5%;
+    margin: 15%;
 }
 div.songs-container {
     width: 60vh;
