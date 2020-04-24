@@ -70,7 +70,7 @@ export default function ElectroSpring() {
             {/* AYA METWALLI */}
             <div className="artist-container">
                 <div className="songs-container">
-                    <h3>Aya Metwalli| مريم صالح</h3>
+                    <h3>Aya Metwalli| آية متولّي</h3>
                     {songsAya &&
                         songsAya.map((song, index) => {
                             return (
@@ -100,7 +100,7 @@ export default function ElectroSpring() {
             {/* Emel Mathlouthi */}
             <div className="artist-container">
                 <div className="songs-container">
-                    <h3>Emel Mathlouthi | مريم صالح</h3>
+                    <h3>Emel Mathlouthi | آمال المثلوثي‎</h3>
                     {songsEmel &&
                         songsEmel.map((song, index) => {
                             return (

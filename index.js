@@ -10,6 +10,7 @@ const spotifyApi = new SpotifyWebApi({
     redirectUri: REDIRECT_URI,
 });
 const cookieSession = require("cookie-session");
+const electroSpringRouter = require("./routers/electroSpringRouter");
 
 ////////// MIDDLEWARE //////////
 
@@ -21,6 +22,7 @@ app.use(
         extended: false,
     })
 );
+app.use(electroSpringRouter);
 
 if (process.env.NODE_ENV != "production") {
     app.use(
@@ -89,84 +91,6 @@ app.get("/callback", (req, res) => {
             console.log(error);
         });
     res.redirect("/");
-});
-
-app.get("/mariam.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "3M3dqhDqNK2DsZPIbopgUA",
-            "DE"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in mariam",
-            err.message
-        );
-    }
-});
-
-app.get("/aya.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "0Od49f50ljr4kmQgclwHkm",
-            "DE"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in aya",
-            err.message
-        );
-    }
-});
-
-app.get("/emel.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "06MtOym27ALcfdtVOsRcaA",
-            "EG"
-        );
-        res.json(topTen.body.tracks);
-        console.log("maii sent", topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in emel",
-            err.message
-        );
-    }
-});
-
-app.get("/maii.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "1e9RnsEdnC3LG7vHcAozc8",
-            "DE"
-        );
-        res.json(topTen.body.tracks);
-        console.log("maii sent", topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in maii",
-            err.message
-        );
-    }
 });
 
 app.get("*", (req, res) => {
