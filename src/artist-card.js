@@ -18,22 +18,24 @@ export default function ArtistCard({ artist }, { handleclick }) {
             <h2>{artist.arabicTitle}</h2>
 
             {songs.map((song, index) => {
-                <div className="songs-container">
-                    <div className="song-div" key={index}>
-                        <img
-                            className="song-pic"
-                            src={song.album.images[2].url}
-                        />
-                        <p className="author"> {song.artists[0].name}</p>
-                        <a
-                            onClick={handleclick}
-                            className="spotify-url"
-                            href={song.external_urls.spotify}
-                        >
-                            {song.name}
-                        </a>
+                return (
+                    <div key={index} className="songs-container">
+                        <div className="song-div">
+                            <img
+                                className="song-pic"
+                                src={song.album.images[2].url}
+                            />
+                            <p className="author"> {song.artists[0].name}</p>
+                            <a
+                                onClick={handleclick}
+                                className="spotify-url"
+                                href={song.external_urls.spotify}
+                            >
+                                {song.name}
+                            </a>
+                        </div>
                     </div>
-                </div>;
+                );
             })}
 
             <div className="artist-pic-wrapper">
