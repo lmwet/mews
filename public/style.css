@@ -103,6 +103,7 @@ p.author {
 img.artist-pic {
     width: 20vw;
     margin-top: 20%;
+    filter: drop-shadow(0 -6mm 4mm rgb(29, 25, 31));
 }
 .player {
     z-index: 10;
@@ -119,11 +120,12 @@ div.defile-div {
     height: 45vh;
     padding-bottom: 0;
     padding-left: 5%;
-    margin-left: 5%;
+    margin: 5%;
 }
 img.defile-pic {
     height: 30vh;
     max-width: 20vw;
+    filter: drop-shadow(0 -2mm 0.55rem #6191bd);
 }
 p.artist-name {
     font-family: "Dokdo";
@@ -139,6 +141,15 @@ p.artist-name {
     font-size: 2em;
     color: #2c3033;
 }
+
+/* mixtapes component  */
+
+/* .container-mix-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+} */
 
 @media only screen and (min-width: 42em) and (max-width: 64em) {
     div.gallery-container {

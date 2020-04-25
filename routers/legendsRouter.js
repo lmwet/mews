@@ -93,7 +93,7 @@ legendsRouter.get("/chavela.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "0WC6O2ZzUcDYvcmt2mGh8c",
-            "ES"
+            "SE"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
