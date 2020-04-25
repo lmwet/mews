@@ -35,6 +35,13 @@ export default function ElectroSprint() {
             imgUrl: "/images/maii_walled.jpg",
             get: "/maii.json",
         },
+        {
+            name: "yasmine",
+            engTitle: "Yasmine Hamdan",
+            arabicTitle: "ياسمين حمدان",
+            imgUrl: "/images/yasmine.png",
+            get: "/yasmine.json",
+        },
     ];
 
     const handleclick = (e) => {

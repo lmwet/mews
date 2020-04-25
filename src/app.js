@@ -22,10 +22,11 @@ export default function App() {
                 <Route exact path="/" component={Gallery} />
                 <Route path="/kahrabiat" component={ElectroSpring} />
                 <Route path="/devil-dykes" component={DevilDykes} />
-                {/* <Route path="/legends" component={Legends} />
-                <Route path="/black-pride" component={BlackPride} />
-                <Route path="/wilad" component={Wilad} />
-                <Route path="/femi-hip-hop" component={FemHip} /> */}
+                <Route path="/legends" component={Legends} />
+                {/* <Route path="/wilad" component={Wilad} /> */}
+                {/* <Route path="/black-pride" component={BlackPride} />
+                <Route path="/wilad" component={Wilad} /> */}
+                {/* <Route path="/femi-hip-hop" component={FemHip} />  */}
                 <Route path="/my-playlists" component={MyPlaylists} />
             </BrowserRouter>
         </React.Fragment>

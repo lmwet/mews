@@ -1,5 +1,6 @@
 const express = require("express");
 const myPlaylistsRouter = express.Router();
+const db = require("../utils/db.js");
 
 const SpotifyWebApi = require("spotify-web-api-node");
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("../secrets.json");
@@ -10,8 +11,8 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 myPlaylistsRouter.get("/user.json", async (req, res) => {
-    const code = req.cookies.code;
-    console.log("code in PLrouter", code, req.cookies.code);
+    const code = await db.getCode();
+    console.log("code from db in PL router", code);
 
     // try {
     //     const grant = await spotifyApi.authorizationCodeGrant(code)

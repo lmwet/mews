@@ -85,4 +85,23 @@ devilDykesRouter.get("/ipek.json", async (req, res) => {
     }
 });
 
+devilDykesRouter.get("/cassia.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "10naVTwNjE50daQVrN0bXh",
+            "BR"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in emel",
+            err.message
+        );
+    }
+});
+
 module.exports = devilDykesRouter;

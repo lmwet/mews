@@ -1,0 +1,7 @@
+CREATE TABLE codes(
+    id SERIAL PRIMARY KEY,
+    code VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+SELECT * FROM codes;

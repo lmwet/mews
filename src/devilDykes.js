@@ -36,11 +36,11 @@ export default function DevilDykes() {
             get: "/ipek.json",
         },
         {
-            name: "saye",
-            engTitle: "Säye Skye",
+            name: "cassia",
+            engTitle: "Cássia Eller",
             arabicTitle: "",
-            imgUrl: "/images/saye.jpg",
-            get: "/saye.json",
+            imgUrl: "/images/cassia.jpg",
+            get: "/cassia.json",
         },
         {
             name: "koffee",

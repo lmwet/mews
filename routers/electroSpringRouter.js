@@ -85,4 +85,23 @@ electroSpringRouter.get("/maii.json", async (req, res) => {
     }
 });
 
+electroSpringRouter.get("/yasmine.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "5VElAWe58JiEzEl4vtjw7J",
+            "LI"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in maii",
+            err.message
+        );
+    }
+});
+
 module.exports = electroSpringRouter;

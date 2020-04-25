@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const SpotifyWebApi = require("spotify-web-api-node");
 const compression = require("compression");
+const cookieSession = require("cookie-session");
 const server = require("http").Server(app);
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
 const spotifyApi = new SpotifyWebApi({
@@ -9,7 +10,7 @@ const spotifyApi = new SpotifyWebApi({
     clientSecret: CLIENT_SECRET,
     redirectUri: REDIRECT_URI,
 });
-const cookieSession = require("cookie-session");
+const db = require("./utils/db.js");
 
 //routers
 const electroSpringRouter = require("./routers/electroSpringRouter");
@@ -22,13 +23,6 @@ const myPlaylistsRouter = require("./routers/myPlaylistsRouter");
 
 ////////// MIDDLEWARE //////////
 
-const cookieSessionMiddleware = cookieSession({
-    secret: `secret`,
-    maxAge: 1000 * 60 * 60 * 24 * 90,
-});
-
-app.use(cookieSessionMiddleware);
-
 app.use(compression());
 app.use(express.json());
 app.use(
@@ -39,10 +33,19 @@ app.use(
 app.use(devilDykesRouter);
 app.use(electroSpringRouter);
 app.use(myPlaylistsRouter);
-// app.use(legendsRouter);
+app.use(legendsRouter);
 // app.use(BlackPrideRouter);
 // app.use(wiladRouter);
 // app.use(femiHipRouter);
+
+app.use(express.static("./public"));
+
+const cookieSessionMiddleware = cookieSession({
+    secret: `secret`,
+    maxAge: 1000 * 60 * 60 * 24 * 90,
+});
+
+app.use(cookieSessionMiddleware);
 
 if (process.env.NODE_ENV != "production") {
     app.use(
@@ -54,7 +57,6 @@ if (process.env.NODE_ENV != "production") {
 } else {
     app.use("/bundle.js", (req, res) => res.sendFile(`${__dirname}/bundle.js`));
 }
-app.use(express.static("./public"));
 /////// web api Authorization //////
 
 const config = {
@@ -91,9 +93,18 @@ app.get("/callback", (req, res) => {
 
     const { code } = req.query;
 
+    //keep in db
+    db.addCode(code)
+        .then((result) => {
+            console.log(result);
+        })
+        .catch((err) => {
+            console.log("err in addcode", err);
+        });
+
     spotifyApi.authorizationCodeGrant(code).then(function (data) {
         req.session = {};
-        req.session.bla = "blabla";
+        req.session.blublu = "blubla";
         //getting access and refresh token
 
         // When our access token will expire
@@ -102,6 +113,7 @@ app.get("/callback", (req, res) => {
         console.log("Retrieved access token", data.body["access_token"]);
         req.session.token = data.body["access_token"];
         console.log("1h access token set in session", req.session.token);
+
         spotifyApi.setAccessToken(data.body["access_token"]);
         spotifyApi.setRefreshToken(data.body["refresh_token"]);
         console.log("refresh_token access token", data.body["refresh_token"]);
@@ -124,15 +136,16 @@ app.get("/logout", (req, res) => {
 });
 
 app.get("/user.json", async (req, res) => {
-    console.log("cla cookie in playlist route", req.session.bla);
+    console.log("bla cookie in playlist route", req.session.bla);
 });
 
 app.get("*", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
     console.log("all routes runnin");
     req.session = {};
+    console.log(req.session.blublu);
 
-    req.session.bla = "bla";
+    console.log(req.session.bla);
 });
 
 server.listen(8080, function () {

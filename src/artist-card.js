@@ -7,6 +7,8 @@ export default function ArtistCard({ artist, handleclick }) {
     useEffect(() => {
         (async () => {
             const { data } = await axios.get(artist.get);
+            console.log(" from artists", data);
+
             setSongs(data);
         })();
     }, []);
