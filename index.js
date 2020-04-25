@@ -11,6 +11,7 @@ const spotifyApi = new SpotifyWebApi({
 });
 const cookieSession = require("cookie-session");
 const electroSpringRouter = require("./routers/electroSpringRouter");
+const devilDykesRouter = require("./routers/devilDykesRouter");
 
 ////////// MIDDLEWARE //////////
 
@@ -23,6 +24,7 @@ app.use(
     })
 );
 app.use(electroSpringRouter);
+app.use(devilDykesRouter);
 
 if (process.env.NODE_ENV != "production") {
     app.use(

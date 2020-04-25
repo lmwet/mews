@@ -1,38 +1,39 @@
 import React, { useEffect, useState } from "react";
 import usePlay from "./hooks/usePlay";
 import ArtistCard from "./artist-card";
+import Defile from "./defile";
 
 export default function DevilDykes() {
     const [currentTrack, setCurrentTrack] = useState("");
 
     const artists = [
         {
-            name: "aya",
-            engTitle: "Aya Metwalli",
-            arabicTitle: "آية متولّي",
-            imgUrl: "/images/aya_metwalli.jpeg",
-            get: "/mariam.json",
+            name: "trumpet",
+            engTitle: "Trumpet Grrrl",
+            arabicTitle: "",
+            imgUrl: "/images/trumpetGrl.jpg",
+            get: "/trumpet.json",
         },
         {
-            name: "mariam",
-            engTitle: "Mariam Saleh",
-            arabicTitle: "مريم صالح",
-            imgUrl: "/images/mariam_saleh.jpg",
-            get: "/aya.json",
+            name: "saye",
+            engTitle: "Säye Skye",
+            arabicTitle: "",
+            imgUrl: "/images/saye.jpg",
+            get: "/saye.json",
         },
         {
-            name: "emel",
-            engTitle: "Emel Mathlouthi",
-            arabicTitle: "آمال المثلوثي",
-            imgUrl: "/images/brujas.jpg",
-            get: "/emel.json",
+            name: "koffee",
+            engTitle: "Koffee",
+            arabicTitle: "",
+            imgUrl: "/images/koffee.jpg",
+            get: "/koffee.json",
         },
         {
-            name: "maii",
-            engTitle: "Maii Waleed",
-            arabicTitle: "آية متولّي",
-            imgUrl: "/images/maii_walled.jpg",
-            get: "/maii.json",
+            name: "ipek",
+            engTitle: "Ipek Ipekçioğlu",
+            arabicTitle: "",
+            imgUrl: "/images/ipek.jpg",
+            get: "/ipek.json",
         },
     ];
 
@@ -47,9 +48,8 @@ export default function DevilDykes() {
 
     return (
         <div>
-            <h1>Arab Electronic@s </h1>
-            <h2>إلكترونيات</h2>
-
+            <h1>International Devil Dykes</h1>
+            <Defile artists={artists} />
             {artists.map((artist) => (
                 <ArtistCard
                     artist={artist}
