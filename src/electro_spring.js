@@ -12,14 +12,14 @@ export default function ElectroSprint() {
             engTitle: "Aya Metwalli",
             arabicTitle: "آية متولّي",
             imgUrl: "/images/aya_metwalli.jpeg",
-            get: "/mariam.json",
+            get: "/aya.json",
         },
         {
             name: "mariam",
             engTitle: "Mariam Saleh",
             arabicTitle: "مريم صالح",
             imgUrl: "/images/mariam_saleh.jpg",
-            get: "/aya.json",
+            get: "/mariam.json",
         },
         {
             name: "emel",

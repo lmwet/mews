@@ -36,7 +36,6 @@ h3 {
 h2 {
     font-family: "Rakkas", cursive;
 }
-
 #title {
     position: fixed;
     top: 6vh;
@@ -63,7 +62,7 @@ div.gallery-container {
     align-items: baseline;
     justify-content: space-between;
     overflow-x: scroll;
-    border-bottom: 1px dotted lightcoral;
+    margin: 5%;
 }
 div.category {
     height: 33vh;
@@ -90,7 +89,7 @@ div.artist-container {
     margin-left: 15%;
 }
 div.songs-container {
-    max-width: 45vw;
+    width: 28vw;
 }
 div.artist-pic-wrapper {
     padding: 2%;
@@ -102,7 +101,7 @@ p.author {
     margin-right: 5px;
 }
 img.artist-pic {
-    width: 26vw;
+    width: 20vw;
     margin-top: 20%;
 }
 .player {
@@ -112,18 +111,55 @@ img.artist-pic {
     right: 0;
 }
 div.defile-div {
-    width: 100%;
-    height: 35vh;
-    border-bottom: 1px dotted lightcoral;
-    margin: 5em 0 8em 3em;
-    overflow-x: scroll;
-    padding: 2%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-bottom: #c3c9ce solid 3px;
+    height: 45vh;
+    padding-bottom: 0;
+    padding-left: 5%;
+    margin-left: 5%;
 }
 img.defile-pic {
-    width: 12vw;
-    max-height: 30vh;
+    height: 30vh;
+    max-width: 20vw;
 }
 p.artist-name {
     font-family: "Dokdo";
     font-size: 3em;
+}
+.card-block {
+    flex: 0 0 auto;
+    margin: 5%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.category-title {
+    font-size: 2em;
+    color: #2c3033;
+}
+
+@media only screen and (min-width: 42em) and (max-width: 64em) {
+    div.gallery-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: no-wrap;
+        /* justify-content: center; */
+        overflow-x: scroll;
+        overflow-y: hidden;
+        margin: 5%;
+    }
+    div.category {
+        height: 43vh;
+        width: 95vw;
+        padding: 15px;
+        margin: 3em;
+        -webkit-box-shadow: 5px 5px 10px -2px #898b8d;
+        box-shadow: 5px 5px 10px -2px #898b8d;
+    }
+    .category-title {
+        font-size: 6em;
+        color: #2c3033;
+    }
 }

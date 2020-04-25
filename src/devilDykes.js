@@ -35,6 +35,27 @@ export default function DevilDykes() {
             imgUrl: "/images/ipek.jpg",
             get: "/ipek.json",
         },
+        {
+            name: "saye",
+            engTitle: "Säye Skye",
+            arabicTitle: "",
+            imgUrl: "/images/saye.jpg",
+            get: "/saye.json",
+        },
+        {
+            name: "koffee",
+            engTitle: "Koffee",
+            arabicTitle: "",
+            imgUrl: "/images/koffee.jpg",
+            get: "/koffee.json",
+        },
+        {
+            name: "ipek",
+            engTitle: "Ipek Ipekçioğlu",
+            arabicTitle: "",
+            imgUrl: "/images/ipek.jpg",
+            get: "/ipek.json",
+        },
     ];
 
     const handleclick = (e) => {
@@ -70,5 +91,3 @@ export default function DevilDykes() {
         </div>
     );
 }
-
-//engTitle={artist.engTitle} ArabicTitle={artist.arabicTitle} imgUrl={artist.imgUrl} get={artist.get}

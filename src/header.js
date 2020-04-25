@@ -2,17 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "./axios";
 
-export default function Header(props) {
+export default function Header() {
     // either u write props or the properties names themselves in {}
-    console.log("props in header", props);
-
-    // (async () => {
-    //     try {
-    //         const { data } = await axios.post(`/logout`);
-    //     } catch (e) {
-    //         console.log("error in logout", e);
-    //     }
-    // })();
 
     return (
         <React.Fragment>
@@ -24,8 +15,11 @@ export default function Header(props) {
                 <a href="/login" className="link">
                     Log in
                 </a>
-                <a href="/callback" className="link">
+                <a href="/logout" className="link">
                     Log Out
+                </a>
+                <a className="link" href="/my-playlists">
+                    my mixtapes
                 </a>
             </div>
         </React.Fragment>

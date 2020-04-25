@@ -10,7 +10,9 @@ export default function Gallery() {
             <div className="gallery-container">
                 <Link to="/kahrabiat">
                     <div className="category">
-                        <h3>Electro-arabic Spring</h3>
+                        <h3 className="category-title">
+                            Electro-arabic Spring
+                        </h3>
                         <img
                             className="cat-pic"
                             src="/images/kahraba.jpg"
@@ -21,7 +23,7 @@ export default function Gallery() {
 
                 <Link to="/legends">
                     <div className="category">
-                        <h3>Queer Legends</h3>
+                        <h3 className="category-title">Queer Legends</h3>
                         <img
                             className="cat-pic"
                             src="/images/chavela.jpg"
@@ -32,7 +34,7 @@ export default function Gallery() {
 
                 <Link to="/devil-dykes">
                     <div className="category">
-                        <h3>Devil Dykes</h3>
+                        <h3 className="category-title">Devil Dykes</h3>
                         <img
                             className="cat-pic"
                             src="/images/2dykes.jpg"
@@ -42,7 +44,7 @@ export default function Gallery() {
                 </Link>
                 <Link to="/black-pride">
                     <div className="category">
-                        <h3>Black Pride</h3>
+                        <h3 className="category-title">Black Prides</h3>
                         <img
                             className="cat-pic"
                             src="/images/trumpetGrl.jpg"
@@ -52,7 +54,7 @@ export default function Gallery() {
                 </Link>
                 <Link to="/wilad">
                     <div className="category">
-                        <h3>Children of Night</h3>
+                        <h3 className="category-title">Children of Night</h3>
                         <img
                             className="cat-pic"
                             src="/images/wiladAlLeil.jpg"
@@ -62,7 +64,7 @@ export default function Gallery() {
                 </Link>
                 <Link to="/femi-hip-hop">
                     <div className="category">
-                        <h3>Feminist Hip-Hop</h3>
+                        <h3 className="category-title">Feminist Hip-Hop</h3>
                         <img
                             className="cat-pic"
                             src="/images/fam-hiphop.jpg"
