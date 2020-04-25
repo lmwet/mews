@@ -10,7 +10,7 @@ export default function ElectroSprint() {
             name: "aya",
             engTitle: "Aya Metwalli",
             arabicTitle: "آية متولّي",
-            imgUrl: "/images/aya_metwalli.jpeg",
+            imgUrl: "/images/aya_metwalli.jpg",
             get: "/mariam.json",
         },
         {
@@ -47,8 +47,6 @@ export default function ElectroSprint() {
 
     return (
         <div>
-            <h1>Arab Electronic@s </h1>
-            <h2>إلكترونيات</h2>
             <div className="artist-container">
                 {artists.map((artist) => (
                     <ArtistCard

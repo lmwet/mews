@@ -1,8 +1,8 @@
 export default function reducer(state = {}, action) {
-    if (action.type == "GET_CODE") {
-        console.log("action in get code reducer", action);
+    if (action.type == "GET_IMAGES") {
+        console.log("action in get images reducer", action.images);
 
-        return { ...state, code: action.code };
+        return { ...state, images: action.images };
     }
     console.log("redux state:", state);
 

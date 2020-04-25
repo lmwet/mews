@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Dokdo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
 
 * {
     box-sizing: border-box;
@@ -28,11 +29,14 @@ main {
     align-content: space-between;
 }
 h1,
-h2,
 h3 {
     font-family: "Dokdo", "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 30px;
+    font-size: 60px;
 }
+h2 {
+    font-family: "Rakkas", cursive;
+}
+
 #title {
     position: fixed;
     top: 6vh;
@@ -96,7 +100,7 @@ p.author {
     margin-right: 5px;
 }
 img.artist-pic {
-    max-width: 15vw;
+    width: 25vw;
 }
 .player {
     z-index: 10;

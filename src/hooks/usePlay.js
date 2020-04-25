@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export function usePlay() {
-    const [embedUrl, setCurrentTrack] = useState();
+    const [setCurrentTrack] = useState();
 
     const handleclick = (e) => {
         e.preventDefault();
@@ -10,5 +10,5 @@ export function usePlay() {
         const embedUrl = url.replace("track", "embed/track");
         setCurrentTrack(embedUrl);
     };
-    return { embedUrl, handleclick };
+    return handleclick;
 }

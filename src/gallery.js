@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
-export default function Gallery(props) {
+export default function Gallery() {
     return (
         <React.Fragment>
             <div className="gallery-container">
@@ -30,7 +30,7 @@ export default function Gallery(props) {
                     </div>
                 </Link>
 
-                <Link to="/brujas">
+                <Link to="/devil-dykes">
                     <div className="category">
                         <h3>Devil Dykes</h3>
                         <img
@@ -40,7 +40,7 @@ export default function Gallery(props) {
                         />
                     </div>
                 </Link>
-                <Link to="/xodade">
+                <Link to="/black-pride">
                     <div className="category">
                         <h3>Black Pride</h3>
                         <img
@@ -60,7 +60,7 @@ export default function Gallery(props) {
                         />
                     </div>
                 </Link>
-                <Link to="/wilad">
+                <Link to="/femi-hip-hop">
                     <div className="category">
                         <h3>Feminist Hip-Hop</h3>
                         <img
