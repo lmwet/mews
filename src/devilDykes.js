@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import usePlay from "./hooks/usePlay";
 import ArtistCard from "./artist-card";
 
-export default function ElectroSprint() {
+export default function DevilDykes() {
     const [currentTrack, setCurrentTrack] = useState("");
 
     const artists = [
@@ -10,7 +10,7 @@ export default function ElectroSprint() {
             name: "aya",
             engTitle: "Aya Metwalli",
             arabicTitle: "آية متولّي",
-            imgUrl: "/images/aya_metwalli.jpg",
+            imgUrl: "/images/aya_metwalli.jpeg",
             get: "/mariam.json",
         },
         {
@@ -47,15 +47,17 @@ export default function ElectroSprint() {
 
     return (
         <div>
-            <div className="artist-container">
-                {artists.map((artist) => (
-                    <ArtistCard
-                        artist={artist}
-                        key={artist.name}
-                        handleclick={handleclick}
-                    />
-                ))}
-            </div>
+            <h1>Arab Electronic@s </h1>
+            <h2>إلكترونيات</h2>
+
+            {artists.map((artist) => (
+                <ArtistCard
+                    artist={artist}
+                    key={artist.name}
+                    handleclick={(e) => handleclick(e)}
+                />
+            ))}
+
             <iframe
                 className="player"
                 src={currentTrack}

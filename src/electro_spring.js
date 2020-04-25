@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import usePlay from "./hooks/usePlay";
 import ArtistCard from "./artist-card";
+import Defile from "./defile";
 
 export default function ElectroSprint() {
     const [currentTrack, setCurrentTrack] = useState("");
@@ -49,15 +50,16 @@ export default function ElectroSprint() {
         <div>
             <h1>Arab Electronic@s </h1>
             <h2>إلكترونيات</h2>
-            <div className="artist-container">
-                {artists.map((artist) => (
-                    <ArtistCard
-                        artist={artist}
-                        key={artist.name}
-                        handleclick={handleclick}
-                    />
-                ))}
-            </div>
+            <Defile artists={artists} />
+
+            {artists.map((artist) => (
+                <ArtistCard
+                    artist={artist}
+                    key={artist.name}
+                    handleclick={(e) => handleclick(e)}
+                />
+            ))}
+
             <iframe
                 className="player"
                 src={currentTrack}

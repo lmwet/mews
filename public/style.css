@@ -86,25 +86,43 @@ div.artist-container {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin: 15%;
+    margin-top: 3%;
+    margin-left: 15%;
 }
 div.songs-container {
-    width: 60vh;
+    max-width: 45vw;
 }
 div.artist-pic-wrapper {
-    padding: 5%;
-    max-width: 40vh;
+    padding: 2%;
+    margin-left: 8%;
+    width: 35vw;
 }
 p.author {
     margin-left: 5px;
     margin-right: 5px;
 }
 img.artist-pic {
-    width: 25vw;
+    width: 26vw;
+    margin-top: 20%;
 }
 .player {
     z-index: 10;
     position: fixed;
     bottom: 0;
     right: 0;
+}
+div.defile-div {
+    width: 100%;
+    height: 35vh;
+    border-bottom: 1px dotted lightcoral;
+    margin: 5em 0 5em 3em;
+    overflow-x: scroll;
+    padding: 2%;
+}
+img.defile-pic {
+    width: 12vw;
+}
+p.artist-name {
+    font-family: "Dokdo";
+    font-size: 3em;
 }

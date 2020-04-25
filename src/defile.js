@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-export default function Defile(props) {
-    const images = useSelector((state) => state && state.images);
-    const [images, setImages] = useState([]);
+export default function Defile({ artists }) {
+    // const goToArtist;
 
-
-    const goToArtist;
-
-    useEffect(() => {
-      
-        {
-            images &&
-                images.map((image, index) => {
-                    return (
-                        <div className="images-div" key={index}>
-                            <a
-                                // onClick={goToArtist}
-                                // className="spotify-url"
-                                href={image.parentElement}
-                            >
-                                <img className="defile-pic" src={image.currentSrc} />
-                                <p className="artist-name">{image.alt}</p>
-                            </a>
+    return (
+        <div className="defile-div container-fluid">
+            <div className="row flex-row flex-nowrap">
+                {artists &&
+                    artists.map((artist) => (
+                        <div
+                            className="col-12 col-sm-6 col-md-4 col-lg-3"
+                            key={artist.name}
+                        >
+                            <div className="card card-block">
+                                <a href={`#${artist.name}`}>
+                                    <img
+                                        className="defile-pic"
+                                        src={artist.imgUrl}
+                                    />
+                                    <p className="artist-name">
+                                        {artist.engTitle}
+                                    </p>
+                                </a>
+                            </div>
                         </div>
-                    );
-                });
-        } //closes images.map
-    }, [images]);
+                    ))}
+            </div>
+        </div>
+    );
 } //closes cpnt
