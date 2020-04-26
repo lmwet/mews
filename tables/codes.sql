@@ -1,7 +1,11 @@
-CREATE TABLE codes(
+
+DROP TABLE IF EXISTS auth_codes;
+
+CREATE TABLE auth_codes (
     id SERIAL PRIMARY KEY,
-    code VARCHAR(255),
+    auth_code VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-SELECT * FROM codes;
+
+SELECT * FROM auth_codes;

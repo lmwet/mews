@@ -67,15 +67,27 @@ export default function DevilDykes() {
         setCurrentTrack(embedUrl);
     };
 
+    const playAlbum = (e) => {
+        e.preventDefault();
+        console.log("playalbum running");
+        const elem = e.target;
+        let url = elem.getAttribute("href");
+        const embedUrl = url.replace("album", "embed/album");
+        setCurrentTrack(embedUrl);
+    };
+
     return (
         <div>
-            <h1>International Devil Dykes</h1>
+            <h3>Devil Dykes</h3>
+
             <Defile artists={artists} />
+
             {artists.map((artist) => (
                 <ArtistCard
                     artist={artist}
                     key={artist.name}
                     handleclick={(e) => handleclick(e)}
+                    playAlbum={(e) => playAlbum(e)}
                 />
             ))}
 

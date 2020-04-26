@@ -53,6 +53,19 @@ export default function ElectroSprint() {
         setCurrentTrack(embedUrl);
     };
 
+    const playAlbum = (e) => {
+        e.preventDefault();
+        console.log("playalbum running");
+        const elem = e.target;
+        console.log(elem);
+        let url = elem.getAttribute("href");
+        console.log(url);
+
+        const embedUrl = url.replace("album", "embed/album");
+        console.log(embedUrl);
+        setCurrentTrack(embedUrl);
+    };
+
     return (
         <div>
             <h1>Arab Electronic@s </h1>
@@ -64,6 +77,7 @@ export default function ElectroSprint() {
                     artist={artist}
                     key={artist.name}
                     handleclick={(e) => handleclick(e)}
+                    playAlbum={(e) => playAlbum(e)}
                 />
             ))}
 
@@ -80,4 +94,11 @@ export default function ElectroSprint() {
     );
 }
 
-//engTitle={artist.engTitle} ArabicTitle={artist.arabicTitle} imgUrl={artist.imgUrl} get={artist.get}
+<iframe
+    src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
+    width="300"
+    height="380"
+    frameborder="0"
+    allowtransparency="true"
+    allow="encrypted-media"
+></iframe>;

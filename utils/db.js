@@ -3,8 +3,10 @@ const db = spicedPg(
     process.env.DATABASE_URL ||
         "postgres:postgres:postgres:@localhost@localhost:5432/forum"
 );
+
 exports.addCode = (code) => {
-    const q = `INSERT into codes (code)
+    const q = `INSERT 
+    into auth_codes (auth_codes.auth_code)
     VALUES ($1)
     RETURNING *`;
     console.log(q);

@@ -11,18 +11,8 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 myPlaylistsRouter.get("/user.json", async (req, res) => {
-    const code = await db.getCode();
-    console.log("code from db in PL router", code);
-
+    // const code = await db.getCode();
     // try {
-    //     const grant = await spotifyApi.authorizationCodeGrant(code)
-    //     const token = await spotifyApi.setAccessToken(
-    //         grant.body["access_token"]
-    //     );
-    //     const topTen = await spotifyApi.getArtistTopTracks(
-    //         "3qBI9YP4DU1P1G6UPjpMcN",
-    //         "DE"
-    //     );
     //     res.json(topTen.body.tracks);
     // } catch (err) {
     //     console.log(
@@ -31,36 +21,74 @@ myPlaylistsRouter.get("/user.json", async (req, res) => {
     //     );
     // }
 });
+var authorizationCode =
+    "<insert authorization code with playlist-modify-public scope>";
 
-///get user
+var spotifyApi = new SpotifyWebApi({
+    clientId: "<insert client id>",
+    clientSecret: "<insert client secret>",
+    redirectUri: "<insert redirect URI>",
+});
+
+var playlistId;
 
 // First retrieve an access token
-// spotifyApi
-//     .authorizationCodeGrant(code)
-//     .then(function (data) {
-//         console.log("Retrieved access token", data.body["access_token"]);
+spotifyApi
+    .authorizationCodeGrant(authorizationCode)
+    .then(function (data) {
+        // Save the access token so that it's used in future requests
+        spotifyApi.setAccessToken(data["access_token"]);
 
-//         // Set the access token
-//         spotifyApi.setAccessToken(data.body["access_token"]);
+        // Create a playlist
+        return spotifyApi.createPlaylist(
+            "thelinmichael",
+            "My New Awesome Playlist"
+        );
+    })
+    .then(function (data) {
+        console.log("Ok. Playlist created!");
+        playlistId = data.body["id"];
 
-//         // Use the access token to retrieve information about the user connected to it
-//         return spotifyApi.getMe();
-//     })
-//     .then(function (data) {
-//         // "Retrieved data for Faruk Sahin"
-//         console.log("Retrieved data for " + data.body["display_name"]);
+        // Add tracks to the playlist
+        return spotifyApi.addTracksToPlaylist("thelinmichael", playlistId, [
+            "spotify:track:4iV5W9uYEdYUVa79Axb7Rh",
+            "spotify:track:6tcfwoGcDjxnSc6etAkDRR",
+            "spotify:track:4iV5W9uYEdYUVa79Axb7Rh",
+        ]);
+    })
+    .then(function (data) {
+        console.log("Ok. Tracks added!");
 
-//         // "Email is farukemresahin@gmail.com"
-//         console.log("Email is " + data.body.email);
+        // Woops! Made a duplicate. Remove one of the duplicates from the playlist
+        return spotifyApi.removeTracksFromPlaylist(
+            "thelinmichael",
+            playlistId,
+            [
+                {
+                    uri: "spotify:track:4iV5W9uYEdYUVa79Axb7Rh",
+                    positions: [0],
+                },
+            ]
+        );
+    })
+    .then(function (data) {
+        console.log("Ok. Tracks removed!");
 
-//         // "Image URL is http://media.giphy.com/media/Aab07O5PYOmQ/giphy.gif"
-//         console.log("Image URL is " + data.body.images[0].url);
-
-//         // "This user has a premium account"
-//         console.log("This user has a " + data.body.product + " account");
-//     })
-//     .catch(function (err) {
-//         console.log("Something went wrong", err.message);
-//     });
+        // Actually, lets just replace all tracks in the playlist with something completely different
+        return spotifyApi.replaceTracksInPlaylist("thelinmichael", playlistId, [
+            "spotify:track:5Wd2bfQ7wc6GgSa32OmQU3",
+            "spotify:track:4r8lRYnoOGdEi6YyI5OC1o",
+            "spotify:track:4TZZvblv2yzLIBk2JwJ6Un",
+            "spotify:track:2IA4WEsWAYpV9eKkwR2UYv",
+            "spotify:track:6hDH3YWFdcUNQjubYztIsG",
+        ]);
+    })
+    .then(function (data) {
+        console.log("Ok. Tracks replaced!");
+    })
+    .catch(function (err) {
+        console.log(err.message);
+        console.log("Something went wrong!");
+    });
 
 module.exports = myPlaylistsRouter;

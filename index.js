@@ -3,6 +3,7 @@ const app = express();
 const SpotifyWebApi = require("spotify-web-api-node");
 const compression = require("compression");
 const cookieSession = require("cookie-session");
+var cookieParser = require("cookie-parser");
 const server = require("http").Server(app);
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
 const spotifyApi = new SpotifyWebApi({
@@ -29,7 +30,7 @@ app.use(
     express.urlencoded({
         extended: false,
     })
-);
+).use(cookieParser());
 app.use(devilDykesRouter);
 app.use(electroSpringRouter);
 app.use(myPlaylistsRouter);
@@ -92,31 +93,28 @@ app.get("/callback", (req, res) => {
     console.log("callback running");
 
     const { code } = req.query;
+    console.log("code from callback", code);
 
     //keep in db
-    db.addCode(code)
-        .then((result) => {
-            console.log(result);
-        })
-        .catch((err) => {
-            console.log("err in addcode", err);
-        });
+    // db.addCode(code)
+    //     .then((result) => {
+    //         console.log(result);
+    //     })
+    //     .catch((err) => {
+    //         console.log("err in addcode", err);
+    //     });
 
     spotifyApi.authorizationCodeGrant(code).then(function (data) {
-        req.session = {};
-        req.session.blublu = "blubla";
-        //getting access and refresh token
-
         // When our access token will expire
         var tokenExpirationEpoch;
 
         console.log("Retrieved access token", data.body["access_token"]);
-        req.session.token = data.body["access_token"];
+
         console.log("1h access token set in session", req.session.token);
 
         spotifyApi.setAccessToken(data.body["access_token"]);
         spotifyApi.setRefreshToken(data.body["refresh_token"]);
-        console.log("refresh_token access token", data.body["refresh_token"]);
+        console.log("refresh_token ", data.body["refresh_token"]);
 
         //set token expiration to 1h
         tokenExpirationEpoch =
@@ -132,20 +130,31 @@ app.get("/callback", (req, res) => {
 
 app.get("/logout", (req, res) => {
     console.log("logout running");
-    res.redirect("/");
+    req.session = null;
 });
 
 app.get("/user.json", async (req, res) => {
-    console.log("bla cookie in playlist route", req.session.bla);
+    // db.getCode()
+    //     .then((result) => {
+    //         console.log(result);
+    //     })
+    //     .catch((err) => {
+    //         console.log("err in get code", err);
+    //     });
 });
 
 app.get("*", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
     console.log("all routes runnin");
-    req.session = {};
-    console.log(req.session.blublu);
 
-    console.log(req.session.bla);
+    //insert in db ??
+    // db.addCode(123456)
+    //     .then((result) => {
+    //         console.log(result);
+    //     })
+    //     .catch((err) => {
+    //         console.log("err in addcode", err);
+    //     });
 });
 
 server.listen(8080, function () {

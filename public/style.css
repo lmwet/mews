@@ -73,13 +73,6 @@ div.category {
 img.cat-pic {
     max-height: 28vh;
 }
-div.song-div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    border-bottom: dotted 1px grey;
-}
 div.artist-container {
     display: flex;
     flex-direction: row;
@@ -87,9 +80,6 @@ div.artist-container {
     align-items: flex-start;
     margin-top: 3%;
     margin-left: 15%;
-}
-div.songs-container {
-    width: 28vw;
 }
 div.artist-pic-wrapper {
     padding: 2%;
@@ -103,7 +93,7 @@ p.author {
 img.artist-pic {
     width: 20vw;
     margin-top: 20%;
-    filter: drop-shadow(0 -6mm 4mm rgb(29, 25, 31));
+    filter: drop-shadow(0 -2mm 2mm rgb(29, 25, 31));
 }
 .player {
     z-index: 10;
@@ -125,7 +115,6 @@ div.defile-div {
 img.defile-pic {
     height: 30vh;
     max-width: 20vw;
-    filter: drop-shadow(0 -2mm 0.55rem #6191bd);
 }
 p.artist-name {
     font-family: "Dokdo";
@@ -141,7 +130,35 @@ p.artist-name {
     font-size: 2em;
     color: #2c3033;
 }
-
+div.songs-container {
+    min-width: 38vw;
+}
+div.song-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+div.songs-pic-wrapper {
+    min-width: 28vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom: dotted 1px grey;
+}
+.song {
+    font-size: 1em;
+    font-family: "Lato";
+    font-weight: bold;
+    margin: 10px 0 0 15px;
+}
+.album {
+    font-size: 0.6em;
+    font-family: "Lato";
+    margin: 3px 0 0 0;
+}
 /* mixtapes component  */
 
 /* .container-mix-form {

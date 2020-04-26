@@ -53,9 +53,19 @@ export default function Legends() {
         setCurrentTrack(embedUrl);
     };
 
+    const playAlbum = (e) => {
+        e.preventDefault();
+        console.log("playalbum running");
+        const elem = e.target;
+        let url = elem.getAttribute("href");
+        const embedUrl = url.replace("album", "embed/album");
+        setCurrentTrack(embedUrl);
+    };
+
     return (
         <div>
-            <h1>Queer Legends </h1>
+            <h1>Queer Legends</h1>
+
             <Defile artists={artists} />
 
             {artists.map((artist) => (
@@ -63,6 +73,7 @@ export default function Legends() {
                     artist={artist}
                     key={artist.name}
                     handleclick={(e) => handleclick(e)}
+                    playAlbum={(e) => playAlbum(e)}
                 />
             ))}
 

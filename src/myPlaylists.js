@@ -19,7 +19,7 @@ export default function MyPlaylists() {
             //setPlaylists(data);
         })();
     }, [playlists]);
-
+    console.log("cookies in PL", document.cookie);
     console.log("code in PL", code);
     const handleChange = ({ target }) => {
         setNewPlaylist(target.value);

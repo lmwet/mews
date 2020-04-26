@@ -1,7 +1,7 @@
 import axios from "./axios";
 import React, { useEffect, useState } from "react";
 
-export default function ArtistCard({ artist, handleclick }) {
+export default function ArtistCard({ artist, handleclick, playAlbum }) {
     const [songs, setSongs] = useState([]);
 
     useEffect(() => {
@@ -20,19 +20,27 @@ export default function ArtistCard({ artist, handleclick }) {
                 <h2>{artist.arabicTitle}</h2>
 
                 {songs.map((song) => (
-                    <div key={song.id} className="song-div">
+                    <div key={song.id} className="songs-pic-wrapper">
                         <img
                             className="song-pic"
                             src={song.album.images[2].url}
                         />
-                        <p className="author"> {song.artists[0].name}</p>
-                        <a
-                            onClick={handleclick}
-                            className="spotify-url"
-                            href={song.external_urls.spotify}
-                        >
-                            {song.name}
-                        </a>
+                        <div className="song-div">
+                            <a
+                                className="song"
+                                onClick={handleclick}
+                                href={song.external_urls.spotify}
+                            >
+                                {song.name}
+                            </a>
+                            <a
+                                className="album"
+                                onClick={playAlbum}
+                                href={song.album.external_urls.spotify}
+                            >
+                                {song.album.name}
+                            </a>
+                        </div>
                     </div>
                 ))}
             </div>
