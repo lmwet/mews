@@ -107,28 +107,30 @@ export default function MyPlaylists({ newPlaylist }) {
 
     return (
         <div className="playlist-container">
-            <h2 className="title">My Mix</h2>
+            <span className="close">x</span>
+            <p className="artist-name">My Mix</p>
             <p>Create a new mixtape: enter your username and give it a title</p>
 
             <div className="container-mix-form" id="pl-form">
                 {error && (
                     <div className="error">Ow no, something went wrong</div>
                 )}
-                <label> Whose mix? </label>
+
                 <input
                     name="username"
-                    placeholder="username"
+                    placeholder="user name"
                     onChange={(e) => nameUser(e)}
                 />
-                <label> Name of the mixtape </label>
+
                 <input
                     name="playlistName"
-                    placeholder="mix"
+                    placeholder="mix name"
                     onChange={(e) => namePlaylist(e)}
                 />
                 <a
+                    className="btn btn-primary"
                     href="#"
-                    className="submit"
+                    id="submit-playlist"
                     onClick={(e) => submitPlaylist(e)}
                 >
                     Create

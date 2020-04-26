@@ -8,6 +8,7 @@ body {
     margin: 0;
     width: auto;
     overflow-x: hidden;
+    font-family: "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
 }
 body {
     font-family: "Source Sans Pro", sans-serif;
@@ -61,7 +62,6 @@ div.gallery-container {
     flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
-    overflow-x: scroll;
     margin: 5%;
 }
 div.category {
@@ -180,19 +180,42 @@ div.playlist-container {
     border: #2c3033 solid 2px;
     height: 50vh;
     width: 20vw;
+    padding: 3%;
+    font-size: smaller;
+}
+ul {
+    text-align: left;
 }
 li.track {
     list-style: none;
     padding: 0;
-    margin: 15px;
+    margin: 5px;
+    font-size: 14px;
+    text-align: left;
+    font-family: "Dokdo", "Lato";
 }
-/* .container-mix-form {
+.container-mix-form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-} */
-
+    overflow-y: scroll;
+}
+#submit-playlist {
+    align-self: center;
+    margin: 1em;
+}
+input {
+    margin: 10px;
+    height: 17px;
+    border: none;
+    border-bottom: #2c3033 3px solid;
+}
+.close {
+    position: fixed;
+    bottom: 47vh;
+    right: 1vw;
+}
 @media only screen and (min-width: 42em) and (max-width: 64em) {
     div.gallery-container {
         display: flex;
