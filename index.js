@@ -125,7 +125,7 @@ app.get("/callback", (req, res) => {
                 " seconds!"
         );
     }),
-        res.redirect("/");
+        res.redirect("/my-playlists");
 });
 
 app.get("/logout", (req, res) => {

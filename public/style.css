@@ -135,7 +135,7 @@ div.songs-container {
 }
 div.song-div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
 }
@@ -152,15 +152,40 @@ div.songs-pic-wrapper {
     font-size: 1em;
     font-family: "Lato";
     font-weight: bold;
-    margin: 10px 0 0 15px;
+    margin: 10px 0 0 0;
 }
 .album {
     font-size: 0.6em;
     font-family: "Lato";
-    margin: 3px 0 0 0;
+    margin: 13px 10px 0 0;
+}
+img.song-pic {
+    margin-right: 15px;
+}
+a.add {
+    text-decoration: none;
+    border: 1px solid #5c85a5;
+    border-radius: 50%;
+    margin: 15px;
+    padding: 1px 5px;
 }
 /* mixtapes component  */
-
+div.playlist-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 30;
+    display: inline-block;
+    background-color: white;
+    border: #2c3033 solid 2px;
+    height: 50vh;
+    width: 20vw;
+}
+li.track {
+    list-style: none;
+    padding: 0;
+    margin: 15px;
+}
 /* .container-mix-form {
     display: flex;
     flex-direction: row;
@@ -172,8 +197,7 @@ div.songs-pic-wrapper {
     div.gallery-container {
         display: flex;
         flex-direction: row;
-        flex-wrap: no-wrap;
-        /* justify-content: center; */
+        flex-wrap: nowrap;
         overflow-x: scroll;
         overflow-y: hidden;
         margin: 5%;
@@ -183,8 +207,8 @@ div.songs-pic-wrapper {
         width: 95vw;
         padding: 15px;
         margin: 3em;
-        -webkit-box-shadow: 5px 5px 10px -2px #898b8d;
-        box-shadow: 5px 5px 10px -2px #898b8d;
+        /* -webkit-box-shadow: 5px 5px 10px -2px #898b8d;
+        box-shadow: 5px 5px 10px -2px #898b8d; */
     }
     .category-title {
         font-size: 6em;

@@ -1,14 +1,18 @@
 import axios from "./axios";
 import React, { useEffect, useState } from "react";
 
-export default function ArtistCard({ artist, handleclick, playAlbum }) {
+export default function ArtistCard({
+    artist,
+    handleclick,
+    playAlbum,
+    addToPlaylist,
+}) {
     const [songs, setSongs] = useState([]);
 
     useEffect(() => {
         (async () => {
             const { data } = await axios.get(artist.get);
             console.log(" from artists", data);
-
             setSongs(data);
         })();
     }, []);
@@ -27,6 +31,13 @@ export default function ArtistCard({ artist, handleclick, playAlbum }) {
                         />
                         <div className="song-div">
                             <a
+                                className="album"
+                                onClick={playAlbum}
+                                href={song.album.external_urls.spotify}
+                            >
+                                {song.album.name}
+                            </a>
+                            <a
                                 className="song"
                                 onClick={handleclick}
                                 href={song.external_urls.spotify}
@@ -34,11 +45,11 @@ export default function ArtistCard({ artist, handleclick, playAlbum }) {
                                 {song.name}
                             </a>
                             <a
-                                className="album"
-                                onClick={playAlbum}
-                                href={song.album.external_urls.spotify}
+                                className="add"
+                                onClick={addToPlaylist}
+                                href={song.uri}
                             >
-                                {song.album.name}
+                                +
                             </a>
                         </div>
                     </div>
