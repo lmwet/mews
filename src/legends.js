@@ -8,6 +8,7 @@ export default function Legends() {
     const [currentTrack, setCurrentTrack] = useState("");
     const [addedTrack, setAddedTrack] = useState("");
     const [newPlaylist, setNewPlaylist] = useState([]);
+    const [showModal, setShowmodal] = useState(false);
 
     const artists = [
         {
@@ -85,12 +86,26 @@ export default function Legends() {
         console.log("newPlaylist", newPlaylist);
     };
 
+    const toggle = () => setShowmodal(true);
+    const toggleBack = () => {
+        setShowmodal(false), console.log("toggleback running");
+    };
+
     return (
         <div>
             <h1>Queer Legends</h1>
-            <MyPlaylists newPlaylist={newPlaylist} />
 
             <Defile artists={artists} />
+
+            <div className="mix-toggle">
+                <input id="mix" type="submit" value="My Mix" onClick={toggle} />
+                {showModal ? (
+                    <MyPlaylists
+                        newPlaylist={newPlaylist}
+                        toggleBack={toggleBack}
+                    />
+                ) : null}
+            </div>
 
             {artists.map((artist) => (
                 <ArtistCard

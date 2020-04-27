@@ -8,6 +8,7 @@ export default function DevilDykes() {
     const [currentTrack, setCurrentTrack] = useState("");
     const [addedTrack, setAddedTrack] = useState("");
     const [newPlaylist, setNewPlaylist] = useState([]);
+    const [showModal, setShowmodal] = React.useState(false);
     // const [playlistIsVisible, setPlaylistIsVisible] = useState([]);
 
     // setPlaylistIsVisible(false);
@@ -48,20 +49,6 @@ export default function DevilDykes() {
             imgUrl: "/images/cassia.jpg",
             get: "/cassia.json",
         },
-        {
-            name: "koffee",
-            engTitle: "Koffee",
-            arabicTitle: "",
-            imgUrl: "/images/koffee.jpg",
-            get: "/koffee.json",
-        },
-        {
-            name: "ipek",
-            engTitle: "Ipek Ipekçioğlu",
-            arabicTitle: "",
-            imgUrl: "/images/ipek.jpg",
-            get: "/ipek.json",
-        },
     ];
 
     const handleclick = (e) => {
@@ -101,13 +88,26 @@ export default function DevilDykes() {
         console.log("newPlaylist", newPlaylist);
     };
 
+    const toggle = () => setShowmodal(true);
+    const toggleBack = () => {
+        setShowmodal(false), console.log("toggleback running");
+    };
+
     return (
         <div>
             <h3>Devil Dykes</h3>
-            <MyPlaylists newPlaylist={newPlaylist} />
 
             <Defile artists={artists} />
 
+            <div className="mix-toggle">
+                <input id="mix" type="submit" value="My Mix" onClick={toggle} />
+                {showModal ? (
+                    <MyPlaylists
+                        newPlaylist={newPlaylist}
+                        toggleBack={toggleBack}
+                    />
+                ) : null}
+            </div>
             {artists.map((artist) => (
                 <ArtistCard
                     artist={artist}

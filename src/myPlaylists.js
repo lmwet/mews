@@ -9,11 +9,11 @@ const spotifyApi = new SpotifyWebApi({
     redirectUri: REDIRECT_URI,
 });
 
-export default function MyPlaylists({ newPlaylist }) {
+export default function MyPlaylists({ newPlaylist, toggleBack }) {
     // either u write props or the properties names themselves in {}
     // const [code, setCode] = useState("");
     // const [error, setError] = useState("");
-    // const [playlists, setPlaylists] = useState("");
+    const [playlists, setPlaylists] = useState("");
 
     const [userName, setUserName] = useState("");
 
@@ -34,7 +34,7 @@ export default function MyPlaylists({ newPlaylist }) {
         //db query to see what playlists they may have saved already
         //setPlaylists(data);
         //request to create playlist
-    }, [newPlaylist]);
+    }, []);
 
     //  ---------- to create the plylist -----------
 
@@ -107,7 +107,9 @@ export default function MyPlaylists({ newPlaylist }) {
 
     return (
         <div className="playlist-container">
-            <span className="close">x</span>
+            <span className="close" onClick={toggleBack}>
+                x
+            </span>
             <p className="artist-name">My Mix</p>
             <p>Create a new mixtape: enter your username and give it a title</p>
 

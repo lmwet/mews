@@ -72,10 +72,8 @@ export default function ElectroSprint() {
     const addToPlaylist = (e) => {
         e.preventDefault();
 
-        // setPlaylistIsVisible(true);
-
         const elem = e.target;
-        //we take the uri from the data
+
         let songUri = elem.getAttribute("href");
         console.log("addedSongUri", songUri);
 
@@ -89,12 +87,27 @@ export default function ElectroSprint() {
         console.log("newPlaylist", newPlaylist);
     };
 
+    const [showModal, setShowmodal] = React.useState(false);
+    const toggle = () => setShowmodal(true);
+    const toggleBack = () => {
+        setShowmodal(false), console.log("toggleback running");
+    };
+
     return (
         <div>
             <h1>Arab Electronic@s </h1>
             <h2>إلكترونيات</h2>
-            <Defile artists={artists} />
 
+            <Defile artists={artists} />
+            <div className="mix-toggle">
+                <input id="mix" type="submit" value="My Mix" onClick={toggle} />
+                {showModal ? (
+                    <MyPlaylists
+                        newPlaylist={newPlaylist}
+                        toggleBack={toggleBack}
+                    />
+                ) : null}
+            </div>
             {artists.map((artist) => (
                 <ArtistCard
                     artist={artist}
@@ -117,12 +130,3 @@ export default function ElectroSprint() {
         </div>
     );
 }
-
-<iframe
-    src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
-    width="300"
-    height="380"
-    frameborder="0"
-    allowtransparency="true"
-    allow="encrypted-media"
-></iframe>;

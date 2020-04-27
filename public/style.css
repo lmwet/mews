@@ -36,6 +36,7 @@ h3 {
 }
 h2 {
     font-family: "Rakkas", cursive;
+    margin-bottom: 5vh;
 }
 #title {
     position: fixed;
@@ -83,7 +84,7 @@ div.artist-container {
 }
 div.artist-pic-wrapper {
     padding: 2%;
-    margin-left: 8%;
+    margin-left: 3%;
     width: 35vw;
 }
 p.author {
@@ -91,7 +92,7 @@ p.author {
     margin-right: 5px;
 }
 img.artist-pic {
-    width: 20vw;
+    width: 18vw;
     margin-top: 20%;
     filter: drop-shadow(0 -2mm 2mm rgb(29, 25, 31));
 }
@@ -131,7 +132,7 @@ p.artist-name {
     color: #2c3033;
 }
 div.songs-container {
-    min-width: 38vw;
+    min-width: 25vw;
 }
 div.song-div {
     display: flex;
@@ -169,17 +170,18 @@ a.add {
     margin: 15px;
     padding: 1px 5px;
 }
+
 /* mixtapes component  */
 div.playlist-container {
     position: fixed;
-    bottom: 0;
-    right: 0;
-    z-index: 30;
+    top: 2vh;
+    right: 1vw;
+    z-index: 3000;
     display: inline-block;
     background-color: white;
-    border: #2c3033 solid 2px;
-    height: 50vh;
-    width: 20vw;
+    border: #b7babb solid 2px;
+    height: 80vh;
+    width: 15vw;
     padding: 3%;
     font-size: smaller;
 }
@@ -213,9 +215,23 @@ input {
 }
 .close {
     position: fixed;
-    bottom: 47vh;
-    right: 1vw;
+    top: 3vh;
+    right: 2vw;
+    cursor: pointer;
 }
+.mix-toggle {
+    position: fixed;
+    right: 1vw;
+    top: 32vh;
+}
+input#mix {
+    color: #2c3033;
+    font-family: "Dokdo", "Lato";
+    font-size: 3em;
+    height: 80px;
+    border-bottom: none;
+}
+
 @media only screen and (min-width: 42em) and (max-width: 64em) {
     div.gallery-container {
         display: flex;
