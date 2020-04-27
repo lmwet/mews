@@ -143,54 +143,42 @@ app.post("/mix", (req, res) => {
     console.log("accessToken" + spotifyApi.getCredentials().accessToken);
     console.log(" spotifyApi", spotifyApi);
 
-    spotifyApi
-        .getMe()
-        .then(function (data) {
-            // "Retrieved data for Faruk Sahin"
-            console.log("Retrieved data for " + data.body["display_name"]);
+    spotifyApi.getMe().then(function (data) {
+        // "Retrieved data for Faruk Sahin"
+        console.log("Retrieved data for " + data.body["display_name"]);
 
-            console.log("user id " + data.body.id);
+        console.log("user id " + data.body.id);
 
-            let userId = data.body.id;
+        let userId = data.body.id;
 
-            // "Image URL is http://media.giphy.com/media/Aab07O5PYOmQ/giphy.gif"
-            console.log("Image URL is " + data.body.images[0].url);
+        // "Image URL is http://media.giphy.com/media/Aab07O5PYOmQ/giphy.gif"
+        console.log("Image URL is " + data.body.images[0].url);
 
-            // "This user has a premium account"
-            console.log("This user has a " + data.body.product + " account");
-        })
-        .then(function (data) {
-            console.log("data in create", data); //undefined
+        // "This user has a premium account"
+        console.log("This user has a " + data.body.product + " account");
 
-            return spotifyApi
-                .createPlaylist("e78n0efwj7pf0b72yyail012n", playlistTitle)
-                .then(function (data) {
-                    console.log("data in add", data);
+        return spotifyApi
+            .createPlaylist("e78n0efwj7pf0b72yyail012n", playlistTitle)
+            .then(function (data) {
+                console.log("data in add", data);
 
-                    console.log("Ok. Playlist created!");
-                    playlistId = data.body["id"];
-                    userId = data.body.owner.id;
-                    console.log("Playlist id", playlistId);
-                    console.log("uris", uris);
-                    console.log("userId in add tracks", userId);
-                    console.log("playlistTitle in add", playlistTitle);
+                console.log("Ok. Playlist created!");
+                playlistId = data.body["id"];
+                userId = data.body.owner.id;
+                console.log("Playlist id", playlistId);
+                console.log("uris", uris);
+                console.log("userId in add tracks", userId);
+                console.log("playlistTitle in add", playlistTitle);
 
-                    console.log(
-                        "playlist href ",
-                        data.body.external_urls.spotify
-                    );
+                console.log("playlist href ", data.body.external_urls.spotify);
 
-                    // Add tracks to the playlist
-                    return spotifyApi.addTracksToPlaylist(
-                        "e78n0efwj7pf0b72yyail012n",
-                        playlistId,
-                        uris
-                    );
-                })
-                .catch(function (err) {
-                    console.log("Something went wrong", err.message);
-                });
-        });
+                // Add tracks to the playlist
+                return spotifyApi.addTracksToPlaylist(playlistId, uris);
+            })
+            .catch(function (err) {
+                console.log("Something went wrong", err);
+            });
+    });
 });
 
 app.get("*", (req, res) => {
