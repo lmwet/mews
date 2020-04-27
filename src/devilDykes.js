@@ -7,11 +7,8 @@ import MyPlaylists from "./myPlaylists";
 export default function DevilDykes() {
     const [currentTrack, setCurrentTrack] = useState("");
     const [addedTrack, setAddedTrack] = useState("");
+    const [showModal, setShowmodal] = useState(false);
     const [newPlaylist, setNewPlaylist] = useState([]);
-    const [showModal, setShowmodal] = React.useState(false);
-    // const [playlistIsVisible, setPlaylistIsVisible] = useState([]);
-
-    // setPlaylistIsVisible(false);
 
     const artists = [
         {

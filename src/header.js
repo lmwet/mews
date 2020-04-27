@@ -18,8 +18,8 @@ export default function Header() {
                 <a href="/logout" className="link">
                     Log Out
                 </a>
-                <a className="link" href="/my-playlists">
-                    my mix
+                <a href="/jukebox" className="link">
+                    The Jukebox
                 </a>
             </div>
         </React.Fragment>

@@ -12,7 +12,7 @@ export default function ArtistCard({
     useEffect(() => {
         (async () => {
             const { data } = await axios.get(artist.get);
-            console.log(" from artists", data);
+            // console.log(" from artists", data);
             setSongs(data);
         })();
     }, []);

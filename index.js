@@ -60,6 +60,8 @@ if (process.env.NODE_ENV != "production") {
 }
 /////// web api Authorization //////
 
+var playlistId;
+
 const config = {
     scope: [
         "user-read-email",
@@ -92,55 +94,103 @@ app.get("/login", (req, res) => {
 app.get("/callback", (req, res) => {
     console.log("callback running");
 
+    console.log("req.session", req.session);
     const { code } = req.query;
     console.log("code from callback", code);
 
-    //keep in db
-    // db.addCode(code)
-    //     .then((result) => {
-    //         console.log(result);
-    //     })
-    //     .catch((err) => {
-    //         console.log("err in addcode", err);
-    //     });
-
     spotifyApi.authorizationCodeGrant(code).then(function (data) {
         // When our access token will expire
-        var tokenExpirationEpoch;
+        // var tokenExpirationEpoch;
 
         console.log("Retrieved access token", data.body["access_token"]);
 
         console.log("1h access token set in session", req.session.token);
 
         spotifyApi.setAccessToken(data.body["access_token"]);
-        spotifyApi.setRefreshToken(data.body["refresh_token"]);
-        console.log("refresh_token ", data.body["refresh_token"]);
+        // spotifyApi.setRefreshToken(data.body["refresh_token"]);
+        // console.log("refresh_token ", data.body["refresh_token"]);
 
         //set token expiration to 1h
-        tokenExpirationEpoch =
-            new Date().getTime() / 3600 + data.body["expires_in"];
-        console.log(
-            "Retrieved token. It expires in " +
-                Math.floor(tokenExpirationEpoch - new Date().getTime() / 3600) +
-                " seconds!"
-        );
+        // tokenExpirationEpoch =
+        //     new Date().getTime() / 3600 + data.body["expires_in"];
+        // console.log(
+        //     "Retrieved token. It expires in " +
+        //         Math.floor(
+        //             tokenExpirationEpoch - new Date().getTime() / 3600
+        //         ) +
+        //         " seconds!"
+        // );
     }),
-        res.redirect("/my-playlists");
+        res.redirect("/");
 });
 
-app.get("/logout", (req, res) => {
-    console.log("logout running");
-    req.session = null;
-});
+app.post("/mix", (req, res) => {
+    console.log(req.body.newPlaylist);
 
-app.get("/user.json", async (req, res) => {
-    // db.getCode()
-    //     .then((result) => {
-    //         console.log(result);
-    //     })
-    //     .catch((err) => {
-    //         console.log("err in get code", err);
-    //     });
+    const playlistTitle = req.body.playlistName;
+    let userId;
+
+    let uris = req.body.newPlaylist.map(function (item) {
+        return item["songUri"];
+    });
+    console.log("uris before shift", uris);
+
+    const shifted = uris.shift();
+    console.log("shifted", shifted);
+
+    console.log("uris after shift", uris);
+
+    console.log("accessToken" + spotifyApi.getCredentials().accessToken);
+    console.log(" spotifyApi", spotifyApi);
+
+    spotifyApi
+        .getMe()
+        .then(function (data) {
+            // "Retrieved data for Faruk Sahin"
+            console.log("Retrieved data for " + data.body["display_name"]);
+
+            console.log("user id " + data.body.id);
+
+            let userId = data.body.id;
+
+            // "Image URL is http://media.giphy.com/media/Aab07O5PYOmQ/giphy.gif"
+            console.log("Image URL is " + data.body.images[0].url);
+
+            // "This user has a premium account"
+            console.log("This user has a " + data.body.product + " account");
+        })
+        .then(function (data) {
+            console.log("data in create", data); //undefined
+
+            return spotifyApi
+                .createPlaylist("e78n0efwj7pf0b72yyail012n", playlistTitle)
+                .then(function (data) {
+                    console.log("data in add", data);
+
+                    console.log("Ok. Playlist created!");
+                    playlistId = data.body["id"];
+                    userId = data.body.owner.id;
+                    console.log("Playlist id", playlistId);
+                    console.log("uris", uris);
+                    console.log("userId in add tracks", userId);
+                    console.log("playlistTitle in add", playlistTitle);
+
+                    console.log(
+                        "playlist href ",
+                        data.body.external_urls.spotify
+                    );
+
+                    // Add tracks to the playlist
+                    return spotifyApi.addTracksToPlaylist(
+                        "e78n0efwj7pf0b72yyail012n",
+                        playlistId,
+                        uris
+                    );
+                })
+                .catch(function (err) {
+                    console.log("Something went wrong", err.message);
+                });
+        });
 });
 
 app.get("*", (req, res) => {

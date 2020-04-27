@@ -4,10 +4,11 @@ import ArtistCard from "./artist-card";
 import Defile from "./defile";
 import MyPlaylists from "./myPlaylists";
 
-export default function ElectroSprint() {
+export default function ElectroSpring() {
     const [currentTrack, setCurrentTrack] = useState("");
     const [addedTrack, setAddedTrack] = useState("");
     const [newPlaylist, setNewPlaylist] = useState([]);
+    const [showModal, setShowmodal] = useState(false);
 
     const artists = [
         {
@@ -87,10 +88,9 @@ export default function ElectroSprint() {
         console.log("newPlaylist", newPlaylist);
     };
 
-    const [showModal, setShowmodal] = React.useState(false);
     const toggle = () => setShowmodal(true);
     const toggleBack = () => {
-        setShowmodal(false), console.log("toggleback running");
+        setShowmodal(false);
     };
 
     return (
@@ -99,6 +99,7 @@ export default function ElectroSprint() {
             <h2>إلكترونيات</h2>
 
             <Defile artists={artists} />
+
             <div className="mix-toggle">
                 <input id="mix" type="submit" value="My Mix" onClick={toggle} />
                 {showModal ? (
