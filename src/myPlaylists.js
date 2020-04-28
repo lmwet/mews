@@ -42,6 +42,14 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
             });
 
         setMessage(true);
+        document.getElementById("username").value = "";
+        document.getElementById("mix-name").value = "";
+
+        const tracksList = document.getElementsByClassName("track");
+        console.log(tracksList);
+        for (var i = 0; i < tracksList.length; i++) {
+            tracksList[i].innerHTML = "";
+        }
     };
 
     return (
@@ -54,12 +62,14 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
 
             <div className="container-mix-form" id="pl-form">
                 <input
+                    id="username"
                     name="username"
                     placeholder="user name"
                     onChange={(e) => nameUser(e)}
                 />
 
                 <input
+                    id="mix-name"
                     name="playlistName"
                     placeholder="mix name"
                     onChange={(e) => namePlaylist(e)}
@@ -74,7 +84,8 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
                 </a>
                 {message ? (
                     <span className="error-message">
-                        Your playlist was saved on your Spotify account!
+                        Your playlist was saved on your Spotify account. Go
+                        listen to it in the Jukebox section!
                     </span>
                 ) : null}
                 <div className="tracks-pic-wrapper">

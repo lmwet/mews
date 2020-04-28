@@ -6,9 +6,15 @@ import MyPlaylists from "./myPlaylists";
 
 export default function ElectroSpring() {
     const [currentTrack, setCurrentTrack] = useState("");
-    const [addedTrack, setAddedTrack] = useState("");
+    // const [addedTrack, setAddedTrack] = useState({});
     const [newPlaylist, setNewPlaylist] = useState([]);
     const [showModal, setShowmodal] = useState(false);
+
+    console.log("newPlaylist outside func", newPlaylist);
+
+    // useEffect(() => {
+    //     console.log("newPlaylistin useEffect", addedTrack);
+    // }, [addedTrack]);
 
     const artists = [
         {
@@ -70,7 +76,7 @@ export default function ElectroSpring() {
         setCurrentTrack(embedUrl);
     };
 
-    const addToPlaylist = (e) => {
+    const addToPlaylist = async (e) => {
         e.preventDefault();
 
         const elem = e.target;
@@ -81,10 +87,10 @@ export default function ElectroSpring() {
         let songTitle = elem.parentNode.childNodes[1].innerText;
         console.log("songTitle", songTitle);
 
-        setAddedTrack({ songTitle, songUri });
-        console.log("addedTrack", addedTrack);
-
-        setNewPlaylist((newPlaylist) => [...newPlaylist, addedTrack]);
+        await setNewPlaylist((newPlaylist) => [
+            ...newPlaylist,
+            { songTitle, songUri },
+        ]);
         console.log("newPlaylist", newPlaylist);
     };
 

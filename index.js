@@ -132,17 +132,8 @@ app.post("/mix", (req, res) => {
         return item["songUri"];
     });
 
-    const shifted = uris.shift();
-
     spotifyApi.getMe().then(function (data) {
-        // "Retrieved data for Faruk Sahin"
-        console.log("Retrieved data for " + data.body["display_name"]);
-
-        console.log("user id " + data.body.id);
-
         let userId = data.body.id;
-
-        console.log("Image URL is " + data.body.images[0].url);
 
         return spotifyApi
             .createPlaylist("e78n0efwj7pf0b72yyail012n", playlistTitle)
@@ -152,11 +143,7 @@ app.post("/mix", (req, res) => {
                 console.log("Ok. Playlist created!");
                 playlistId = data.body["id"];
                 userId = data.body.owner.id;
-                console.log("Playlist id", playlistId);
-                console.log("userId in add tracks", userId);
-                console.log("playlistTitle in add", playlistTitle);
 
-                console.log("playlist href ", data.body.external_urls.spotify);
                 const url = data.body.external_urls.spotify;
 
                 db.addPlaylist(userId, url, playlistTitle, userName).catch(
@@ -179,7 +166,6 @@ app.post("/mix", (req, res) => {
 app.get("/mix", async (req, res) => {
     try {
         const allPlaylists = await db.getPlaylists();
-        console.log("allPlaylists", allPlaylists);
         res.json([allPlaylists, { success: true }]);
     } catch (e) {
         res.json({ success: false });
@@ -190,15 +176,6 @@ app.get("/mix", async (req, res) => {
 app.get("*", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
     console.log("all routes runnin");
-
-    //insert in db ??
-    // db.addCode(123456)
-    //     .then((result) => {
-    //         console.log(result);
-    //     })
-    //     .catch((err) => {
-    //         console.log("err in addcode", err);
-    //     });
 });
 
 server.listen(8080, function () {
