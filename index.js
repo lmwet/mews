@@ -125,23 +125,14 @@ app.get("/callback", (req, res) => {
 });
 
 app.post("/mix", (req, res) => {
-    console.log(req.body.newPlaylist);
-
     const playlistTitle = req.body.playlistName;
-    let userId;
+    const userName = req.body.userName;
 
     let uris = req.body.newPlaylist.map(function (item) {
         return item["songUri"];
     });
-    console.log("uris before shift", uris);
 
     const shifted = uris.shift();
-    console.log("shifted", shifted);
-
-    console.log("uris after shift", uris);
-
-    console.log("accessToken" + spotifyApi.getCredentials().accessToken);
-    console.log(" spotifyApi", spotifyApi);
 
     spotifyApi.getMe().then(function (data) {
         // "Retrieved data for Faruk Sahin"
@@ -151,11 +142,7 @@ app.post("/mix", (req, res) => {
 
         let userId = data.body.id;
 
-        // "Image URL is http://media.giphy.com/media/Aab07O5PYOmQ/giphy.gif"
         console.log("Image URL is " + data.body.images[0].url);
-
-        // "This user has a premium account"
-        console.log("This user has a " + data.body.product + " account");
 
         return spotifyApi
             .createPlaylist("e78n0efwj7pf0b72yyail012n", playlistTitle)
@@ -166,11 +153,19 @@ app.post("/mix", (req, res) => {
                 playlistId = data.body["id"];
                 userId = data.body.owner.id;
                 console.log("Playlist id", playlistId);
-                console.log("uris", uris);
                 console.log("userId in add tracks", userId);
                 console.log("playlistTitle in add", playlistTitle);
 
                 console.log("playlist href ", data.body.external_urls.spotify);
+                const url = data.body.external_urls.spotify;
+
+                db.addPlaylist(userId, url, playlistTitle, userName).catch(
+                    (e) => {
+                        //catch on db.addUser
+                        console.log("error in addPlaylist", e);
+                        res.json({ success: false });
+                    }
+                );
 
                 // Add tracks to the playlist
                 return spotifyApi.addTracksToPlaylist(playlistId, uris);
@@ -179,6 +174,17 @@ app.post("/mix", (req, res) => {
                 console.log("Something went wrong", err);
             });
     });
+});
+
+app.get("/mix", async (req, res) => {
+    try {
+        const allPlaylists = await db.getPlaylists();
+        console.log("allPlaylists", allPlaylists);
+        res.json([allPlaylists, { success: true }]);
+    } catch (e) {
+        res.json({ success: false });
+        console.log("err in get /mix");
+    }
 });
 
 app.get("*", (req, res) => {

@@ -34,7 +34,7 @@ export default function Gallery() {
 
                 <Link to="/devil-dykes">
                     <div className="category">
-                        <h3 className="category-title">Devil Dykes</h3>
+                        <h3 className="category-title">Devil's Dykes</h3>
                         <img
                             className="cat-pic"
                             src="/images/2dykes.jpg"
@@ -59,6 +59,26 @@ export default function Gallery() {
                             className="cat-pic"
                             src="/images/wiladAlLeil.jpg"
                             alt="gayboys-here"
+                        />
+                    </div>
+                </Link>
+                <Link to="/xodade">
+                    <div className="category">
+                        <h3 className="category-title">Xodade</h3>
+                        <img
+                            className="cat-pic"
+                            src="/images/xodade.png"
+                            alt="xodade"
+                        />
+                    </div>
+                </Link>
+                <Link to="/queer">
+                    <div className="category">
+                        <h3 className="category-title">Queer F***ing Gender</h3>
+                        <img
+                            className="cat-pic"
+                            src="/images/JJBP.png"
+                            alt="queer-gender-artists"
                         />
                     </div>
                 </Link>

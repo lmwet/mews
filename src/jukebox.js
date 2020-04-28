@@ -1,35 +1,33 @@
 import React, { useEffect, useState } from "react";
 import usePlay from "./hooks/usePlay";
+import axios from "./axios";
 import MyPlaylists from "./myPlaylists";
 
-export default function Jukebox(newPlaylist) {
+export default function Jukebox() {
     const [currentTrack, setCurrentTrack] = useState("");
     const [playlists, setPlaylists] = useState([]);
     const [showModal, setShowmodal] = useState(false);
 
     useEffect(() => {
-        console.log("newPlaylist in PL cpnt", newPlaylist);
+        axios
+            .get("/mix")
+            .then((res) => {
+                if (res.data[1].success) {
+                    setPlaylists(res.data[0].rows);
+                }
+            })
+            .catch(function (err) {
+                console.log("err in get /bio", err);
+            });
+    }, []);
 
-        //get uri of playlisys from db
-        // (async () => {
-        //     const { data } = await axios.get("/user.json");
-        //     console.log(`code in get user`, data);
-        //     setPlaylists(data);
-        // })();
-    }, [newPlaylist, playlists]);
-
-    // const playMix = (e) => {
-    //     e.preventDefault();
-    //     console.log("playalbum running");
-    //     const elem = e.target;
-    //     console.log(elem);
-    //     let url = elem.getAttribute("href");
-    //     console.log(url);
-
-    //     const embedUrl = url.replace("playlist", "embed/playlist");
-    //     console.log(embedUrl);
-    //     setCurrentTrack(embedUrl);
-    // };
+    const playMix = (e) => {
+        e.preventDefault();
+        const elem = e.target;
+        let url = elem.getAttribute("href");
+        const embedUrl = url.replace("playlist", "embed/playlist");
+        setCurrentTrack(embedUrl);
+    };
 
     const toggle = () => setShowmodal(true);
     const toggleBack = () => {
@@ -39,33 +37,28 @@ export default function Jukebox(newPlaylist) {
     return (
         <div>
             <h1>The Jukebox </h1>
-
+            <img
+                className="jukebox-pic"
+                height="100px"
+                src="/images/jukebox.png"
+            />
             <div className="mix-toggle">
                 <input id="mix" type="submit" value="My Mix" onClick={toggle} />
-                {showModal ? (
-                    <MyPlaylists
-                        // newPlaylist={newPlaylist}
-                        toggleBack={toggleBack}
-                    />
-                ) : null}
+                {showModal ? <MyPlaylists toggleBack={toggleBack} /> : null}
             </div>
-
-            {/* {playlists.map((mix) => (
-                <div key={mix.id} className="container">
-                    <div className="row">
-                        <div className="col">
-                            <a
-                                onClick={playMix}
-                                href={mix.external_urls.spotify}
-                            >
-                                <h3 className="mix-name">chill misc</h3>
-                                <p className="author-name">by lmwet</p>
+            <div className="jukebox-grid">
+                {playlists.map((mix) => (
+                    <div key={mix.id} className="mix-element">
+                        <h3 className="mix-name">
+                            <a onClick={playMix} href={mix.href}>
+                                {mix.name}
                             </a>
-                            <img src="album.png" />
-                        </div>
+                        </h3>
+                        <img height="100px" src="/images/album.png" />
+                        <p className="author-name">by {mix.username}</p>
                     </div>
-                </div>
-            ))} */}
+                ))}
+            </div>
             <iframe
                 className="player"
                 src={currentTrack}

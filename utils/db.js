@@ -1,23 +1,24 @@
 const spicedPg = require("spiced-pg");
 const db = spicedPg(
     process.env.DATABASE_URL ||
-        "postgres:postgres:postgres:@localhost@localhost:5432/forum"
+        "postgres:postgres:postgres:@localhost@localhost:5432/mews"
 );
 
-exports.addCode = (code) => {
+exports.addPlaylist = (userId, url, playlistTitle, userName) => {
     const q = `INSERT 
-    into auth_codes (auth_codes.auth_code)
-    VALUES ($1)
+    into playlists (user_id, href, name, username)
+    VALUES ($1, $2, $3, $4)
     RETURNING *`;
     console.log(q);
-    return db.query(q);
+    const params = [userId, url, playlistTitle, userName];
+    return db.query(q, params);
 };
 
-exports.getCode = () => {
-    const q = `SELECT code
-    FROM codes
-    LIMIT 1
-    ORDER BY DESC`;
+exports.getPlaylists = () => {
+    const q = `SELECT * 
+    FROM playlists 
+    ORDER BY created_at DESC`;
     console.log(q);
+
     return db.query(q);
 };

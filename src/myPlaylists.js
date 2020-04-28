@@ -12,6 +12,7 @@ const spotifyApi = new SpotifyWebApi({
 export default function MyPlaylists({ newPlaylist, toggleBack }) {
     const [playlistName, setPlaylistName] = useState("");
     const [userName, setUserName] = useState("");
+    const [message, setMessage] = useState(false);
 
     const nameUser = ({ target }) => {
         setUserName(target.value);
@@ -30,6 +31,7 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
             .post("/mix", {
                 newPlaylist,
                 playlistName,
+                userName,
             })
             .then((res) => {
                 if (res.data.success) {
@@ -38,6 +40,8 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
                     console.log("er in post mix");
                 }
             });
+
+        setMessage(true);
     };
 
     return (
@@ -68,6 +72,11 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
                 >
                     Create
                 </a>
+                {message ? (
+                    <span className="error-message">
+                        Your playlist was saved on your Spotify account!
+                    </span>
+                ) : null}
                 <div className="tracks-pic-wrapper">
                     <ul>
                         {newPlaylist.map((track) => (
