@@ -104,4 +104,42 @@ electroSpringRouter.get("/yasmine.json", async (req, res) => {
     }
 });
 
+electroSpringRouter.get("/nawel.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "2FnT84XG3yKLIHEjheon9W",
+            "TU"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in nawel",
+            err.message
+        );
+    }
+});
+
+electroSpringRouter.get("/badiaa.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "4tA4OuKn0ZjJgf34cZBmoJ",
+            "TU"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in badiaa",
+            err.message
+        );
+    }
+});
+
 module.exports = electroSpringRouter;

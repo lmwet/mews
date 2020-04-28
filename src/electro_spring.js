@@ -52,6 +52,20 @@ export default function ElectroSpring() {
             imgUrl: "/images/yasmine.png",
             get: "/yasmine.json",
         },
+        {
+            name: "Nawel",
+            engTitle: "Nawel Ben Kraîem",
+            arabicTitle: " نوال بن كريم ",
+            imgUrl: "/images/nawel.jpg",
+            get: "/nawel.json",
+        },
+        {
+            name: "Badiaa",
+            engTitle: "Badiaa Bouhrizi",
+            arabicTitle: " نوال بن كريم ",
+            imgUrl: "/images/baadia.jpg",
+            get: "/badiaa.json",
+        },
     ];
 
     const handleclick = (e) => {

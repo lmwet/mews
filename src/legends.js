@@ -46,6 +46,13 @@ export default function Legends() {
             imgUrl: "/images/joan.jpg",
             get: "/joan.json",
         },
+        {
+            name: "rose",
+            engTitle: "Calypso Rose",
+            arabicTitle: "",
+            imgUrl: "/images/rose.png",
+            get: "/rose.json",
+        },
     ];
 
     const handleclick = (e) => {
@@ -66,23 +73,20 @@ export default function Legends() {
         setCurrentTrack(embedUrl);
     };
 
-    const addToPlaylist = (e) => {
+    const addToPlaylist = async (e) => {
         e.preventDefault();
 
-        // setPlaylistIsVisible(true);
-
         const elem = e.target;
-        //we take the uri from the data
         let songUri = elem.getAttribute("href");
         console.log("addedSongUri", songUri);
 
         let songTitle = elem.parentNode.childNodes[1].innerText;
         console.log("songTitle", songTitle);
 
-        setAddedTrack({ songTitle, songUri });
-        console.log("addedTrack", addedTrack);
-
-        setNewPlaylist((newPlaylist) => [...newPlaylist, addedTrack]);
+        await setNewPlaylist((newPlaylist) => [
+            ...newPlaylist,
+            { songTitle, songUri },
+        ]);
         console.log("newPlaylist", newPlaylist);
     };
 

@@ -34,6 +34,13 @@ export default function Jukebox() {
         setShowmodal(false), console.log("toggleback running");
     };
 
+    const setBg = (e) => {
+        console.log("setBg runnin");
+
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        e.target.style.backgroundColor = "#" + randomColor;
+    };
+
     return (
         <div>
             <h1>The Jukebox </h1>
@@ -42,13 +49,10 @@ export default function Jukebox() {
                 height="100px"
                 src="/images/jukebox.png"
             />
-            <div className="mix-toggle">
-                <input id="mix" type="submit" value="My Mix" onClick={toggle} />
-                {showModal ? <MyPlaylists toggleBack={toggleBack} /> : null}
-            </div>
+
             <div className="jukebox-grid">
                 {playlists.map((mix) => (
-                    <div key={mix.id} className="mix-element">
+                    <div key={mix.id} onClick={setBg} className="mix-element">
                         <h3 className="mix-name">
                             <a onClick={playMix} href={mix.href}>
                                 {mix.name}

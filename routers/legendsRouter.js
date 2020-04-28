@@ -35,7 +35,7 @@ legendsRouter.get("/joan.json", async (req, res) => {
             grant.body["access_token"]
         );
         const topTen = await spotifyApi.getArtistTopTracks(
-            "0Od49f50ljr4kmQgclwHkm",
+            "1bdAJUX6JPsnYHbTl5jbk6",
             "EG"
         );
         res.json(topTen.body.tracks);
@@ -99,6 +99,25 @@ legendsRouter.get("/chavela.json", async (req, res) => {
     } catch (err) {
         console.log(
             "Unfortunately, something has gone wrong in maii",
+            err.message
+        );
+    }
+});
+
+legendsRouter.get("/rose.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "56QlZ0AFfkaaHyANLVkg5h",
+            "SE"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in rose",
             err.message
         );
     }
