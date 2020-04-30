@@ -12,29 +12,9 @@ import Wilad from "./wilad";
 import FemHip from "./femihip";
 import MyPlaylists from "./myPlaylists";
 import Jukebox from "./jukebox";
+import Queer from "./queer";
 
 export default function App() {
-    const [newPlaylistInApp, setNewPlaylistInApp] = useState([]);
-
-    useEffect(() => {
-        console.log("newPlaylist in PL cpnt", newPlaylistInApp);
-    }, [newPlaylistInApp]);
-
-    //  ---------- to create the playlist -----------
-
-    const nameUser = ({ target }) => {
-        console.log("nameuser runs");
-        setUserName(target.value);
-        console.log("user", userName);
-    };
-
-    const namePlaylist = ({ target }) => {
-        console.log("nameplaylist runs");
-
-        setPlaylistName(target.value);
-        console.log("PlaylistName", playlistName);
-    };
-
     return (
         <React.Fragment>
             <BrowserRouter>
@@ -42,6 +22,7 @@ export default function App() {
                 <Route exact path="/" component={Gallery} />
                 <Route path="/kahrabiat" component={ElectroSpring} />
                 <Route path="/devil-dykes" component={DevilDykes} />
+                <Route path="/queer" component={Queer} />
                 <Route path="/legends" component={Legends} />
                 <Route
                     path="/jukebox"
@@ -50,9 +31,6 @@ export default function App() {
                             key={props.match.url}
                             match={props.match}
                             history={props.history}
-                            setNewPlaylistInApp={(newPlaylistInApp) =>
-                                setNewPlaylistInApp(newPlaylistInApp)
-                            }
                         />
                     )}
                 />

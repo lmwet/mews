@@ -21,6 +21,8 @@ const BlackPrideRouter = require("./routers/BlackPrideRouter");
 const wiladRouter = require("./routers/wiladRouter");
 const femiHipRouter = require("./routers/femiHipRouter");
 const myPlaylistsRouter = require("./routers/myPlaylistsRouter");
+const queersRouter = require("./routers/queersRouter");
+// const xodadeRouter = require("./routers/xodadeRouter");
 
 ////////// MIDDLEWARE //////////
 
@@ -31,10 +33,14 @@ app.use(
         extended: false,
     })
 ).use(cookieParser());
+
+////// ROUTERS //////
 app.use(devilDykesRouter);
 app.use(electroSpringRouter);
 app.use(myPlaylistsRouter);
 app.use(legendsRouter);
+app.use(queersRouter);
+// app.use(xodadeRouter);
 // app.use(BlackPrideRouter);
 // app.use(wiladRouter);
 // app.use(femiHipRouter);

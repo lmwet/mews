@@ -73,7 +73,7 @@ electroSpringRouter.get("/maii.json", async (req, res) => {
             grant.body["access_token"]
         );
         const topTen = await spotifyApi.getArtistTopTracks(
-            "1e9RnsEdnC3LG7vHcAozc8",
+            "1kqQvcNxWvkzK55bwDvHGP",
             "EG"
         );
         res.json(topTen.body.tracks);
@@ -112,7 +112,7 @@ electroSpringRouter.get("/nawel.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "2FnT84XG3yKLIHEjheon9W",
-            "TU"
+            "SE"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
@@ -131,7 +131,7 @@ electroSpringRouter.get("/badiaa.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "4tA4OuKn0ZjJgf34cZBmoJ",
-            "TU"
+            "SE"
         );
         res.json(topTen.body.tracks);
     } catch (err) {

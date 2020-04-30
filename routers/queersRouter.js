@@ -1,5 +1,5 @@
 const express = require("express");
-const legendsRouter = express.Router();
+const queersRouter = express.Router();
 
 const SpotifyWebApi = require("spotify-web-api-node");
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("../secrets.json");
@@ -9,136 +9,98 @@ const spotifyApi = new SpotifyWebApi({
     redirectUri: REDIRECT_URI,
 });
 
-legendsRouter.get("/colette.json", async (req, res) => {
+queersRouter.get("/saye.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
         const token = await spotifyApi.setAccessToken(
             grant.body["access_token"]
         );
         const topTen = await spotifyApi.getArtistTopTracks(
-            "4cPC7jBIad7FWC01wUWTse",
-            "FR"
+            "2bXh3vsmLwmFrp9U7vitGU",
+            "DE"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in mariam",
+            "Unfortunately, something has gone wrong in saye",
             err.message
         );
     }
 });
 
-legendsRouter.get("/joan.json", async (req, res) => {
+queersRouter.get("/linn.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
         const token = await spotifyApi.setAccessToken(
             grant.body["access_token"]
         );
         const topTen = await spotifyApi.getArtistTopTracks(
-            "1bdAJUX6JPsnYHbTl5jbk6",
-            "EG"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in aya",
-            err.message
-        );
-    }
-});
-
-legendsRouter.get("/oumkalthoum.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "52lsD82iOqGtyfEMqWgk4f",
-            "EG"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in emel",
-            err.message
-        );
-    }
-});
-
-legendsRouter.get("/zemfira.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "6oO3QiWdVj5FZQwbdRtsRh",
-            "RU"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in maii",
-            err.message
-        );
-    }
-});
-
-legendsRouter.get("/chavela.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "0WC6O2ZzUcDYvcmt2mGh8c",
-            "SE"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in maii",
-            err.message
-        );
-    }
-});
-
-legendsRouter.get("/rose.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "56QlZ0AFfkaaHyANLVkg5h",
-            "SE"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in rose",
-            err.message
-        );
-    }
-});
-legendsRouter.get("/cassia.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "10naVTwNjE50daQVrN0bXh",
+            "5gGBopc7iw8yLqwxfPIv3t",
             "BR"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in emel",
+            "Unfortunately, something has gone wrong in linn",
             err.message
         );
     }
 });
 
-module.exports = legendsRouter;
+queersRouter.get("/planning.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "7qHOphlWaJrfFa0BqpayDG",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in planning",
+            err.message
+        );
+    }
+});
+
+queersRouter.get("/mykki.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "2tSv9mEQSuNVMGr9qjYfkr",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in mykki",
+            err.message
+        );
+    }
+});
+
+queersRouter.get("/rae.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "507TICFblljsw2Nbk7wXbx",
+            "CA"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in rae",
+            err.message
+        );
+    }
+});
+module.exports = queersRouter;

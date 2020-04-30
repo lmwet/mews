@@ -1,64 +1,48 @@
-import React, { useEffect, useState } from "react";
-import usePlay from "./hooks/usePlay";
+import React, { useState } from "react";
 import ArtistCard from "./artist-card";
 import Defile from "./defile";
 import MyPlaylists from "./myPlaylists";
 
-export default function DevilDykes() {
+export default function Queer() {
     const [currentTrack, setCurrentTrack] = useState("");
-    const [addedTrack, setAddedTrack] = useState("");
-    const [showModal, setShowmodal] = useState(false);
     const [newPlaylist, setNewPlaylist] = useState([]);
+    const [showModal, setShowmodal] = useState(false);
 
     const artists = [
         {
-            name: "trumpet",
-            engTitle: "Trumpet Grrrl",
+            name: "linn",
+            engTitle: "Linn de Quebrada",
             arabicTitle: "",
-            imgUrl: "/images/trumpetGrl.jpg",
-            get: "/trumpet.json",
+            imgUrl: "/images/linn.jpg",
+            get: "/linn.json",
         },
         {
-            name: "koffee",
-            engTitle: "Koffee",
+            name: "planning",
+            engTitle: "Planning To Rock",
             arabicTitle: "",
-            imgUrl: "/images/koffee.jpg",
-            get: "/koffee.json",
+            imgUrl: "/images/planning.jpg",
+            get: "/planning.json",
         },
         {
-            name: "ipek",
-            engTitle: "Ipek Ipekçioğlu",
+            name: "mykki",
+            engTitle: "Mykki Blanco",
             arabicTitle: "",
-            imgUrl: "/images/ipek.jpg",
-            get: "/ipek.json",
+            imgUrl: "/images/mykkie.jpg",
+            get: "/mykki.json",
         },
         {
-            name: "internet",
-            engTitle: "The Internet",
+            name: "saye",
+            engTitle: "Säye Skye",
             arabicTitle: "",
-            imgUrl: "/images/internet.jpg",
-            get: "/internet.json",
+            imgUrl: "/images/saye.jpg",
+            get: "/saye.json",
         },
         {
-            name: "beatrice",
-            engTitle: "Beatrice Eli",
-            arabicTitle: "",
-            imgUrl: "/images/beatrice.jpg",
-            get: "/beatrice.json",
-        },
-        {
-            name: "kumbia",
-            engTitle: "Kumbia Queers",
-            arabicTitle: "",
-            imgUrl: "/images/kumbia.jpg",
-            get: "/kumbia.json",
-        },
-        {
-            name: "mansfield",
-            engTitle: "Mansfield.TYA",
-            arabicTitle: "",
-            imgUrl: "/images/mansfield.jpg",
-            get: "/mansfield.json",
+            name: "rae",
+            engTitle: "Rae Spoon",
+            arabicTitle: "ياسمين حمدان",
+            imgUrl: "/images/rae.jpg",
+            get: "/rae.json",
         },
     ];
 
@@ -73,9 +57,14 @@ export default function DevilDykes() {
 
     const playAlbum = (e) => {
         e.preventDefault();
+        console.log("playalbum running");
         const elem = e.target;
+        console.log(elem);
         let url = elem.getAttribute("href");
+        console.log(url);
+
         const embedUrl = url.replace("album", "embed/album");
+        console.log(embedUrl);
         setCurrentTrack(embedUrl);
     };
 
@@ -98,12 +87,12 @@ export default function DevilDykes() {
 
     const toggle = () => setShowmodal(true);
     const toggleBack = () => {
-        setShowmodal(false), console.log("toggleback running");
+        setShowmodal(false);
     };
 
     return (
         <div>
-            <h1 className="cpnt-title">Devil's Dykes </h1>
+            <h1 className="cpnt-title">Queer F***ing Gender </h1>
             <h2></h2>
 
             <Defile artists={artists} />

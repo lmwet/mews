@@ -10,12 +10,6 @@ export default function ElectroSpring() {
     const [newPlaylist, setNewPlaylist] = useState([]);
     const [showModal, setShowmodal] = useState(false);
 
-    console.log("newPlaylist outside func", newPlaylist);
-
-    // useEffect(() => {
-    //     console.log("newPlaylistin useEffect", addedTrack);
-    // }, [addedTrack]);
-
     const artists = [
         {
             name: "aya",
@@ -42,7 +36,7 @@ export default function ElectroSpring() {
             name: "maii",
             engTitle: "Maii Waleed",
             arabicTitle: "آية متولّي",
-            imgUrl: "/images/maii_walled.jpg",
+            imgUrl: "/images/maii.jpg",
             get: "/maii.json",
         },
         {
@@ -53,14 +47,14 @@ export default function ElectroSpring() {
             get: "/yasmine.json",
         },
         {
-            name: "Nawel",
+            name: "nawel",
             engTitle: "Nawel Ben Kraîem",
             arabicTitle: " نوال بن كريم ",
             imgUrl: "/images/nawel.jpg",
             get: "/nawel.json",
         },
         {
-            name: "Badiaa",
+            name: "badiaa",
             engTitle: "Badiaa Bouhrizi",
             arabicTitle: " نوال بن كريم ",
             imgUrl: "/images/baadia.jpg",
@@ -94,7 +88,6 @@ export default function ElectroSpring() {
         e.preventDefault();
 
         const elem = e.target;
-
         let songUri = elem.getAttribute("href");
         console.log("addedSongUri", songUri);
 
@@ -115,7 +108,7 @@ export default function ElectroSpring() {
 
     return (
         <div>
-            <h1>Arab Electronic@s </h1>
+            <h1 className="cpnt-title">Arab Electronic@s </h1>
             <h2>إلكترونيات</h2>
 
             <Defile artists={artists} />
@@ -129,6 +122,11 @@ export default function ElectroSpring() {
                     />
                 ) : null}
             </div>
+
+            <a title="back-to-top" className="to-top" href="devil-dykes">
+                <span className="glyphicon glyphicon-chevron-up"></span>
+            </a>
+
             {artists.map((artist) => (
                 <ArtistCard
                     artist={artist}

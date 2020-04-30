@@ -47,6 +47,13 @@ export default function Legends() {
             get: "/joan.json",
         },
         {
+            name: "cassia",
+            engTitle: "Cássia Eller",
+            arabicTitle: "",
+            imgUrl: "/images/cassia.jpg",
+            get: "/cassia.json",
+        },
+        {
             name: "rose",
             engTitle: "Calypso Rose",
             arabicTitle: "",
@@ -97,8 +104,8 @@ export default function Legends() {
 
     return (
         <div>
-            <h1>Queer Legends</h1>
-
+            <h1 className="cpnt-title">Queer Legends</h1>
+            <h2></h2>
             <Defile artists={artists} />
 
             <div className="mix-toggle">
@@ -110,6 +117,9 @@ export default function Legends() {
                     />
                 ) : null}
             </div>
+            <a title="back-to-top" className="to-top" href="devil-dykes">
+                <span className="glyphicon glyphicon-chevron-up"></span>
+            </a>
 
             {artists.map((artist) => (
                 <ArtistCard
