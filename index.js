@@ -17,7 +17,7 @@ const db = require("./utils/db.js");
 const electroSpringRouter = require("./routers/electroSpringRouter");
 const devilDykesRouter = require("./routers/devilDykesRouter");
 const legendsRouter = require("./routers/legendsRouter");
-const BlackPrideRouter = require("./routers/BlackPrideRouter");
+const blackPrideRouter = require("./routers/BlackPrideRouter");
 const wiladRouter = require("./routers/wiladRouter");
 const femiHipRouter = require("./routers/femiHipRouter");
 const myPlaylistsRouter = require("./routers/myPlaylistsRouter");
@@ -41,7 +41,7 @@ app.use(myPlaylistsRouter);
 app.use(legendsRouter);
 app.use(queersRouter);
 // app.use(xodadeRouter);
-// app.use(BlackPrideRouter);
+app.use(blackPrideRouter);
 // app.use(wiladRouter);
 // app.use(femiHipRouter);
 

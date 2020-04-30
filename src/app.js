@@ -24,6 +24,10 @@ export default function App() {
                 <Route path="/devil-dykes" component={DevilDykes} />
                 <Route path="/queer" component={Queer} />
                 <Route path="/legends" component={Legends} />
+                <Route path="/black-pride" component={BlackPride} />
+                {/* <Route path="/wilad" component={Wilad} />  */}
+                {/* <Route path="/femi-hip-hop" component={FemHip} />  */}
+                <Route path="/my-playlists" component={MyPlaylists} />
                 <Route
                     path="/jukebox"
                     render={(props) => (
@@ -34,11 +38,6 @@ export default function App() {
                         />
                     )}
                 />
-
-                {/* <Route path="/black-pride" component={BlackPride} />
-                <Route path="/wilad" component={Wilad} /> */}
-                {/* <Route path="/femi-hip-hop" component={FemHip} />  */}
-                <Route path="/my-playlists" component={MyPlaylists} />
             </BrowserRouter>
         </React.Fragment>
     );

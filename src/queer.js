@@ -40,7 +40,7 @@ export default function Queer() {
         {
             name: "rae",
             engTitle: "Rae Spoon",
-            arabicTitle: "ياسمين حمدان",
+            arabicTitle: "",
             imgUrl: "/images/rae.jpg",
             get: "/rae.json",
         },

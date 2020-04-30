@@ -122,6 +122,7 @@ legendsRouter.get("/rose.json", async (req, res) => {
         );
     }
 });
+
 legendsRouter.get("/cassia.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();

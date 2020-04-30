@@ -6,7 +6,6 @@ import MyPlaylists from "./myPlaylists";
 
 export default function ElectroSpring() {
     const [currentTrack, setCurrentTrack] = useState("");
-    // const [addedTrack, setAddedTrack] = useState({});
     const [newPlaylist, setNewPlaylist] = useState([]);
     const [showModal, setShowmodal] = useState(false);
 
@@ -107,7 +106,7 @@ export default function ElectroSpring() {
     };
 
     return (
-        <div>
+        <div className="component-container">
             <h1 className="cpnt-title">Arab Electronic@s </h1>
             <h2>إلكترونيات</h2>
 
