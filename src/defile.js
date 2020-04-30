@@ -1,8 +1,6 @@
 import React from "react";
 
 export default function Defile({ artists }) {
-    // const goToArtist;
-
     return (
         <div className="defile-div">
             {artists &&
@@ -16,4 +14,4 @@ export default function Defile({ artists }) {
                 ))}
         </div>
     );
-} //closes cpnt
+}

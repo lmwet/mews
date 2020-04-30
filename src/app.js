@@ -1,5 +1,5 @@
 import { BrowserRouter, Route } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 //components
 import Header from "./header";
@@ -25,8 +25,8 @@ export default function App() {
                 <Route path="/queer" component={Queer} />
                 <Route path="/legends" component={Legends} />
                 <Route path="/black-pride" component={BlackPride} />
-                {/* <Route path="/wilad" component={Wilad} />  */}
-                {/* <Route path="/femi-hip-hop" component={FemHip} />  */}
+                <Route path="/wilad" component={Wilad} />
+                <Route path="/femi-hip-hop" component={FemHip} />
                 <Route path="/my-playlists" component={MyPlaylists} />
                 <Route
                     path="/jukebox"

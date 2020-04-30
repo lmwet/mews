@@ -106,7 +106,7 @@ export default function ElectroSpring() {
     };
 
     return (
-        <div className="component-container">
+        <React.Fragment>
             <h1 className="cpnt-title">Arab Electronic@s </h1>
             <h2>إلكترونيات</h2>
 
@@ -145,6 +145,6 @@ export default function ElectroSpring() {
                 allowtransparency="true"
                 allow="encrypted-media"
             ></iframe>
-        </div>
+        </React.Fragment>
     );
 }
