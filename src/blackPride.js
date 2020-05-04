@@ -127,8 +127,8 @@ export default function BlackPride() {
 
     return (
         <div className="component-container">
+            <img id="nothing" src="/images/nothing.png" />
             <h1 className="cpnt-title">Black and African Prides</h1>
-            <h2></h2>
 
             <Defile artists={artists} />
 

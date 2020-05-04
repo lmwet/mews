@@ -1,13 +1,5 @@
-import { Link } from "react-router-dom";
 import axios from "./axios";
-import React, { useEffect, useState } from "react";
-const SpotifyWebApi = require("spotify-web-api-node");
-const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("../secrets.json");
-const spotifyApi = new SpotifyWebApi({
-    clientId: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
-    redirectUri: REDIRECT_URI,
-});
+import React, { useState } from "react";
 
 export default function MyPlaylists({ newPlaylist, toggleBack }) {
     const [playlistName, setPlaylistName] = useState("");
@@ -84,8 +76,8 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
                 </a>
                 {message ? (
                     <span className="error-message">
-                        Your playlist was saved on your Spotify account. Go
-                        listen to it in the Jukebox section!
+                        Your playlist has been saved on your Spotify account.
+                        You can now listen to it in the Jukebox section!
                     </span>
                 ) : null}
                 <div className="tracks-pic-wrapper">

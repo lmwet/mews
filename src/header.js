@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "./axios";
 
 export default function Header() {
     // either u write props or the properties names themselves in {}
@@ -12,6 +11,8 @@ export default function Header() {
                     <img id="logo-pic" src="/images/mews.png" alt="logo" />
                     <h1 id="title">mews</h1>
                 </Link>
+                <img id="triangle" src="/images/triangle.png" />
+
                 <a href="/login" className="link">
                     Log in
                 </a>
@@ -21,6 +22,7 @@ export default function Header() {
                 <a href="/jukebox" className="link">
                     The Jukebox
                 </a>
+                <img id="patch" src="/images/patch.png" />
             </div>
         </React.Fragment>
     );

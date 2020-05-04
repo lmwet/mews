@@ -11,9 +11,24 @@ body {
     font-family: "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
     justify-content: center;
     align-items: center;
-    /* background-image: url("/images/bg.jpg"); */
-    filter: brightness(1.1);
-    background-size: cover;
+    background-color: #030024;
+
+    background-image: radial-gradient(
+            white,
+            rgba(255, 255, 255, 0.2) 2px,
+            transparent 40px
+        ),
+        radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 40px),
+        radial-gradient(
+            rgba(255, 255, 255, 0.4),
+            rgba(255, 255, 255, 0.1) 2px,
+            transparent 30px
+        );
+
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    color: #248cdbe1;
 }
 main {
     display: block;
@@ -26,6 +41,25 @@ main {
     flex-direction: row;
     align-content: space-between;
 }
+#triangle {
+    max-height: 20vh;
+    position: fixed;
+    z-index: -10;
+    top: -2vh;
+    left: -2vw;
+    transform: rotate(45deg);
+}
+#patch {
+    float: right;
+}
+#nothing {
+    max-height: 20vh;
+    transform: rotate(45deg);
+    z-index: +10;
+    position: fixed;
+    top: 1vh;
+    right: 28vw;
+}
 h1,
 h3 {
     font-family: "Dokdo", "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -34,12 +68,32 @@ h3 {
 h2 {
     font-family: "Rakkas", cursive;
     margin-bottom: 5vh;
+    color: #d7f4fd;
 }
 #title {
     position: fixed;
     top: 6vh;
     left: 6vh;
     font-size: 70px;
+}
+#info-modal {
+    max-width: 90%;
+    font-size: 2em;
+    font-family: "Dokdo", "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
+    color: white;
+    background-image: url(./images/clouds.png);
+    /* background-position: -150px -300px; */
+    background-size: cover;
+    padding: 15% 13% 10% 3%;
+    margin-left: 10vw;
+    margin-right: 0;
+    margin-bottom: 0.5%;
+}
+#shutx {
+    float: right;
+    font-size: 2em;
+    cursor: pointer;
+    margin-bottom: 3em;
 }
 .to-top {
     position: fixed;
@@ -69,16 +123,24 @@ div.gallery-container {
     flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
-    margin: 5%;
+    margin: 3%;
 }
 div.category {
-    height: 33vh;
-    width: 15vw;
-    padding: 15px;
-    margin: 3em;
+    min-width: 40vw;
+
+    max-height: 60vh;
+    /* margin-right: 4vw; */
+    margin-bottom: 10vh;
+    align-self: center;
+    justify-content: center;
+}
+.category-title {
+    font-size: 8em;
+    color: white;
 }
 img.cat-pic {
-    max-height: 28vh;
+    max-height: 48vh;
+    margin-bottom: 10%;
 }
 div.artist-container {
     display: flex;
@@ -127,6 +189,7 @@ img.defile-pic {
 p.artist-name {
     font-family: "Dokdo";
     font-size: 3em;
+    color: #d7f4fd;
 }
 .card-block {
     flex: 0 0 auto;
@@ -134,10 +197,7 @@ p.artist-name {
     margin-bottom: 0;
     padding-bottom: 0;
 }
-.category-title {
-    font-size: 2em;
-    color: #2c3033;
-}
+
 div.songs-container {
     min-width: 25vw;
     margin-left: 10%;
@@ -254,6 +314,11 @@ div.mix-element {
     width: 20vw;
     cursor: pointer;
 }
+.jukebox-pic {
+    min-height: 20vh;
+    transform: rotate(40deg);
+}
+
 @media only screen and (min-width: 42em) and (max-width: 64em) {
     div.gallery-container {
         display: flex;
