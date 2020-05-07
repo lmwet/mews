@@ -16,9 +16,6 @@ export default function Header() {
                 <a href="/login" className="link">
                     Log in
                 </a>
-                <a href="/logout" className="link">
-                    Log Out
-                </a>
                 <a href="/jukebox" className="link">
                     The Jukebox
                 </a>

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import usePlay from "./hooks/usePlay";
+import React, { useState } from "react";
 import ArtistCard from "./artist-card";
 import Defile from "./defile";
 import MyPlaylists from "./myPlaylists";
@@ -9,83 +8,83 @@ export default function Wilad() {
     const [newPlaylist, setNewPlaylist] = useState([]);
     const [showModal, setShowmodal] = useState(false);
 
-    // const artists = [
-    //     {
-    //         name: "leila",
-    //         engTitle: "Chavela Vargas",
-    //         arabicTitle: "",
-    //         imgUrl: "/images/chavela.jpeg",
-    //         get: "/chavela.json",
-    //     },
-    //     {
-    //         name: "nakhane",
-    //         engTitle: "Oum Kalthoum",
-    //         arabicTitle: " ام كلثوم",
-    //         imgUrl: "/images/oumkalthoum.jpg",
-    //         get: "/oumkalthoum.json",
-    //     },
-    //     {
-    //         name: "mujuice",
-    //         engTitle: "Zemfira",
-    //         arabicTitle: "Земфира",
-    //         imgUrl: "/images/zemfira.jpg",
-    //         get: "/zemfira.json",
-    //     },
-    //     {
-    //         name: "kiddy",
-    //         engTitle: "Colette Magny",
-    //         arabicTitle: "",
-    //         imgUrl: "/images/colette.jpg",
-    //         get: "/colette.json",
-    //     },
-    // ];
+    const artists = [
+        {
+            name: "nakhane",
+            engTitle: "Nakhane",
+            arabicTitle: "",
+            imgUrl: "/images/nakhane.jpg",
+            get: "/nakhane.json",
+        },
+        {
+            name: "leila",
+            engTitle: "Mashrou3 Leila",
+            arabicTitle: "مشروع ليلى",
+            imgUrl: "/images/sinno.jpg",
+            get: "/leila.json",
+        },
+        {
+            name: "mujuice",
+            engTitle: "Mujuice",
+            arabicTitle: "Муджус",
+            imgUrl: "/images/mujuice.jpg",
+            get: "/mujuice.json",
+        },
+        {
+            name: "kiddy",
+            engTitle: "Kiddy Smile",
+            arabicTitle: "",
+            imgUrl: "/images/kiddy.jpg",
+            get: "/kiddy.json",
+        },
+    ];
 
-    // const handleclick = (e) => {
-    //     e.preventDefault();
-    //     // playerIsVisible = true;
-    //     const elem = e.target;
-    //     let url = elem.getAttribute("href");
-    //     const embedUrl = url.replace("track", "embed/track");
-    //     setCurrentTrack(embedUrl);
-    // };
+    const handleclick = (e) => {
+        e.preventDefault();
 
-    // const playAlbum = (e) => {
-    //     e.preventDefault();
-    //     console.log("playalbum running");
-    //     const elem = e.target;
-    //     let url = elem.getAttribute("href");
-    //     const embedUrl = url.replace("album", "embed/album");
-    //     setCurrentTrack(embedUrl);
-    // };
+        const elem = e.target;
+        let url = elem.getAttribute("href");
+        const embedUrl = url.replace("track", "embed/track");
+        setCurrentTrack(embedUrl);
+    };
 
-    // const addToPlaylist = async (e) => {
-    //     e.preventDefault();
+    const playAlbum = (e) => {
+        e.preventDefault();
+        console.log("playalbum running");
+        const elem = e.target;
+        let url = elem.getAttribute("href");
+        const embedUrl = url.replace("album", "embed/album");
+        setCurrentTrack(embedUrl);
+    };
 
-    //     const elem = e.target;
-    //     let songUri = elem.getAttribute("href");
-    //     console.log("addedSongUri", songUri);
+    const addToPlaylist = async (e) => {
+        e.preventDefault();
 
-    //     let songTitle = elem.parentNode.childNodes[1].innerText;
-    //     console.log("songTitle", songTitle);
+        const elem = e.target;
+        let songUri = elem.getAttribute("href");
+        console.log("addedSongUri", songUri);
 
-    //     await setNewPlaylist((newPlaylist) => [
-    //         ...newPlaylist,
-    //         { songTitle, songUri },
-    //     ]);
-    //     console.log("newPlaylist", newPlaylist);
-    // };
+        let songTitle = elem.parentNode.childNodes[1].innerText;
+        console.log("songTitle", songTitle);
 
-    // const toggle = () => setShowmodal(true);
-    // const toggleBack = () => {
-    //     setShowmodal(false), console.log("toggleback running");
-    // };
+        await setNewPlaylist((newPlaylist) => [
+            ...newPlaylist,
+            { songTitle, songUri },
+        ]);
+        console.log("newPlaylist", newPlaylist);
+    };
+
+    const toggle = () => setShowmodal(true);
+    const toggleBack = () => {
+        setShowmodal(false), console.log("toggleback running");
+    };
 
     return (
         <React.Fragment>
             <h1 className="cpnt-title">Children of the Night</h1>
             <h2>أولاد الليل</h2>
 
-            {/* <Defile artists={artists} />
+            <Defile artists={artists} />
 
             <div className="mix-toggle">
                 <input id="mix" type="submit" value="My Mix" onClick={toggle} />
@@ -95,8 +94,8 @@ export default function Wilad() {
                         toggleBack={toggleBack}
                     />
                 ) : null}
-            </div> */}
-            {/* <a title="back-to-top" className="to-top" href="devil-dykes">
+            </div>
+            <a title="back-to-top" className="to-top" href="wilad">
                 <span className="glyphicon glyphicon-chevron-up"></span>
             </a>
 
@@ -108,9 +107,9 @@ export default function Wilad() {
                     playAlbum={(e) => playAlbum(e)}
                     addToPlaylist={(e) => addToPlaylist(e)}
                 />
-            ))} */}
+            ))}
 
-            {/* <iframe
+            <iframe
                 className="player"
                 src={currentTrack}
                 width="100%"
@@ -118,7 +117,7 @@ export default function Wilad() {
                 frameBorder="0"
                 allowtransparency="true"
                 allow="encrypted-media"
-            ></iframe> */}
+            ></iframe>
         </React.Fragment>
     );
 }

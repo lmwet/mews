@@ -7,10 +7,11 @@ var cookieParser = require("cookie-parser");
 const server = require("http").Server(app);
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
 const spotifyApi = new SpotifyWebApi({
-    clientId: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
-    redirectUri: REDIRECT_URI,
+    clientId: CLIENT_ID || process.env.CLIENT_ID,
+    clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
+    redirectUri: REDIRECT_URI || process.env.REDIRECT_URI,
 });
+
 const db = require("./utils/db.js");
 
 //routers
@@ -42,7 +43,7 @@ app.use(legendsRouter);
 app.use(queersRouter);
 // app.use(xodadeRouter);
 app.use(blackPrideRouter);
-// app.use(wiladRouter);
+app.use(wiladRouter);
 // app.use(femiHipRouter);
 
 app.use(express.static("./public"));
@@ -184,6 +185,4 @@ app.get("*", (req, res) => {
     console.log("all routes runnin");
 });
 
-server.listen(8080, function () {
-    console.log("I'm listening.");
-});
+server.listen(process.env.PORT || 8080);

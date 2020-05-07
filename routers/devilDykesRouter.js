@@ -4,9 +4,9 @@ const devilDykesRouter = express.Router();
 const SpotifyWebApi = require("spotify-web-api-node");
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("../secrets.json");
 const spotifyApi = new SpotifyWebApi({
-    clientId: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
-    redirectUri: REDIRECT_URI,
+    clientId: CLIENT_ID || process.env.CLIENT_ID,
+    clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
+    redirectUri: REDIRECT_URI || process.env.REDIRECT_URI,
 });
 
 devilDykesRouter.get("/trumpet.json", async (req, res) => {
