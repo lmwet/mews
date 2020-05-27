@@ -8,83 +8,159 @@ export default function Femihip() {
     const [newPlaylist, setNewPlaylist] = useState([]);
     const [showModal, setShowmodal] = useState(false);
 
-    // const artists = [
-    //     {
-    //         name: "soultana",
-    //         engTitle: "Chavela Vargas",
-    //         arabicTitle: "",
-    //         imgUrl: "/images/chavela.jpeg",
-    //         get: "/chavela.json",
-    //     },
-    //     {
-    //         name: "mala",
-    //         engTitle: "Oum Kalthoum",
-    //         arabicTitle: " ام كلثوم",
-    //         imgUrl: "/images/oumkalthoum.jpg",
-    //         get: "/oumkalthoum.json",
-    //     },
-    //     {
-    //         name: "medusa",
-    //         engTitle: "Zemfira",
-    //         arabicTitle: "Земфира",
-    //         imgUrl: "/images/zemfira.jpg",
-    //         get: "/zemfira.json",
-    //     },
-    //     {
-    //         name: "ebow",
-    //         engTitle: "Colette Magny",
-    //         arabicTitle: "",
-    //         imgUrl: "/images/colette.jpg",
-    //         get: "/colette.json",
-    //     },
+    const artists = [
+        {
+            name: "soultana",
+            engTitle: "Soultana",
+            arabicTitle: "سلطانة",
+            imgUrl: "/images/soultana.jpg",
+            get: "/soultana.json",
+        },
+        {
+            name: "sara",
+            engTitle: "Sara Hebe",
+            arabicTitle: "",
+            imgUrl: "/images/sara.jpg",
+            get: "/sara.json",
+        },
+        {
+            name: "medusa",
+            engTitle: "Medusa",
+            arabicTitle: " مدوسه",
+            imgUrl: "/images/medusa.jpg",
+            get: "/medusa.json",
+        },
+        {
+            name: "ebow",
+            engTitle: "Ebow",
+            arabicTitle: "",
+            imgUrl: "/images/ebow.jpg",
+            get: "/ebow.json",
+        },
+        {
+            name: "kanyi",
+            engTitle: "Kanyi",
+            arabicTitle: "",
+            imgUrl: "/images/kanyi.jpg",
+            get: "/kanyi.json",
+        },
+        {
+            name: "rap",
+            engTitle: "Rap Plus Size",
+            arabicTitle: "",
+            imgUrl: "/images/rap.jpg",
+            get: "/rap.json",
+        },
+        {
+            name: "shadia",
+            engTitle: "Shadia Mansour",
+            arabicTitle: " شادية منصور ",
+            imgUrl: "/images/shadia.jpg",
+            get: "/medusa.json",
+        },
+        {
+            name: "tic",
+            engTitle: "Tic Tac Toe",
+            arabicTitle: "",
+            imgUrl: "/images/tic.jpg",
+            get: "/tic.json",
+        },
+        {
+            name: "malikah",
+            engTitle: "Malikah",
+            arabicTitle: "ملكة ‎",
+            imgUrl: "/images/malikah.jpg",
+            get: "/malikah.json",
+        },
+        {
+            name: "mare",
+            engTitle: "Mare Advertencia Lirika",
+            arabicTitle: " ",
+            imgUrl: "/images/mare.jpg",
+            get: "/mare.json",
+        },
+        {
+            name: "ntsiki",
+            engTitle: "Ntsiki Mazwai ",
+            arabicTitle: "",
+            imgUrl: "/images/ntsiki.png",
+            get: "/ntsiki.json",
+        },
+        {
+            name: "casey",
+            engTitle: "Casey",
+            arabicTitle: "",
+            imgUrl: "/images/casey.jpg",
+            get: "/casey.json",
+        },
+        {
+            name: "felukah",
+            engTitle: "Felukah",
+            arabicTitle: "فلوكه",
+            imgUrl: "/images/felukah.jpg",
+            get: "/felukah.json",
+        },
+        {
+            name: "quay",
+            engTitle: "Quay Dash",
+            arabicTitle: "",
+            imgUrl: "/images/quay.jpg",
+            get: "/quay.json",
+        },
+        {
+            name: "keny",
+            engTitle: "Keny Arkana",
+            arabicTitle: "",
+            imgUrl: "/images/keny.jpg",
+            get: "/keny.json",
+        },
+    ];
 
-    // ];
+    const handleclick = (e) => {
+        e.preventDefault();
+        // playerIsVisible = true;
+        const elem = e.target;
+        let url = elem.getAttribute("href");
+        const embedUrl = url.replace("track", "embed/track");
+        setCurrentTrack(embedUrl);
+    };
 
-    // const handleclick = (e) => {
-    //     e.preventDefault();
-    //     // playerIsVisible = true;
-    //     const elem = e.target;
-    //     let url = elem.getAttribute("href");
-    //     const embedUrl = url.replace("track", "embed/track");
-    //     setCurrentTrack(embedUrl);
-    // };
+    const playAlbum = (e) => {
+        e.preventDefault();
+        console.log("playalbum running");
+        const elem = e.target;
+        let url = elem.getAttribute("href");
+        const embedUrl = url.replace("album", "embed/album");
+        setCurrentTrack(embedUrl);
+    };
 
-    // const playAlbum = (e) => {
-    //     e.preventDefault();
-    //     console.log("playalbum running");
-    //     const elem = e.target;
-    //     let url = elem.getAttribute("href");
-    //     const embedUrl = url.replace("album", "embed/album");
-    //     setCurrentTrack(embedUrl);
-    // };
+    const addToPlaylist = async (e) => {
+        e.preventDefault();
 
-    // const addToPlaylist = async (e) => {
-    //     e.preventDefault();
+        const elem = e.target;
+        let songUri = elem.getAttribute("href");
+        console.log("addedSongUri", songUri);
 
-    //     const elem = e.target;
-    //     let songUri = elem.getAttribute("href");
-    //     console.log("addedSongUri", songUri);
+        let songTitle = elem.parentNode.childNodes[1].innerText;
+        console.log("songTitle", songTitle);
 
-    //     let songTitle = elem.parentNode.childNodes[1].innerText;
-    //     console.log("songTitle", songTitle);
+        await setNewPlaylist((newPlaylist) => [
+            ...newPlaylist,
+            { songTitle, songUri },
+        ]);
+        console.log("newPlaylist", newPlaylist);
+    };
 
-    //     await setNewPlaylist((newPlaylist) => [
-    //         ...newPlaylist,
-    //         { songTitle, songUri },
-    //     ]);
-    //     console.log("newPlaylist", newPlaylist);
-    // };
-
-    // const toggle = () => setShowmodal(true);
-    // const toggleBack = () => {
-    //     setShowmodal(false), console.log("toggleback running");
-    // };
+    const toggle = () => setShowmodal(true);
+    const toggleBack = () => {
+        setShowmodal(false), console.log("toggleback running");
+    };
 
     return (
         <div>
             <h1 className="cpnt-title">Feminist Hip Hop</h1>
             <h2></h2>
-            {/* <Defile artists={artists} />
+            <Defile artists={artists} />
 
             <div className="mix-toggle">
                 <input id="mix" type="submit" value="My Mix" onClick={toggle} />
@@ -117,7 +193,7 @@ export default function Femihip() {
                 frameBorder="0"
                 allowtransparency="true"
                 allow="encrypted-media"
-            ></iframe> */}
+            ></iframe>
         </div>
     );
 }

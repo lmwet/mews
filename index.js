@@ -44,7 +44,7 @@ app.use(queersRouter);
 // app.use(xodadeRouter);
 app.use(blackPrideRouter);
 app.use(wiladRouter);
-// app.use(femiHipRouter);
+app.use(femiHipRouter);
 
 app.use(express.static("./public"));
 
