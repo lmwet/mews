@@ -114,6 +114,13 @@ export default function Femihip() {
             imgUrl: "/images/keny.jpg",
             get: "/keny.json",
         },
+        {
+            name: "kween",
+            engTitle: "Kween G Kibone",
+            arabicTitle: "",
+            imgUrl: "/images/kween.jpg",
+            get: "/kween.json",
+        },
     ];
 
     const handleclick = (e) => {

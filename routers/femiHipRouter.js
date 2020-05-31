@@ -294,4 +294,23 @@ femiHipRouter.get("/keny.json", async (req, res) => {
     }
 });
 
+femiHipRouter.get("/kween.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "4u6bHNyuB19sp2uin2m4f1",
+            "AU"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in keny",
+            err.message
+        );
+    }
+});
+
 module.exports = femiHipRouter;
