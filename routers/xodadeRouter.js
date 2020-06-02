@@ -17,7 +17,7 @@ xodadeRouter.get("/rose.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "56QlZ0AFfkaaHyANLVkg5h",
-            "SE"
+            "TR"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
@@ -36,12 +36,31 @@ xodadeRouter.get("/lena.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "0LH01nWLQote2HIUL87BLc",
-            "SY"
+            "US"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
             "Unfortunately, something has gone wrong in lena",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/gaelynn.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "68zltLWXjBB3dIqHikDXZy",
+            "IR"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in gaelynn",
             err.message
         );
     }
@@ -85,77 +104,172 @@ xodadeRouter.get("/emel.json", async (req, res) => {
     }
 });
 
-xodadeRouter.get("/maii.json", async (req, res) => {
+// xodadeRouter.get("/ivy.json", async (req, res) => {
+//     try {
+//         const grant = await spotifyApi.clientCredentialsGrant();
+//         const token = await spotifyApi.setAccessToken(
+//             grant.body["access_token"]
+//         );
+//         const topTen = await spotifyApi.getArtistTopTracks(
+//             "6p2442ymrT9lZEuCZJdYcH",
+//             "SE"
+//         );
+//         res.json(topTen.body.tracks);
+//     } catch (err) {
+//         console.log(
+//             "Unfortunately, something has gone wrong in ivy",
+//             err.message
+//         );
+//     }
+// });
+
+xodadeRouter.get("/tierra.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
         const token = await spotifyApi.setAccessToken(
             grant.body["access_token"]
         );
         const topTen = await spotifyApi.getArtistTopTracks(
-            "1kqQvcNxWvkzK55bwDvHGP",
+            "4lPl9gqgox3JDiaJ1yklKh",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in tierra",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/teyana.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "4ULO7IGI3M2bo0Ap7B9h8a",
+            "SE"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in teyana",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/ikue.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "0eQ97WxHfIWpkbo1AlO99H",
+            "JA"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in ikue",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/choral.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "1Yz2wALZeP6bIKtLIwXPL0",
+            "DE"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in choral",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/masu.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "14d5KCX9nprUcxnKIShrr1",
+            "JA"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in masu",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/dina.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "4dejJ4Gg0YVjWRUdfpF3yA",
             "EG"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in maii",
+            "Unfortunately, something has gone wrong in dina",
             err.message
         );
     }
 });
 
-xodadeRouter.get("/yasmine.json", async (req, res) => {
+xodadeRouter.get("/lido.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
         const token = await spotifyApi.setAccessToken(
             grant.body["access_token"]
         );
         const topTen = await spotifyApi.getArtistTopTracks(
-            "5VElAWe58JiEzEl4vtjw7J",
-            "LI"
+            "1IdkKQ9CM1i0wygfxYV4Z3",
+            "CO"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in maii",
+            "Unfortunately, something has gone wrong in lido",
             err.message
         );
     }
 });
 
-xodadeRouter.get("/nawel.json", async (req, res) => {
+xodadeRouter.get("/zakiya.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
         const token = await spotifyApi.setAccessToken(
             grant.body["access_token"]
         );
         const topTen = await spotifyApi.getArtistTopTracks(
-            "2FnT84XG3yKLIHEjheon9W",
-            "SE"
+            "1JTB5u5ODGNha3vMLQXmp2",
+            "SY"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in nawel",
-            err.message
-        );
-    }
-});
-
-xodadeRouter.get("/badiaa.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "4tA4OuKn0ZjJgf34cZBmoJ",
-            "SE"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in badiaa",
+            "Unfortunately, something has gone wrong in zakiya",
             err.message
         );
     }

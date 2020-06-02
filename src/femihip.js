@@ -31,6 +31,13 @@ export default function Femihip() {
             get: "/ebow.json",
         },
         {
+            name: "yugen",
+            engTitle: "Yugen Blakrok",
+            arabicTitle: "",
+            imgUrl: "/images/yugen.jpg",
+            get: "/yugen.json",
+        },
+        {
             name: "kanyi",
             engTitle: "Kanyi",
             arabicTitle: "",

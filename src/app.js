@@ -13,6 +13,7 @@ import FemHip from "./femihip";
 import MyPlaylists from "./myPlaylists";
 import Jukebox from "./jukebox";
 import Queer from "./queer";
+import Xodade from "./xodade";
 
 export default function App() {
     return (
@@ -28,6 +29,7 @@ export default function App() {
                 <Route path="/wilad" component={Wilad} />
                 <Route path="/femi-hip-hop" component={FemHip} />
                 <Route path="/my-playlists" component={MyPlaylists} />
+                <Route path="/xodade" component={Xodade} />
                 <Route
                     path="/jukebox"
                     render={(props) => (

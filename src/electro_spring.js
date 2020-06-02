@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import usePlay from "./hooks/usePlay";
 import ArtistCard from "./artist-card";
 import Defile from "./defile";
 import MyPlaylists from "./myPlaylists";
@@ -58,6 +57,13 @@ export default function ElectroSpring() {
             arabicTitle: " نوال بن كريم ",
             imgUrl: "/images/baadia.jpg",
             get: "/badiaa.json",
+        },
+        {
+            name: "dina",
+            engTitle: "Dina El Wedidi ",
+            arabicTitle: "دينا الوديدي‎",
+            imgUrl: "/images/dina.jpg",
+            get: "/dina.json",
         },
     ];
 

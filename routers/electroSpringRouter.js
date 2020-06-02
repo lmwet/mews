@@ -142,4 +142,23 @@ electroSpringRouter.get("/badiaa.json", async (req, res) => {
     }
 });
 
+electroSpringRouter.get("/dina.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "4dejJ4Gg0YVjWRUdfpF3yA",
+            "EG"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in dina",
+            err.message
+        );
+    }
+});
+
 module.exports = electroSpringRouter;

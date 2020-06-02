@@ -3,7 +3,7 @@ import ArtistCard from "./artist-card";
 import Defile from "./defile";
 import MyPlaylists from "./myPlaylists";
 
-export default function Wilad() {
+export default function Xodade() {
     const [currentTrack, setCurrentTrack] = useState("");
     const [newPlaylist, setNewPlaylist] = useState([]);
     const [showModal, setShowmodal] = useState(false);
@@ -21,7 +21,7 @@ export default function Wilad() {
             engTitle: "Lena Chamamyan",
             arabicTitle: "",
             imgUrl: "/images/lena.jpg",
-            get: "/leila.json",
+            get: "/lena.json",
         },
         {
             name: "gaelynn",
@@ -38,19 +38,19 @@ export default function Wilad() {
             get: "/yugen.json",
         },
         {
-            name: "ivy",
-            engTitle: "Ivy Queen",
-            arabicTitle: "",
-            imgUrl: "/images/ivy.jpg",
-            get: "/ivy.json",
+            name: "emel",
+            engTitle: "Emel Mathlouthi",
+            arabicTitle: "آمال المثلوثي",
+            imgUrl: "/images/brujas.jpg",
+            get: "/emel.json",
         },
-        {
-            name: "yalda",
-            engTitle: "Yalda Abbasi",
-            arabicTitle: "",
-            imgUrl: "/images/yalda.jpg",
-            get: "/yalda.json",
-        },
+        // {
+        //     name: "ivy",
+        //     engTitle: "Ivy Queen",
+        //     arabicTitle: "",
+        //     imgUrl: "/images/ivy.jpg",
+        //     get: "/ivy.json",
+        // },
         {
             name: "tierra",
             engTitle: "Tierra Whack",
@@ -100,6 +100,13 @@ export default function Wilad() {
             imgUrl: "/images/lido.jpg",
             get: "/lido.json",
         },
+        {
+            name: "zakiya",
+            engTitle: "Zakiya Hamdan",
+            arabicTitle: " زكيّة حمدان",
+            imgUrl: "/images/zakiya.jpg",
+            get: "/zakiya.json",
+        },
     ];
 
     const handleclick = (e) => {
@@ -144,8 +151,8 @@ export default function Wilad() {
 
     return (
         <React.Fragment>
-            <h1 className="cpnt-title">Children of the Night</h1>
-            <h2>أولاد الليل</h2>
+            <h1 className="cpnt-title">Xodade</h1>
+            <h2> </h2>
 
             <Defile artists={artists} />
 

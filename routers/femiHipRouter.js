@@ -313,4 +313,23 @@ femiHipRouter.get("/shay.json", async (req, res) => {
     }
 });
 
+femiHipRouter.get("/yugen.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "3kv1Edgn5HlEWCuEKr1Y9x",
+            "AU"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in yugen",
+            err.message
+        );
+    }
+});
+
 module.exports = femiHipRouter;
