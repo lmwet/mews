@@ -104,7 +104,7 @@ export default function Xodade() {
             name: "zakiya",
             engTitle: "Zakiya Hamdan",
             arabicTitle: " زكيّة حمدان",
-            imgUrl: "/images/zakiya.jpg",
+            imgUrl: "/images/zakiya.jpeg",
             get: "/zakiya.json",
         },
     ];
