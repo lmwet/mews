@@ -17,7 +17,7 @@ export default function Wilad() {
             get: "/rose.json",
         },
         {
-            name: "Lena",
+            name: "lena",
             engTitle: "Lena Chamamyan",
             arabicTitle: "",
             imgUrl: "/images/lena.jpg",
@@ -29,6 +29,13 @@ export default function Wilad() {
             arabicTitle: "",
             imgUrl: "/images/gaelinn.jpg",
             get: "/gaelynn.json",
+        },
+        {
+            name: "yugen",
+            engTitle: "Yugen Blakrok",
+            arabicTitle: "",
+            imgUrl: "/images/yugen.jpg",
+            get: "/yugen.json",
         },
         {
             name: "ivy",
@@ -78,6 +85,20 @@ export default function Wilad() {
             arabicTitle: "マス オブ ザ ファーメンティング ドレッグス",
             imgUrl: "/images/masu.jpg",
             get: "/masu.json",
+        },
+        {
+            name: "dina",
+            engTitle: "Dina El Wedidi ",
+            arabicTitle: "دينا الوديدي‎",
+            imgUrl: "/images/dina.jpg",
+            get: "/dina.json",
+        },
+        {
+            name: "lido",
+            engTitle: "Lido Pimienta",
+            arabicTitle: "",
+            imgUrl: "/images/lido.jpg",
+            get: "/lido.json",
         },
     ];
 

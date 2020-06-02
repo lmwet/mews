@@ -24,13 +24,6 @@ export default function Femihip() {
             get: "/sara.json",
         },
         {
-            name: "medusa",
-            engTitle: "Medusa",
-            arabicTitle: " مدوسه",
-            imgUrl: "/images/medusa.jpg",
-            get: "/medusa.json",
-        },
-        {
             name: "ebow",
             engTitle: "Ebow",
             arabicTitle: "",
@@ -56,7 +49,7 @@ export default function Femihip() {
             engTitle: "Shadia Mansour",
             arabicTitle: " شادية منصور ",
             imgUrl: "/images/shadia.jpg",
-            get: "/medusa.json",
+            get: "/shadia.json",
         },
         {
             name: "tic",
@@ -121,11 +114,17 @@ export default function Femihip() {
             imgUrl: "/images/kween.jpg",
             get: "/kween.json",
         },
+        {
+            name: "shay",
+            engTitle: "Shay",
+            arabicTitle: "",
+            imgUrl: "/images/shay.png",
+            get: "/shay.json",
+        },
     ];
 
     const handleclick = (e) => {
         e.preventDefault();
-        // playerIsVisible = true;
         const elem = e.target;
         let url = elem.getAttribute("href");
         const embedUrl = url.replace("track", "embed/track");

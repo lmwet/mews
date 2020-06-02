@@ -9,39 +9,58 @@ const spotifyApi = new SpotifyWebApi({
     redirectUri: REDIRECT_URI || process.env.REDIRECT_URI,
 });
 
-xodadeRouter.get("/mariam.json", async (req, res) => {
+xodadeRouter.get("/rose.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
         const token = await spotifyApi.setAccessToken(
             grant.body["access_token"]
         );
         const topTen = await spotifyApi.getArtistTopTracks(
-            "3M3dqhDqNK2DsZPIbopgUA",
-            "DE"
+            "56QlZ0AFfkaaHyANLVkg5h",
+            "SE"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in mariam",
+            "Unfortunately, something has gone wrong in rose",
             err.message
         );
     }
 });
 
-xodadeRouter.get("/aya.json", async (req, res) => {
+xodadeRouter.get("/lena.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
         const token = await spotifyApi.setAccessToken(
             grant.body["access_token"]
         );
         const topTen = await spotifyApi.getArtistTopTracks(
-            "0Od49f50ljr4kmQgclwHkm",
-            "EG"
+            "0LH01nWLQote2HIUL87BLc",
+            "SY"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in aya",
+            "Unfortunately, something has gone wrong in lena",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/yugen.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "3kv1Edgn5HlEWCuEKr1Y9x",
+            "AU"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in yugen",
             err.message
         );
     }

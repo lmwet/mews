@@ -47,25 +47,6 @@ femiHipRouter.get("/sara.json", async (req, res) => {
     }
 });
 
-femiHipRouter.get("/medusa.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "6MhVj4YhdiPhGqaaXsc1f9",
-            "TU"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in medusa",
-            err.message
-        );
-    }
-});
-
 femiHipRouter.get("/ebow.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
@@ -131,7 +112,7 @@ femiHipRouter.get("/shadia.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "3PaRWHJX1nnmN4kffMGm93",
-            "FR"
+            "PA"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
@@ -169,7 +150,7 @@ femiHipRouter.get("/malikah.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "19HuV8Hhz6K7vzHPunEzbW",
-            "LI"
+            "EG"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
@@ -245,7 +226,7 @@ femiHipRouter.get("/felukah.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "0nmukaO2zzwRPEevPJph1F",
-            "EG"
+            "US"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
@@ -302,12 +283,31 @@ femiHipRouter.get("/kween.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "4u6bHNyuB19sp2uin2m4f1",
-            "AU"
+            "US"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in keny",
+            "Unfortunately, something has gone wrong in kween",
+            err.message
+        );
+    }
+});
+
+femiHipRouter.get("/shay.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "3MNnSV5hDd2UzZzgqD8xlU",
+            "FR"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in shay",
             err.message
         );
     }
