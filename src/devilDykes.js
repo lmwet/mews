@@ -33,6 +33,13 @@ export default function DevilDykes() {
             get: "/ipek.json",
         },
         {
+            name: "bia",
+            engTitle: "Bia Ferreira",
+            arabicTitle: "",
+            imgUrl: "/images/bia.jpg",
+            get: "/bia.json",
+        },
+        {
             name: "internet",
             engTitle: "The Internet",
             arabicTitle: "",
@@ -47,6 +54,20 @@ export default function DevilDykes() {
             get: "/beatrice.json",
         },
         {
+            name: "chika",
+            engTitle: "Chika",
+            arabicTitle: "",
+            imgUrl: "/images/chika.jpg",
+            get: "/chika.json",
+        },
+        {
+            name: "dory",
+            engTitle: "Dory De Oliveira",
+            arabicTitle: "",
+            imgUrl: "/images/dory.jpg",
+            get: "/dory.json",
+        },
+        {
             name: "kumbia",
             engTitle: "Kumbia Queers",
             arabicTitle: "",
@@ -59,6 +80,20 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/mansfield.jpg",
             get: "/mansfield.json",
+        },
+        {
+            name: "muthoni",
+            engTitle: "Muthoni Drummer Queen",
+            arabicTitle: "",
+            imgUrl: "/images/muthoni.jpg",
+            get: "/muthoni.json",
+        },
+        {
+            name: "chocolate",
+            engTitle: "Chocolate Remix",
+            arabicTitle: "",
+            imgUrl: "/images/chocolate.jpg",
+            get: "/chocolate.json",
         },
     ];
 

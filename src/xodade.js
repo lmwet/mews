@@ -19,9 +19,16 @@ export default function Xodade() {
         {
             name: "lena",
             engTitle: "Lena Chamamyan",
-            arabicTitle: "",
+            arabicTitle: "لينا شاماميان  ",
             imgUrl: "/images/lena.jpg",
             get: "/lena.json",
+        },
+        {
+            name: "phew",
+            engTitle: "Phew",
+            arabicTitle: "",
+            imgUrl: "/images/phew.jpg",
+            get: "/phew.json",
         },
         {
             name: "gaelynn",
@@ -59,6 +66,13 @@ export default function Xodade() {
             get: "/tierra.json",
         },
         {
+            name: "jun",
+            engTitle: "Jun Togawa",
+            arabicTitle: "戸川 純",
+            imgUrl: "/images/jun.jpg",
+            get: "/jun.json",
+        },
+        {
             name: "teyana",
             engTitle: "Teyana Taylor",
             arabicTitle: "",
@@ -80,18 +94,18 @@ export default function Xodade() {
             get: "/choral.json",
         },
         {
-            name: "masu",
-            engTitle: "Mass of the Fermenting Dregs",
-            arabicTitle: "マス オブ ザ ファーメンティング ドレッグス",
-            imgUrl: "/images/masu.jpg",
-            get: "/masu.json",
-        },
-        {
             name: "dina",
             engTitle: "Dina El Wedidi ",
             arabicTitle: "دينا الوديدي‎",
             imgUrl: "/images/dina.jpg",
             get: "/dina.json",
+        },
+        {
+            name: "takako",
+            engTitle: "Takako Minekawa",
+            arabicTitle: "",
+            imgUrl: "/images/takako.jpg",
+            get: "/takako.json",
         },
         {
             name: "lido",
@@ -106,6 +120,20 @@ export default function Xodade() {
             arabicTitle: " زكيّة حمدان",
             imgUrl: "/images/zakiya.jpeg",
             get: "/zakiya.json",
+        },
+        {
+            name: "luzmila",
+            engTitle: "Luzmila Carpio",
+            arabicTitle: "",
+            imgUrl: "/images/luzmila.jpg",
+            get: "/luzmila.json",
+        },
+        {
+            name: "masu",
+            engTitle: "Mass of the Fermenting Dregs",
+            arabicTitle: "マス オブ ザ ファーメンティング ドレッグス",
+            imgUrl: "/images/masu.jpg",
+            get: "/masu.json",
         },
     ];
 

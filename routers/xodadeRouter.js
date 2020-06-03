@@ -169,7 +169,7 @@ xodadeRouter.get("/ikue.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "0eQ97WxHfIWpkbo1AlO99H",
-            "JA"
+            "JP"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
@@ -207,7 +207,7 @@ xodadeRouter.get("/masu.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "14d5KCX9nprUcxnKIShrr1",
-            "JA"
+            "JP"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
@@ -264,12 +264,88 @@ xodadeRouter.get("/zakiya.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "1JTB5u5ODGNha3vMLQXmp2",
-            "SY"
+            "US"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
             "Unfortunately, something has gone wrong in zakiya",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/luzmila.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "5nerlXgmkkutK76kjPNjCr",
+            "BO"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in luzmila",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/jun.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "6fI3ZQseiBwzjXLSVuJGEI",
+            "JP"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in jun",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/phew.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "7mTJBVGJmkgbjwvbzc0Bqb",
+            "JP"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in phew",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/takako.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "3XxrXIYWH5PpuTbYSXDOZw",
+            "JP"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in takako",
             err.message
         );
     }

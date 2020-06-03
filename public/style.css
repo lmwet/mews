@@ -200,7 +200,7 @@ p.artist-name {
 
 div.songs-container {
     min-width: 25vw;
-    margin-left: 10%;
+    margin-left: 6%;
 }
 div.song-div {
     display: flex;

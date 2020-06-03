@@ -47,6 +47,101 @@ devilDykesRouter.get("/koffee.json", async (req, res) => {
     }
 });
 
+devilDykesRouter.get("/chocolate.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "4kkuyWmpashrooyOFvHX2m",
+            "ME"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in choco",
+            err.message
+        );
+    }
+});
+
+devilDykesRouter.get("/bia.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "0Aj4m8El9TdnqyVHhkuloa",
+            "BR"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in bia",
+            err.message
+        );
+    }
+});
+
+devilDykesRouter.get("/muthoni.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "2FzYw9fn2ZtQ7sZma5BxuB",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in muthoni",
+            err.message
+        );
+    }
+});
+
+devilDykesRouter.get("/chika.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "6UtYvUtXnmg5EtllDFlWp8",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in chika",
+            err.message
+        );
+    }
+});
+
+devilDykesRouter.get("/dory.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "1UbxAwPgZUfLcItrQw4bWr",
+            "BR"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in dory",
+            err.message
+        );
+    }
+});
+
 devilDykesRouter.get("/ipek.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();

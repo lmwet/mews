@@ -38,6 +38,13 @@ export default function BlackPride() {
             get: "/akua.json",
         },
         {
+            name: "kanyi",
+            engTitle: "Kanyi",
+            arabicTitle: "",
+            imgUrl: "/images/kanyi.jpg",
+            get: "/kanyi.json",
+        },
+        {
             name: "bia",
             engTitle: "Bia Ferreira",
             arabicTitle: "",
