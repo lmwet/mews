@@ -2,12 +2,11 @@ const express = require("express");
 const app = express();
 const SpotifyWebApi = require("spotify-web-api-node");
 const compression = require("compression");
-const cookieSession = require("cookie-session");
-var cookieParser = require("cookie-parser");
 const server = require("http").Server(app);
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = process.env.REDIRECT_URI;
+const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
+// const CLIENT_ID = process.env.CLIENT_ID;
+// const CLIENT_SECRET = process.env.CLIENT_SECRET;
+// const REDIRECT_URI = process.env.REDIRECT_URI;
 const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID || process.env.CLIENT_ID,
     clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
@@ -35,7 +34,7 @@ app.use(
     express.urlencoded({
         extended: false,
     })
-).use(cookieParser());
+);
 
 ////// ROUTERS //////
 app.use(devilDykesRouter);
@@ -50,18 +49,11 @@ app.use(femiHipRouter);
 
 app.use(express.static("./public"));
 
-const cookieSessionMiddleware = cookieSession({
-    secret: `secret`,
-    maxAge: 1000 * 60 * 60 * 24 * 90,
-});
-
-app.use(cookieSessionMiddleware);
-
 if (process.env.NODE_ENV != "production") {
     app.use(
         "/bundle.js",
         require("http-proxy-middleware")({
-            target: "https://m-e-w-s.herokuapp.com/",
+            target: "http://localhost:8081/",
         })
     );
 } else {

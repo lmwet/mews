@@ -9,21 +9,22 @@ export default function Info({ toggleBack }) {
             <strong id="shutx" onClick={toggleBack}>
                 x
             </strong>
-            <p> Hi dears, this page is using the spotify API. </p>{" "}
-            <p>
-                So unfortunately, in order to listen to the full songs and get
-                your own mix saved on your account you can login to spotify
+            <h3>Hi dears 💮☽⚧♆💮</h3>{" "}
+            <p className="info-text">
+                this page is using the spotify API. To listen to the full songs
+                and get your own mix saved on your account, you can login to
+                spotify
                 <a href="/login" className="link">
                     {" "}
                     here.
                 </a>
             </p>
-            <p>
+            <p className="info-text">
                 If you don`t want to have a spotify account, you may use
                 <a href="#" onClick={toggle}>
-                    <strong> this</strong>
+                    <strong> these keys</strong>
                 </a>{" "}
-                carefully. Have fun!
+                . Have fun!
             </p>
             {showCreds ? (
                 <p>username: mafiamal1312@gmail.com; PW: 13123dala</p>
