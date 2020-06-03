@@ -2,7 +2,9 @@ const express = require("express");
 const legendsRouter = express.Router();
 
 const SpotifyWebApi = require("spotify-web-api-node");
-const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("../secrets.json");
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REDIRECT_URI = process.env.REDIRECT_URI;
 const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID || process.env.CLIENT_ID,
     clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
@@ -99,25 +101,6 @@ legendsRouter.get("/chavela.json", async (req, res) => {
     } catch (err) {
         console.log(
             "Unfortunately, something has gone wrong in maii",
-            err.message
-        );
-    }
-});
-
-legendsRouter.get("/rose.json", async (req, res) => {
-    try {
-        const grant = await spotifyApi.clientCredentialsGrant();
-        const token = await spotifyApi.setAccessToken(
-            grant.body["access_token"]
-        );
-        const topTen = await spotifyApi.getArtistTopTracks(
-            "56QlZ0AFfkaaHyANLVkg5h",
-            "SE"
-        );
-        res.json(topTen.body.tracks);
-    } catch (err) {
-        console.log(
-            "Unfortunately, something has gone wrong in rose",
             err.message
         );
     }

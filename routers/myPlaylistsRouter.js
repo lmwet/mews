@@ -3,7 +3,9 @@ const myPlaylistsRouter = express.Router();
 const db = require("../utils/db.js");
 
 const SpotifyWebApi = require("spotify-web-api-node");
-const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("../secrets.json");
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REDIRECT_URI = process.env.REDIRECT_URI;
 const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID || process.env.CLIENT_ID,
     clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
