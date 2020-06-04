@@ -19,6 +19,13 @@ exports.getPlaylists = () => {
     FROM playlists 
     ORDER BY created_at DESC`;
     console.log(q);
+    return db.query(q);
+};
 
+exports.getArtists = () => {
+    const q = `SELECT * 
+    FROM artists 
+    ORDER BY created_at DESC`;
+    console.log(q);
     return db.query(q);
 };

@@ -8,7 +8,10 @@ export default function Rocket() {
         (async () => {
             try {
                 const { data } = await axios.get("/artists");
-                setArtistsArray(data);
+                console.log("data in get artists", data[0].rows);
+
+                setArtistsArray(data[0].rows);
+                console.log("artistsArray", artistsArray);
             } catch (e) {
                 console.log("err in get /artists", e);
             }
@@ -16,11 +19,12 @@ export default function Rocket() {
     }, []);
 
     const item = artistsArray[Math.floor(Math.random() * artistsArray.length)];
+    console.log("item", item);
 
     const buildLink = (e) => {
         e.preventDefault;
         let url = "https://m-e-w-s.herokuapp.com/category#artist";
-        const randomUrl = url.replace("category#artist", item);
+        const randomUrl = url.replace("category#artist", item.path);
         console.log("randomUrl", randomUrl);
 
         document.getElementById("random-link").href = randomUrl;
