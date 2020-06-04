@@ -321,6 +321,9 @@ div.mix-element {
     min-height: 20vh;
     transform: rotate(40deg);
 }
+#patch {
+    cursor: pointer;
+}
 
 @media only screen and (max-device-width: 480px) {
     body {

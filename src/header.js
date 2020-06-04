@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Rocket from "./rocket";
 
 export default function Header() {
-    // either u write props or the properties names themselves in {}
-
     return (
         <React.Fragment>
             <div id="header">
@@ -19,7 +18,7 @@ export default function Header() {
                 <a href="/jukebox" className="link">
                     The Jukebox
                 </a>
-                <img id="patch" src="/images/patch.png" />
+                <Rocket />
             </div>
         </React.Fragment>
     );
