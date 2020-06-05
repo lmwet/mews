@@ -2,13 +2,15 @@ const express = require("express");
 const legendsRouter = express.Router();
 
 const SpotifyWebApi = require("spotify-web-api-node");
+// const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("../secrets.json");
+
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 const spotifyApi = new SpotifyWebApi({
-    clientId: CLIENT_ID || process.env.CLIENT_ID,
-    clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
-    redirectUri: REDIRECT_URI || process.env.REDIRECT_URI,
+    clientId: CLIENT_ID,
+    clientSecret: CLIENT_SECRET,
+    redirectUri: REDIRECT_URI,
 });
 
 legendsRouter.get("/colette.json", async (req, res) => {
@@ -24,7 +26,7 @@ legendsRouter.get("/colette.json", async (req, res) => {
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in mariam",
+            "Unfortunately, something has gone wrong in colette",
             err.message
         );
     }
@@ -43,7 +45,7 @@ legendsRouter.get("/joan.json", async (req, res) => {
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in aya",
+            "Unfortunately, something has gone wrong in joan",
             err.message
         );
     }
@@ -62,7 +64,7 @@ legendsRouter.get("/oumkalthoum.json", async (req, res) => {
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in emel",
+            "Unfortunately, something has gone wrong in oumk",
             err.message
         );
     }
@@ -81,7 +83,7 @@ legendsRouter.get("/zemfira.json", async (req, res) => {
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in maii",
+            "Unfortunately, something has gone wrong in zemfira",
             err.message
         );
     }
@@ -100,7 +102,7 @@ legendsRouter.get("/chavela.json", async (req, res) => {
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in maii",
+            "Unfortunately, something has gone wrong in chavela",
             err.message
         );
     }
@@ -119,7 +121,7 @@ legendsRouter.get("/cassia.json", async (req, res) => {
         res.json(topTen.body.tracks);
     } catch (err) {
         console.log(
-            "Unfortunately, something has gone wrong in emel",
+            "Unfortunately, something has gone wrong in cassia",
             err.message
         );
     }

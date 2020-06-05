@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import usePlay from "./hooks/usePlay";
+import React, { useState } from "react";
+
 import ArtistCard from "./artist-card";
 import Defile from "./defile";
 import MyPlaylists from "./myPlaylists";
 
 export default function Legends() {
     const [currentTrack, setCurrentTrack] = useState("");
-    const [addedTrack, setAddedTrack] = useState("");
     const [newPlaylist, setNewPlaylist] = useState([]);
     const [showModal, setShowmodal] = useState(false);
 
@@ -52,13 +51,6 @@ export default function Legends() {
             arabicTitle: "",
             imgUrl: "/images/cassia.jpg",
             get: "/cassia.json",
-        },
-        {
-            name: "rose",
-            engTitle: "Calypso Rose",
-            arabicTitle: "",
-            imgUrl: "/images/rose.png",
-            get: "/rose.json",
         },
     ];
 

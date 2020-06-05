@@ -12,6 +12,11 @@ const spotifyApi = new SpotifyWebApi({
     clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
     redirectUri: REDIRECT_URI || process.env.REDIRECT_URI,
 });
+const spotifyApi = new SpotifyWebApi({
+    clientId: CLIENT_ID,
+    clientSecret: CLIENT_SECRET,
+    redirectUri: REDIRECT_URI,
+});
 
 const db = require("./utils/db.js");
 
@@ -95,17 +100,13 @@ app.get("/login", (req, res) => {
 app.get("/callback", (req, res) => {
     console.log("callback running");
 
-    console.log("req.session", req.session);
     const { code } = req.query;
     console.log("code from callback", code);
 
     spotifyApi.authorizationCodeGrant(code).then(function (data) {
-        // When our access token will expire
-        // var tokenExpirationEpoch;
-
         console.log("Retrieved access token", data.body["access_token"]);
 
-        console.log("1h access token set in session", req.session.token);
+        // console.log("1h access token set in session", req.session.token);
 
         spotifyApi.setAccessToken(data.body["access_token"]);
         // spotifyApi.setRefreshToken(data.body["refresh_token"]);
@@ -128,18 +129,23 @@ app.get("/callback", (req, res) => {
 app.post("/mix", (req, res) => {
     const playlistTitle = req.body.playlistName;
     const userName = req.body.userName;
+    console.log("post mix running");
+    console.log("req in post mix", req);
 
     let uris = req.body.newPlaylist.map(function (item) {
         return item["songUri"];
     });
 
+    console.log("uris", uris);
+
     spotifyApi.getMe().then(function (data) {
         let userId = data.body.id;
+        console.log("data in getMe", data.body);
 
         return spotifyApi
             .createPlaylist("e78n0efwj7pf0b72yyail012n", playlistTitle)
             .then(function (data) {
-                console.log("data in add", data);
+                console.log("data in create PL", data);
 
                 console.log("Ok. Playlist created!");
                 playlistId = data.body["id"];
@@ -149,7 +155,6 @@ app.post("/mix", (req, res) => {
 
                 db.addPlaylist(userId, url, playlistTitle, userName).catch(
                     (e) => {
-                        //catch on db.addUser
                         console.log("error in addPlaylist", e);
                         res.json({ success: false });
                     }

@@ -8,7 +8,7 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
 
     const nameUser = ({ target }) => {
         setUserName(target.value);
-        console.log("user name in electro", userName);
+        console.log("user name", userName);
     };
 
     const namePlaylist = ({ target }) => {
@@ -18,6 +18,7 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
 
     const submitPlaylist = async () => {
         console.log("submit playlist running");
+        console.log("newPlaylist", newPlaylist);
 
         axios
             .post("/mix", {
@@ -76,8 +77,8 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
                 </a>
                 {message ? (
                     <span className="error-message">
-                        Your playlist has been saved on your Spotify account.
-                        You can now listen to it in the Jukebox section!
+                        Your playlist has been created, uou can now listen to it
+                        in the Jukebox section!
                     </span>
                 ) : null}
                 <div className="tracks-pic-wrapper">

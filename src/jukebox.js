@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import usePlay from "./hooks/usePlay";
 import axios from "./axios";
 import MyPlaylists from "./myPlaylists";
 
 export default function Jukebox() {
     const [currentTrack, setCurrentTrack] = useState("");
     const [playlists, setPlaylists] = useState([]);
-    const [showModal, setShowmodal] = useState(false);
 
     useEffect(() => {
         axios
@@ -17,7 +15,7 @@ export default function Jukebox() {
                 }
             })
             .catch(function (err) {
-                console.log("err in get /bio", err);
+                console.log("err in get /mix", err);
             });
     }, []);
 
@@ -27,11 +25,6 @@ export default function Jukebox() {
         let url = elem.getAttribute("href");
         const embedUrl = url.replace("playlist", "embed/playlist");
         setCurrentTrack(embedUrl);
-    };
-
-    const toggle = () => setShowmodal(true);
-    const toggleBack = () => {
-        setShowmodal(false), console.log("toggleback running");
     };
 
     const setBg = (e) => {
@@ -44,6 +37,7 @@ export default function Jukebox() {
     return (
         <div>
             <h1>The Jukebox </h1>
+            <p>All the mixes we make...</p>
             <img
                 className="jukebox-pic"
                 height="100px"

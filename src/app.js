@@ -14,6 +14,7 @@ import MyPlaylists from "./myPlaylists";
 import Jukebox from "./jukebox";
 import Queer from "./queer";
 import Xodade from "./xodade";
+import Radio from "./radio";
 
 export default function App() {
     return (
@@ -40,6 +41,7 @@ export default function App() {
                         />
                     )}
                 />
+                <Route path="/radio" component={Radio} />
             </BrowserRouter>
         </React.Fragment>
     );
