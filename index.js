@@ -187,8 +187,8 @@ app.get("/artists", async (req, res) => {
 app.get("/bigmix", async (req, res) => {
     try {
         const bigmix = await db.getLineup();
-        console.log("bigmix", bigmix);
-        res.json(bigmix);
+        console.log("bigmix", bigmix.rows);
+        res.json(bigmix.rows);
         // res.json(bigmix, { success: true });
     } catch (e) {
         res.json({ success: false });

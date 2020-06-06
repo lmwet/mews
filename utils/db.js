@@ -31,7 +31,7 @@ exports.getArtists = () => {
 };
 
 exports.getLineup = () => {
-    const q = `SELECT * 
+    const q = `SELECT href 
     FROM lineup 
     ORDER BY created_at DESC
     LIMIT 20`;

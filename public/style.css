@@ -329,13 +329,24 @@ div.mix-element {
 
 .write-container {
     height: 20vh;
-    width: 80vh;
+    width: 90vw;
     margin: 3%;
+    display: flex;
+    flex-direction: row;
 }
 .read-container {
     height: 30vh;
     width: 80vh;
     margin: 3%;
+}
+.titel-linkbox {
+    font-size: 3em;
+}
+.label-linkbox {
+    max-width: 27vw;
+}
+.radio-button {
+    cursor: pointer;
 }
 #linkbox {
     height: 3vh;
@@ -343,7 +354,13 @@ div.mix-element {
     background-color: #162d3fe7;
     border: white 2px dotted;
 }
-
+#add2lineup {
+    max-height: 3vh;
+    margin: 2%;
+}
+.label-description {
+    max-width: 27vw;
+}
 #description {
     height: 8vh;
     width: 25vw;
