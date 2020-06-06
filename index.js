@@ -164,6 +164,8 @@ app.post("/mix", (req, res) => {
     });
 });
 
+//do the same with the updated radio mix
+
 app.get("/mix", async (req, res) => {
     try {
         const allPlaylists = await db.getPlaylists();

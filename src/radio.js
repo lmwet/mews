@@ -49,8 +49,20 @@ export default function Radio() {
         await setMix((mix) => [...mix, newTrack]);
     };
     console.log("mix after add", mix);
-    const createMix = (e) => {
-        console.log("value", e.target.value);
+
+    const createMix = () => {
+        //send new radio mix to server
+        axios
+            .post("/radioMix", {
+                mix,
+            })
+            .then((res) => {
+                if (res.data.success) {
+                    console.log("data in post radioMix", res);
+                } else {
+                    console.log("er in post mix");
+                }
+            });
     };
 
     //function addToMix = add new item to DB and create a new PL from mix + new item
@@ -95,7 +107,7 @@ export default function Radio() {
                         title="play the radio"
                         height="100px"
                         src="/images/play.jpg"
-                        // onClick={createMix}
+                        // onClick={play}
                     />
                 </div>
 
