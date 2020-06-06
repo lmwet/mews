@@ -39,10 +39,11 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
         document.getElementById("mix-name").value = "";
 
         const tracksList = document.getElementsByClassName("track");
-        console.log(tracksList);
+
         for (var i = 0; i < tracksList.length; i++) {
             tracksList[i].innerHTML = "";
         }
+        console.log(tracksList);
     };
 
     return (
