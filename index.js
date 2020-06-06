@@ -3,19 +3,14 @@ const app = express();
 const SpotifyWebApi = require("spotify-web-api-node");
 const compression = require("compression");
 const server = require("http").Server(app);
-// const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = process.env.REDIRECT_URI;
-// const spotifyApi = new SpotifyWebApi({
-//     clientId: CLIENT_ID || process.env.CLIENT_ID,
-//     clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
-//     redirectUri: REDIRECT_URI || process.env.REDIRECT_URI,
-// });
+const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
+// const CLIENT_ID = process.env.CLIENT_ID;
+// const CLIENT_SECRET = process.env.CLIENT_SECRET;
+// const REDIRECT_URI = process.env.REDIRECT_URI;
 const spotifyApi = new SpotifyWebApi({
-    clientId: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
-    redirectUri: REDIRECT_URI,
+    clientId: CLIENT_ID || process.env.CLIENT_ID,
+    clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
+    redirectUri: REDIRECT_URI || process.env.REDIRECT_URI,
 });
 
 const db = require("./utils/db.js");
@@ -183,10 +178,21 @@ app.get("/artists", async (req, res) => {
     try {
         const artists = await db.getArtists();
         res.json([artists, { success: true }]);
-        console.log("artists", artists);
     } catch (e) {
         res.json({ success: false });
         console.log("err in get /artists");
+    }
+});
+
+app.get("/bigmix", async (req, res) => {
+    try {
+        const bigmix = await db.getLineup();
+        console.log("bigmix", bigmix);
+        res.json(bigmix);
+        // res.json(bigmix, { success: true });
+    } catch (e) {
+        res.json({ success: false });
+        console.log("err in get /bigmix");
     }
 });
 

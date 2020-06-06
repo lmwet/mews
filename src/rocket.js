@@ -8,7 +8,6 @@ export default function Rocket() {
         (async () => {
             try {
                 const { data } = await axios.get("/artists");
-                console.log("data in get artists", data[0].rows);
 
                 setArtistsArray(data[0].rows);
                 console.log("artistsArray", artistsArray);

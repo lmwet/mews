@@ -18,6 +18,9 @@ export default function Header() {
                 <a href="/jukebox" className="link">
                     The Jukebox
                 </a>
+                <a href="/radio" className="link">
+                    The Radio
+                </a>
                 <Rocket />
             </div>
         </React.Fragment>

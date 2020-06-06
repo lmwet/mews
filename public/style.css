@@ -325,6 +325,32 @@ div.mix-element {
     cursor: pointer;
 }
 
+/* radio component */
+
+.write-container {
+    height: 20vh;
+    width: 80vh;
+    margin: 3%;
+}
+.read-container {
+    height: 30vh;
+    width: 80vh;
+    margin: 3%;
+}
+#linkbox {
+    height: 3vh;
+    width: 25vw;
+    background-color: #162d3fe7;
+    border: white 2px dotted;
+}
+
+#description {
+    height: 8vh;
+    width: 25vw;
+    background-color: #162d3fe7;
+    border: white 2px dotted;
+}
+
 @media only screen and (max-device-width: 480px) {
     body {
         margin: 0;

@@ -29,3 +29,12 @@ exports.getArtists = () => {
     console.log(q);
     return db.query(q);
 };
+
+exports.getLineup = () => {
+    const q = `SELECT * 
+    FROM lineup 
+    ORDER BY created_at DESC
+    LIMIT 20`;
+    console.log(q);
+    return db.query(q);
+};
