@@ -1,73 +1,30 @@
 import axios from "./axios";
-import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";useRef,
-// import { useSelector } from "react-redux";
-// import { socket } from "./socket";
+import React, { useState } from "react";
 
 export default function Radio() {
-    const [mix, setMix] = useState([]);
+    const [newTrack, setNewTrack] = useState("");
+    // const [currentTrack, setCurrentTrack] = useState("");
 
-    // const elemRef = useRef();
+    const getNewTrack = async (e) => {
+        console.log("value", e.target.value);
+        const link = e.target.value.trim();
+        const newTrack = "spotify:track:" + link.substring(31, 53);
+        setNewTrack(newTrack);
+    };
 
-    // const history = useSelector((state) => state && state.history);
+    console.log("newTrack in cpnt", newTrack);
 
-    useEffect(() => {
+    const add = () => {
         axios
-            .get("/bigmix")
+            .post("/newtrack", { newTrack: newTrack })
             .then((res) => {
-                console.log("res in get bigmix", res.data);
-
-                //extracting the links from the received data
-                let mix = res.data.map(function (item) {
-                    return item["href"];
-                });
-                setMix(mix);
+                console.log("res in post newtrack", res.data);
             })
             .catch(function (err) {
-                console.log("err in get /bigmix", err);
+                console.log("err in post newtrack", err);
             });
-
-        // elemRef.current.scrollTop =
-        //     elemRef.current.scrollHeight - elemRef.current.clientHeight;
-    }, []);
-
-    console.log("mix in cpnt", mix);
-
-    // const keyCheck = (e) => {
-    //     console.log("value", e.target.value);
-    //     console.log("value", e.key);
-    //     if (e.key == "Enter") {
-    //         e.preventDefault(); // prevent line down
-    //         // socket.emit("postedMsg", e.target.value);
-    //         e.target.value = ""; //CLEARING!
-    //     }
-    // };
-
-    const addNewTrack = async (e) => {
-        console.log("value", e.target.value);
-        const newTrack = e.target.value;
-        await setMix((mix) => [...mix, newTrack]);
+        document.getElementById("linkbox").value = "";
     };
-    console.log("mix after add", mix);
-
-    const createMix = () => {
-        //send new radio mix to server
-        axios
-            .post("/radioMix", {
-                mix,
-            })
-            .then((res) => {
-                if (res.data.success) {
-                    console.log("data in post radioMix", res);
-                } else {
-                    console.log("er in post mix");
-                }
-            });
-    };
-
-    //function addToMix = add new item to DB and create a new PL from mix + new item
-
-    //function playRadio = getnewest mix from DB
 
     return (
         <React.Fragment>
@@ -78,79 +35,39 @@ export default function Radio() {
                     <h3 className="titel-linkbox">
                         Got a song to add to the Big Mix?{" "}
                     </h3>
-                    <h3 className="titel-linkbox">Post a spotify link. </h3>
+                    <h3 className="titel-linkbox">
+                        Post a spotify track link here.{" "}
+                    </h3>
 
-                    {/* <p className="label-linkbox">
-                        {`
-                        (on spotify, click on the "..." next to the track and
-                        select "copy song link")\n
-                        Your link should look like this:\n
-                        
-                            https://open.spotify.com/track/462NxL8bZEDNKQV8fCQ1Ks?si=QxAbCYpEQzq8iX2S9EkdBA\n
-                     
-                        or like this:\n
-                      
-                            https://open.spotify.com/album/462NxL8bZEDNKQV8fCQ1Ks?si=QxAbCYpEQzq8iX2S9EkdBA
-                            \n
-                        `}
-                    </p> */}
+                    <label className="label-linkbox">
+                        On spotify, click on the <strong>...</strong> next to
+                        the track and select "copy song link"{" "}
+                    </label>
                     <textarea
                         id="linkbox"
-                        placeholder="Here post a spotify link"
-                        onChange={addNewTrack}
+                        placeholder="Paste it here"
+                        onChange={getNewTrack}
                     ></textarea>
-                    <button id="add2lineup" onClick={createMix}>
-                        Add to the line-up
-                    </button>
+
                     <img
                         className="radio-button"
-                        title="play the radio"
+                        title="Add it to the line-up"
                         height="100px"
-                        src="/images/play.jpg"
-                        // onClick={play}
+                        src="/images/playBack.png"
+                        onClick={add}
                     />
                 </div>
-
-                <div className="description-container">
-                    {/* <p className="label-description">
-                        Write their name and short description if you like, or a
-                        link from somewhere else for us to discover.{" "}
-                    </p> */}
-
-                    <textarea
-                        id="description"
-                        placeholder="Here post a comment to your track (name, artist...) or any non-spotify links"
-                        // onChange={addNewTrack}
-                    ></textarea>
-                    <button id="add2lineup">Post</button>
-                </div>
             </div>
-            {/* <div className="read-container" ref={elemRef}>
-                {messages &&
-                    messages.map((msg, index) => {
-                        return (
-                            <div className="message-div" key={index}>
-                                <Link to={`/user/${msg.sender_id}`}>
-                                    <img className="msg-pic" src={msg.url} />
-                                </Link>
-                                <Link to={`/user/${msg.id}`}>
-                                    <p className="message">
-                                        {msg.first} {msg.last} : {msg.text}
-                                    </p>
-                                </Link>
-                            </div>
-                        );
-                    })}
-            </div> */}
-            {/* <iframe
+
+            <iframe
                 className="player"
-                src={mix}
+                src="https://open.spotify.com/embed/playlist/54hm47gbdj4LyXvBbh0bVY"
                 width="100%"
                 height="90"
                 frameBorder="0"
                 allowtransparency="true"
                 allow="encrypted-media"
-            ></iframe> */}
+            ></iframe>
         </React.Fragment>
     );
 }

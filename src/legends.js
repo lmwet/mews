@@ -56,7 +56,6 @@ export default function Legends() {
 
     const handleclick = (e) => {
         e.preventDefault();
-        // playerIsVisible = true;
         const elem = e.target;
         let url = elem.getAttribute("href");
         const embedUrl = url.replace("track", "embed/track");
@@ -126,8 +125,7 @@ export default function Legends() {
             <iframe
                 className="player"
                 src={currentTrack}
-                width="100%"
-                height="90"
+                // height="90"
                 frameBorder="0"
                 allowtransparency="true"
                 allow="encrypted-media"

@@ -166,7 +166,7 @@ export default function BlackPride() {
             <iframe
                 className="player"
                 src={currentTrack}
-                width="100%"
+                width="102%"
                 height="90"
                 frameBorder="0"
                 allowtransparency="true"

@@ -3,10 +3,10 @@ const app = express();
 const SpotifyWebApi = require("spotify-web-api-node");
 const compression = require("compression");
 const server = require("http").Server(app);
-const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
-// const CLIENT_ID = process.env.CLIENT_ID;
-// const CLIENT_SECRET = process.env.CLIENT_SECRET;
-// const REDIRECT_URI = process.env.REDIRECT_URI;
+// const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REDIRECT_URI = process.env.REDIRECT_URI;
 const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID || process.env.CLIENT_ID,
     clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
@@ -124,7 +124,6 @@ app.get("/callback", (req, res) => {
 app.post("/mix", (req, res) => {
     const playlistTitle = req.body.playlistName;
     const userName = req.body.userName;
-    console.log("post mix running");
     console.log("req in post mix", req);
 
     let uris = req.body.newPlaylist.map(function (item) {
@@ -159,12 +158,33 @@ app.post("/mix", (req, res) => {
                 return spotifyApi.addTracksToPlaylist(playlistId, uris);
             })
             .catch(function (err) {
-                console.log("Something went wrong", err);
+                console.log("Something went wrong in create PL", err);
             });
     });
 });
 
-//do the same with the updated radio mix
+app.post("/newtrack", (req, res) => {
+    const playlistId = "54hm47gbdj4LyXvBbh0bVY";
+    console.log("req in post newtrack", req.body.newTrack);
+    const newTrack = req.body.newTrack;
+    console.log("newTrack", newTrack);
+
+    try {
+        // Add the new track to the playlist
+        spotifyApi
+            .getMe()
+            .then(function (data) {
+                return spotifyApi.addTracksToPlaylist(playlistId, [newTrack]);
+            })
+            .catch((e) => {
+                console.log("error in addTracktoPlaylist", e);
+                res.json({ success: false });
+            });
+    } catch (e) {
+        res.json({ success: false });
+        console.log("err in post /newTrack");
+    }
+});
 
 app.get("/mix", async (req, res) => {
     try {
@@ -186,17 +206,17 @@ app.get("/artists", async (req, res) => {
     }
 });
 
-app.get("/bigmix", async (req, res) => {
-    try {
-        const bigmix = await db.getLineup();
-        console.log("bigmix", bigmix.rows);
-        res.json(bigmix.rows);
-        // res.json(bigmix, { success: true });
-    } catch (e) {
-        res.json({ success: false });
-        console.log("err in get /bigmix");
-    }
-});
+// app.get("/bigmix", async (req, res) => {
+//     try {
+//         const bigmix = await db.getLineup();
+//         console.log("bigmix", bigmix.rows);
+//         res.json(bigmix.rows);
+//         // res.json(bigmix, { success: true });
+//     } catch (e) {
+//         res.json({ success: false });
+//         console.log("err in get /bigmix");
+//     }
+// });
 
 app.get("*", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
