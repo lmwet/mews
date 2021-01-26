@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import ArtistCard from "./artist-card";
 import Defile from "./defile";
 import MyPlaylists from "./myPlaylists";
@@ -16,6 +15,7 @@ export default function Legends() {
             arabicTitle: "",
             imgUrl: "/images/chavela.jpeg",
             get: "/chavela.json",
+            web: "https://en.wikipedia.org/wiki/Chavela_Vargas",
         },
         {
             name: "umkalthoum",
@@ -23,6 +23,15 @@ export default function Legends() {
             arabicTitle: " ام كلثوم",
             imgUrl: "/images/oumkalthoum.jpg",
             get: "/oumkalthoum.json",
+            web: "https://en.wikipedia.org/wiki/Umm_Kulthum",
+        },
+        {
+            name: "beverly",
+            engTitle: "Beverly Glenn-Copeland",
+            arabicTitle: "",
+            imgUrl: "/images/beverly.jpeg",
+            get: "/beverly.json",
+            web: "https://beverlyglenncopeland.com/",
         },
         {
             name: "zemfira",
@@ -30,6 +39,7 @@ export default function Legends() {
             arabicTitle: "Земфира",
             imgUrl: "/images/zemfira.jpg",
             get: "/zemfira.json",
+            web: "https://www.zemfira.ru/",
         },
         {
             name: "colette",
@@ -37,6 +47,7 @@ export default function Legends() {
             arabicTitle: "",
             imgUrl: "/images/colette.jpg",
             get: "/colette.json",
+            web: "https://en.wikipedia.org/wiki/Colette_Magny",
         },
         {
             name: "joan",
@@ -44,6 +55,7 @@ export default function Legends() {
             arabicTitle: "",
             imgUrl: "/images/joan.jpg",
             get: "/joan.json",
+            web: "https://www.joanarmatrading.com/",
         },
         {
             name: "cassia",
@@ -51,6 +63,7 @@ export default function Legends() {
             arabicTitle: "",
             imgUrl: "/images/cassia.jpg",
             get: "/cassia.json",
+            web: "https://en.wikipedia.org/wiki/C%C3%A1ssia_Eller",
         },
     ];
 

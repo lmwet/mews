@@ -3,14 +3,14 @@ const app = express();
 const SpotifyWebApi = require("spotify-web-api-node");
 const compression = require("compression");
 const server = require("http").Server(app);
-// const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = process.env.REDIRECT_URI;
+const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("./secrets.json");
+// const CLIENT_ID = process.env.CLIENT_ID;
+// const CLIENT_SECRET = process.env.CLIENT_SECRET;
+// const REDIRECT_URI = process.env.REDIRECT_URI;
 const spotifyApi = new SpotifyWebApi({
-    clientId: CLIENT_ID || process.env.CLIENT_ID,
-    clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
-    redirectUri: REDIRECT_URI || process.env.REDIRECT_URI,
+    clientId: CLIENT_ID,
+    clientSecret: CLIENT_SECRET,
+    redirectUri: REDIRECT_URI,
 });
 
 const db = require("./utils/db.js");
@@ -133,11 +133,10 @@ app.post("/mix", (req, res) => {
     console.log("uris", uris);
 
     spotifyApi.getMe().then(function (data) {
-        let userId = data.body.id;
-        console.log("data in getMe", data.body);
+        let userId = data.body["id"];
 
         return spotifyApi
-            .createPlaylist("e78n0efwj7pf0b72yyail012n", playlistTitle)
+            .createPlaylist(userId, playlistTitle)
             .then(function (data) {
                 console.log("data in create PL", data);
 

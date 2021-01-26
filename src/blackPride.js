@@ -15,6 +15,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/simbo.jpg",
             get: "/simbo.json",
+            web: "https://littlesimz.co/",
         },
         {
             name: "muthoni",
@@ -22,6 +23,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/muthoni.jpg",
             get: "/muthoni.json",
+            web: "https://www.mdqmusic.com/",
         },
         {
             name: "hawa",
@@ -29,6 +31,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/hawa.jpg",
             get: "/hawa.json",
+            web: "https://www.facebook.com/Hawaboussimofficiel/",
         },
         {
             name: "akua",
@@ -36,6 +39,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/akua.png",
             get: "/akua.json",
+            web: "https://www.akuanaru.com/",
         },
         {
             name: "kanyi",
@@ -43,6 +47,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/kanyi.jpg",
             get: "/kanyi.json",
+            web: "https://www.facebook.com/kanyimavi/",
         },
         {
             name: "bia",
@@ -50,6 +55,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/bia.jpg",
             get: "/bia.json",
+            web: "https://www.facebook.com/BiaFerreiraOficial/",
         },
         {
             name: "angelique",
@@ -57,6 +63,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/angelique.jpg",
             get: "/angelique.json",
+            web: "http://www.kidjo.com/",
         },
         {
             name: "jamila",
@@ -64,6 +71,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/jamila.png",
             get: "/jamila.json",
+            web: "http://www.jamila-woods.com/",
         },
         {
             name: "sampa",
@@ -71,6 +79,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/sampa.jpg",
             get: "/sampa.json",
+            web: "https://www.sampathegreat.com/",
         },
         {
             name: "lous",
@@ -78,6 +87,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/lous.jpg",
             get: "/lous.json",
+            web: "https://www.facebook.com/LousAndTheYakuza/",
         },
         {
             name: "lizzo",
@@ -85,6 +95,7 @@ export default function BlackPride() {
             arabicTitle: "",
             imgUrl: "/images/lizzo.jpg",
             get: "/lizzo.json",
+            web: "https://www.lizzomusic.com/",
         },
     ];
 

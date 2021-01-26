@@ -74,6 +74,9 @@ h2 {
 .info-text {
     font-size: 1.2em;
 }
+.auge {
+    max-height: 70px;
+}
 #title {
     position: fixed;
     top: 6vh;
@@ -369,7 +372,9 @@ div.mix-element {
     background-color: #162d3fe7;
     border: white 2px dotted;
 }
-
+.creds {
+    font-family: "Courier New", Courier, monospace;
+}
 @media only screen and (max-device-width: 480px) {
     * {
         box-sizing: border-box;

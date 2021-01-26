@@ -78,8 +78,8 @@ export default function MyPlaylists({ newPlaylist, toggleBack }) {
                 </a>
                 {message ? (
                     <span className="error-message">
-                        Your playlist has been created, uou can now listen to it
-                        in the Jukebox section!
+                        Your playlist has been created, you'll find it in the
+                        Jukebox section!
                     </span>
                 ) : null}
                 <div className="tracks-pic-wrapper">

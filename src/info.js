@@ -27,7 +27,9 @@ export default function Info({ toggleBack }) {
                 . Have fun!
             </p>
             {showCreds ? (
-                <p>username: mafiamal1312@gmail.com; PW: 13123dala</p>
+                <p className="creds">
+                    username: m-e-w-s@posteo.de | password: 7rriaSl1mw3d1la
+                </p>
             ) : null}
         </div>
     );

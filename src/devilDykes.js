@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import usePlay from "./hooks/usePlay";
+import React, { useState } from "react";
 import ArtistCard from "./artist-card";
 import Defile from "./defile";
 import MyPlaylists from "./myPlaylists";
@@ -13,17 +12,11 @@ export default function DevilDykes() {
     const artists = [
         {
             name: "trumpet",
-            engTitle: "Trumpet Grrrl",
+            engTitle: "Trumpet Wom",
             arabicTitle: "",
             imgUrl: "/images/trumpetGrl.jpg",
             get: "/trumpet.json",
-        },
-        {
-            name: "koffee",
-            engTitle: "Koffee",
-            arabicTitle: "",
-            imgUrl: "/images/koffee.jpg",
-            get: "/koffee.json",
+            web: "https://www.trumpetwom.com/",
         },
         {
             name: "ipek",
@@ -31,6 +24,7 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/ipek.jpg",
             get: "/ipek.json",
+            web: "https://djipek.com/",
         },
         {
             name: "bia",
@@ -38,6 +32,15 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/bia.jpg",
             get: "/bia.json",
+            web: "https://www.facebook.com/BiaFerreiraOficial/",
+        },
+        {
+            name: "obinrin",
+            engTitle: "Obinrin Trio",
+            arabicTitle: "",
+            imgUrl: "/images/obinrin.jpeg",
+            get: "/obinrin.json",
+            web: "https://www.facebook.com/ObinrinTrio/",
         },
         {
             name: "internet",
@@ -45,6 +48,7 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/internet.jpg",
             get: "/internet.json",
+            web: "http://www.internet-band.com/",
         },
         {
             name: "beatrice",
@@ -52,6 +56,7 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/beatrice.jpg",
             get: "/beatrice.json",
+            web: "https://beatriceeli.com/",
         },
         {
             name: "chika",
@@ -59,6 +64,15 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/chika.jpg",
             get: "/chika.json",
+            web: "https://www.officialchika.com/",
+        },
+        {
+            name: "koffee",
+            engTitle: "Koffee",
+            arabicTitle: "",
+            imgUrl: "/images/koffee.jpg",
+            get: "/koffee.json",
+            web: "https://www.originalkoffee.com/",
         },
         {
             name: "dory",
@@ -66,6 +80,7 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/dory.jpg",
             get: "/dory.json",
+            web: "https://www.facebook.com/dorydeoliveiraoficial/",
         },
         {
             name: "kumbia",
@@ -73,6 +88,7 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/kumbia.jpg",
             get: "/kumbia.json",
+            web: "http://kumbiaqueers.com.ar/",
         },
         {
             name: "mansfield",
@@ -80,6 +96,7 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/mansfield.jpg",
             get: "/mansfield.json",
+            web: "https://www.facebook.com/Mansfield.TYAofficial/",
         },
         {
             name: "muthoni",
@@ -87,6 +104,7 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/muthoni.jpg",
             get: "/muthoni.json",
+            web: "https://www.mdqmusic.com/",
         },
         {
             name: "chocolate",
@@ -94,6 +112,7 @@ export default function DevilDykes() {
             arabicTitle: "",
             imgUrl: "/images/chocolate.jpg",
             get: "/chocolate.json",
+            web: "https://www.facebook.com/chocolateremixoficial/",
         },
     ];
 

@@ -60,6 +60,13 @@ export default function ArtistCard({
                     src={artist.imgUrl}
                     alt={artist.engTitle}
                 />
+                <a target="_blank" rel="noopener noreferrer" href={artist.web}>
+                    <img
+                        className="auge"
+                        src="/images/auge.png"
+                        alt={artist.engTitle}
+                    />
+                </a>
             </div>
         </div>
     );
