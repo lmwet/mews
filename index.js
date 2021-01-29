@@ -163,7 +163,7 @@ app.post("/mix", (req, res) => {
 });
 
 app.post("/newtrack", (req, res) => {
-    const playlistId = "54hm47gbdj4LyXvBbh0bVY";
+    const playlistId = "6MQ4G7ECe56tUPMC8dtVwS";
     console.log("req in post newtrack", req.body.newTrack);
     const newTrack = req.body.newTrack;
     console.log("newTrack", newTrack);
@@ -172,7 +172,7 @@ app.post("/newtrack", (req, res) => {
         // Add the new track to the playlist
         spotifyApi
             .getMe()
-            .then(function (data) {
+            .then(function () {
                 return spotifyApi.addTracksToPlaylist(playlistId, [newTrack]);
             })
             .catch((e) => {

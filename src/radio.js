@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 export default function Radio() {
     const [newTrack, setNewTrack] = useState("");
-    // const [currentTrack, setCurrentTrack] = useState("");
 
     const getNewTrack = async (e) => {
         console.log("value", e.target.value);
@@ -32,16 +31,15 @@ export default function Radio() {
             <img className="radio-pic" height="100px" src="/images/radio.png" />
             <div className="write-container">
                 <div className="linkbox-container">
-                    <h3 className="titel-linkbox">
-                        Got a song to add to the Big Mix?{" "}
-                    </h3>
-                    <h3 className="titel-linkbox">
-                        Post a spotify track link here.{" "}
-                    </h3>
+                    <h3 className="titel-linkbox">Got a good song to play? </h3>
+                    <h3 className="titel-linkbox">Add it to the Big Mix. </h3>
 
                     <label className="label-linkbox">
-                        On spotify, click on the <strong>...</strong> next to
-                        the track and select "copy song link"{" "}
+                        <h4>HOW??</h4> -> When logged-in as "Mews":{" "}
+                        <p>1. pick a song on spotify, </p>{" "}
+                        <p> 2. click on the «...» next to the track,</p>
+                        <p>3. click on "share" and select "copy song link" </p>
+                        <p>4. paste it right there -></p>
                     </label>
                     <textarea
                         id="linkbox"
@@ -61,7 +59,7 @@ export default function Radio() {
 
             <iframe
                 className="player"
-                src="https://open.spotify.com/embed/playlist/54hm47gbdj4LyXvBbh0bVY"
+                src="https://open.spotify.com/embed/playlist/6MQ4G7ECe56tUPMC8dtVwS"
                 width="100%"
                 height="90"
                 frameBorder="0"

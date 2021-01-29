@@ -347,8 +347,13 @@ div.mix-element {
     font-size: 3em;
 }
 .label-linkbox {
-    max-width: 20vw;
+    max-width: 30vw;
+    min-height: 17vh;
+    line-height: 2.4em;
     margin-right: 3em;
+    /* background-image: url(./images/clouds.png); */
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .radio-button {
     cursor: pointer;

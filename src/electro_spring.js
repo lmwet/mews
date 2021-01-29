@@ -15,6 +15,7 @@ export default function ElectroSpring() {
             arabicTitle: "آية متولّي",
             imgUrl: "/images/aya_metwalli.jpeg",
             get: "/aya.json",
+            web: "https://www.facebook.com/ayametwalli/",
         },
         {
             name: "mariam",
@@ -22,6 +23,7 @@ export default function ElectroSpring() {
             arabicTitle: "مريم صالح",
             imgUrl: "/images/mariam_saleh.jpg",
             get: "/mariam.json",
+            web: "http://www.maryamsaleh.com/",
         },
         {
             name: "emel",
@@ -29,6 +31,7 @@ export default function ElectroSpring() {
             arabicTitle: "آمال المثلوثي",
             imgUrl: "/images/brujas.jpg",
             get: "/emel.json",
+            web: "https://emelmathlouthi.com/",
         },
         {
             name: "maii",
@@ -36,6 +39,7 @@ export default function ElectroSpring() {
             arabicTitle: "آية متولّي",
             imgUrl: "/images/maii.jpg",
             get: "/maii.json",
+            web: "#",
         },
         {
             name: "yasmine",
@@ -43,6 +47,7 @@ export default function ElectroSpring() {
             arabicTitle: "ياسمين حمدان",
             imgUrl: "/images/yasmine.png",
             get: "/yasmine.json",
+            web: "https://www.yasminehamdan.com/en/",
         },
         {
             name: "nawel",
@@ -50,6 +55,7 @@ export default function ElectroSpring() {
             arabicTitle: " نوال بن كريم ",
             imgUrl: "/images/nawel.jpg",
             get: "/nawel.json",
+            web: "https://www.nawelbenkraiem.com/",
         },
         {
             name: "badiaa",
@@ -57,6 +63,7 @@ export default function ElectroSpring() {
             arabicTitle: " نوال بن كريم ",
             imgUrl: "/images/baadia.jpg",
             get: "/badiaa.json",
+            web: "#",
         },
         {
             name: "dina",
@@ -64,6 +71,7 @@ export default function ElectroSpring() {
             arabicTitle: "دينا الوديدي‎",
             imgUrl: "/images/dina.jpg",
             get: "/dina.json",
+            web: "https://dinaelwedidi.com/",
         },
     ];
 
