@@ -15,6 +15,7 @@ export default function Wilad() {
             arabicTitle: "",
             imgUrl: "/images/nakhane.jpg",
             get: "/nakhane.json",
+            web: "nakhaneofficial.com",
         },
         {
             name: "leila",
@@ -22,6 +23,7 @@ export default function Wilad() {
             arabicTitle: "مشروع ليلى",
             imgUrl: "/images/sinno.jpg",
             get: "/leila.json",
+            web: "http://www.mashrouleila.com/",
         },
         {
             name: "mujuice",
@@ -29,6 +31,7 @@ export default function Wilad() {
             arabicTitle: "Муджус",
             imgUrl: "/images/mujuice.jpg",
             get: "/mujuice.json",
+            web: "https://www.mujuice.com",
         },
         {
             name: "kiddy",
@@ -36,6 +39,7 @@ export default function Wilad() {
             arabicTitle: "",
             imgUrl: "/images/kiddy.jpg",
             get: "/kiddy.json",
+            web: "https://www.facebook.com/Ilovekiddysmile",
         },
     ];
 

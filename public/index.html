@@ -33,12 +33,12 @@
 
             const url = "https://accounts.spotify.com/en/logout";
             const params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
-width=600,height=300,left=100,top=100`;
+            width=600,height=300,left=100,top=100`;
             const spotifyLogoutWindow = setTimeout(
                 () => window.open(url, "Log Out Spotify", params),
                 1000
             );
-            setTimeout(() => spotifyLogoutWindow.close(), 2000);
+            // setTimeout(() => spotifyLogoutWindow.close(), 2000);
         });
     </script>
 </html>

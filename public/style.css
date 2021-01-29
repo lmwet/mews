@@ -351,7 +351,6 @@ div.mix-element {
     min-height: 17vh;
     line-height: 2.4em;
     margin-right: 3em;
-    /* background-image: url(./images/clouds.png); */
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -379,6 +378,17 @@ div.mix-element {
 }
 .creds {
     font-family: "Courier New", Courier, monospace;
+}
+
+/* Help component */
+.container {
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10%;
+}
+.white-space {
+    min-height: 3em;
 }
 @media only screen and (max-device-width: 480px) {
     * {
@@ -426,7 +436,6 @@ div.mix-element {
         background-color: #000000ec;
         top: 0;
         color: #d7f4fd;
-        /* border-top: 2px #4a85b3 dotted; */
         font-size: 2em;
         overflow: hidden;
     }
@@ -499,7 +508,6 @@ div.mix-element {
         height: 8vh;
     }
     .player {
-        /* height: 90; */
         width: 100%;
     }
 }

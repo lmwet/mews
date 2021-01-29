@@ -15,6 +15,7 @@ import Jukebox from "./jukebox";
 import Queer from "./queer";
 import Xodade from "./xodade";
 import Radio from "./radio";
+import Help from "./help";
 
 export default function App() {
     return (
@@ -42,6 +43,7 @@ export default function App() {
                     )}
                 />
                 <Route path="/radio" component={Radio} />
+                <Route path="/help" component={Help} />
             </BrowserRouter>
         </React.Fragment>
     );

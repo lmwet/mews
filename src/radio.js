@@ -31,11 +31,12 @@ export default function Radio() {
             <img className="radio-pic" height="100px" src="/images/radio.png" />
             <div className="write-container">
                 <div className="linkbox-container">
-                    <h3 className="titel-linkbox">Got a good song to play? </h3>
-                    <h3 className="titel-linkbox">Add it to the Big Mix. </h3>
+                    <h3 className="titel-linkbox">
+                        Add a song to the Big Mix:
+                    </h3>
 
                     <label className="label-linkbox">
-                        <h4>HOW??</h4> -> When logged-in as "Mews":{" "}
+                        When logged-in as "Mews":{" "}
                         <p>1. pick a song on spotify, </p>{" "}
                         <p> 2. click on the «...» next to the track,</p>
                         <p>3. click on "share" and select "copy song link" </p>

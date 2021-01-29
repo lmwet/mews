@@ -57,7 +57,7 @@ xodadeRouter.get("/gaelynn.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "68zltLWXjBB3dIqHikDXZy",
-            "IR"
+            "US"
         );
         res.json(topTen.body.tracks);
     } catch (err) {

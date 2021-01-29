@@ -15,6 +15,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/rose.png",
             get: "/rose.json",
+            web: "http://www.calypso-rose.com/",
         },
         {
             name: "lena",
@@ -22,6 +23,7 @@ export default function Xodade() {
             arabicTitle: "لينا شاماميان  ",
             imgUrl: "/images/lena.jpg",
             get: "/lena.json",
+            web: "https://lenachamamyan.org",
         },
         {
             name: "phew",
@@ -29,6 +31,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/phew.jpg",
             get: "/phew.json",
+            web: "https://phew.stores.jp/about",
         },
         {
             name: "gaelynn",
@@ -36,6 +39,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/gaelinn.jpg",
             get: "/gaelynn.json",
+            web: "https://violinscratches.com/",
         },
         {
             name: "yugen",
@@ -43,6 +47,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/yugen.jpg",
             get: "/yugen.json",
+            web: "https://www.facebook.com/YugenBlakrok/?_rdc=1&_rdr",
         },
         {
             name: "emel",
@@ -50,6 +55,7 @@ export default function Xodade() {
             arabicTitle: "آمال المثلوثي",
             imgUrl: "/images/brujas.jpg",
             get: "/emel.json",
+            web: "https://emelmathlouthi.com/",
         },
         // {
         //     name: "ivy",
@@ -64,6 +70,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/tierra.jpg",
             get: "/tierra.json",
+            web: "https://en.wikipedia.org/wiki/Tierra_Whack",
         },
         {
             name: "jun",
@@ -71,6 +78,7 @@ export default function Xodade() {
             arabicTitle: "戸川 純",
             imgUrl: "/images/jun.jpg",
             get: "/jun.json",
+            web: "http://juntogawa.org/en/jun-togawa/",
         },
         {
             name: "teyana",
@@ -78,6 +86,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/teyana.jpg",
             get: "/teyana.json",
+            web: "www.teyanataylor.com",
         },
         {
             name: "ikue",
@@ -85,6 +94,7 @@ export default function Xodade() {
             arabicTitle: "朝崎 郁恵",
             imgUrl: "/images/ikue.jpg",
             get: "/ikue.json",
+            web: "http://asazakiikue.com/",
         },
         {
             name: "choral",
@@ -92,6 +102,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/choral.jpg",
             get: "/choral.json",
+            web: "https://www.facebook.com/choralhearse/",
         },
         {
             name: "dina",
@@ -99,6 +110,7 @@ export default function Xodade() {
             arabicTitle: "دينا الوديدي‎",
             imgUrl: "/images/dina.jpg",
             get: "/dina.json",
+            web: "",
         },
         {
             name: "takako",
@@ -106,6 +118,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/takako.jpg",
             get: "/takako.json",
+            web: "",
         },
         {
             name: "lido",
@@ -113,6 +126,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/lido.jpg",
             get: "/lido.json",
+            web: "https://lidopimienta.com/about",
         },
         {
             name: "zakiya",
@@ -120,6 +134,7 @@ export default function Xodade() {
             arabicTitle: " زكيّة حمدان",
             imgUrl: "/images/zakiya.jpeg",
             get: "/zakiya.json",
+            web: "#",
         },
         {
             name: "luzmila",
@@ -127,6 +142,7 @@ export default function Xodade() {
             arabicTitle: "",
             imgUrl: "/images/luzmila.jpg",
             get: "/luzmila.json",
+            web: "https://www.luzmilacarpio.tv/",
         },
         {
             name: "masu",
@@ -134,6 +150,7 @@ export default function Xodade() {
             arabicTitle: "マス オブ ザ ファーメンティング ドレッグス",
             imgUrl: "/images/masu.jpg",
             get: "/masu.json",
+            web: "https://www.motfd.com/",
         },
     ];
 

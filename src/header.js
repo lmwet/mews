@@ -16,12 +16,20 @@ export default function Header() {
                     <a href="/login" className="link">
                         Log in
                     </a>
-                    <a href="/jukebox" className="link">
+                    <Link to="/" className="link">
+                        Home
+                    </Link>
+                    <Link to="/jukebox" className="link">
                         Jukebox
-                    </a>
-                    <a href="/radio" className="link">
+                    </Link>
+                    <Link to="/radio" className="link">
+                        {" "}
                         Radio
-                    </a>
+                    </Link>
+
+                    <Link to="/help" className="link">
+                        ??
+                    </Link>
                 </div>
                 <Rocket />
             </div>

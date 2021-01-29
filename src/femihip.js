@@ -15,6 +15,7 @@ export default function Femihip() {
             arabicTitle: "سلطانة",
             imgUrl: "/images/soultana.jpg",
             get: "/soultana.json",
+            web: "#",
         },
         {
             name: "sara",
@@ -22,6 +23,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/sara.jpg",
             get: "/sara.json",
+            web: "https://www.instagram.com/sara_hebe/",
         },
         {
             name: "ebow",
@@ -29,6 +31,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/ebow.jpg",
             get: "/ebow.json",
+            web: "http://www.ebow4life.net/",
         },
         {
             name: "yugen",
@@ -36,6 +39,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/yugen.jpg",
             get: "/yugen.json",
+            web: "https://www.facebook.com/YugenBlakrok/?_rdc=1&_rdr",
         },
         {
             name: "kanyi",
@@ -43,6 +47,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/kanyi.jpg",
             get: "/kanyi.json",
+            web: "https://www.facebook.com/kanyimavi/",
         },
         {
             name: "rap",
@@ -50,6 +55,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/rap.jpg",
             get: "/rap.json",
+            web: "https://www.facebook.com/RapPlusSize/",
         },
         {
             name: "shadia",
@@ -57,6 +63,7 @@ export default function Femihip() {
             arabicTitle: " شادية منصور ",
             imgUrl: "/images/shadia.jpg",
             get: "/shadia.json",
+            web: "https://myspace.com/shadiamusic",
         },
         {
             name: "tic",
@@ -64,6 +71,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/tic.jpg",
             get: "/tic.json",
+            web: "https://en.wikipedia.org/wiki/Tic_Tac_Toe_(band)",
         },
         {
             name: "malikah",
@@ -71,6 +79,7 @@ export default function Femihip() {
             arabicTitle: "ملكة ‎",
             imgUrl: "/images/malikah.jpg",
             get: "/malikah.json",
+            web: "https://www.facebook.com/MALIKAH961MUSIC",
         },
         {
             name: "mare",
@@ -78,6 +87,7 @@ export default function Femihip() {
             arabicTitle: " ",
             imgUrl: "/images/mare.jpg",
             get: "/mare.json",
+            web: "https://www.facebook.com/mare.advertencia.lirika.official",
         },
         {
             name: "ntsiki",
@@ -85,6 +95,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/ntsiki.png",
             get: "/ntsiki.json",
+            web: "https://www.ntsikimazwai.com/",
         },
         {
             name: "casey",
@@ -92,6 +103,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/casey.jpg",
             get: "/casey.json",
+            web: "#",
         },
         {
             name: "felukah",
@@ -99,6 +111,7 @@ export default function Femihip() {
             arabicTitle: "فلوكه",
             imgUrl: "/images/felukah.jpg",
             get: "/felukah.json",
+            web: "https://www.felukah.com/",
         },
         {
             name: "quay",
@@ -106,6 +119,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/quay.jpg",
             get: "/quay.json",
+            web: "https://www.facebook.com/quaydashmusic",
         },
         {
             name: "keny",
@@ -113,6 +127,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/keny.jpg",
             get: "/keny.json",
+            web: "www.keny-arkana.com",
         },
         {
             name: "kween",
@@ -120,6 +135,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/kween.jpg",
             get: "/kween.json",
+            web: "https://kweenkibone.wixsite.com/website",
         },
         {
             name: "shay",
@@ -127,6 +143,7 @@ export default function Femihip() {
             arabicTitle: "",
             imgUrl: "/images/shay.png",
             get: "/shay.json",
+            web: "https://www.facebook.com/Shayofficiel",
         },
     ];
 
