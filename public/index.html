@@ -24,4 +24,21 @@
     <main></main>
 
     <script src="/bundle.js"></script>
+    <script>
+        window.addEventListener("beforeunload", function (e) {
+            // Cancel the event
+            e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
+            // Chrome requires returnValue to be set
+            e.returnValue = "";
+
+            const url = "https://accounts.spotify.com/en/logout";
+            const params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+width=600,height=300,left=100,top=100`;
+            const spotifyLogoutWindow = setTimeout(
+                () => window.open(url, "Log Out Spotify", params),
+                1000
+            );
+            setTimeout(() => spotifyLogoutWindow.close(), 2000);
+        });
+    </script>
 </html>
