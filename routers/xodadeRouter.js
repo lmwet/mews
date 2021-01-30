@@ -203,25 +203,6 @@ xodadeRouter.get("/emel.json", async (req, res) => {
     }
 });
 
-// xodadeRouter.get("/ivy.json", async (req, res) => {
-//     try {
-//         const grant = await spotifyApi.clientCredentialsGrant();
-//         const token = await spotifyApi.setAccessToken(
-//             grant.body["access_token"]
-//         );
-//         const topTen = await spotifyApi.getArtistTopTracks(
-//             "6p2442ymrT9lZEuCZJdYcH",
-//             "SE"
-//         );
-//         res.json(topTen.body.tracks);
-//     } catch (err) {
-//         console.log(
-//             "Unfortunately, something has gone wrong in ivy",
-//             err.message
-//         );
-//     }
-// });
-
 xodadeRouter.get("/tierra.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
@@ -325,7 +306,7 @@ xodadeRouter.get("/dina.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "4dejJ4Gg0YVjWRUdfpF3yA",
-            "EG"
+            "FR"
         );
         res.json(topTen.body.tracks);
     } catch (err) {

@@ -57,13 +57,6 @@ export default function Xodade() {
             get: "/emel.json",
             web: "https://emelmathlouthi.com/",
         },
-        // {
-        //     name: "ivy",
-        //     engTitle: "Ivy Queen",
-        //     arabicTitle: "",
-        //     imgUrl: "/images/ivy.jpg",
-        //     get: "/ivy.json",
-        // },
         {
             name: "tierra",
             engTitle: "Tierra Whack",
