@@ -15,6 +15,7 @@ export default function Queer() {
             arabicTitle: "",
             imgUrl: "/images/linn.jpg",
             get: "/linn.json",
+            web: "https://www.instagram.com/linndaquebrada/",
         },
         {
             name: "planning",
@@ -22,6 +23,7 @@ export default function Queer() {
             arabicTitle: "",
             imgUrl: "/images/planning.jpg",
             get: "/planning.json",
+            web: "https://www.planningtorockofficial.com",
         },
         {
             name: "mykki",
@@ -29,6 +31,23 @@ export default function Queer() {
             arabicTitle: "",
             imgUrl: "/images/mykkie.jpg",
             get: "/mykki.json",
+            web: "https://mykkiblancoworld.com",
+        },
+        {
+            name: "arca",
+            engTitle: "Arca",
+            arabicTitle: "",
+            imgUrl: "/images/arca.jpg",
+            get: "/arca.json",
+            web: "https://arca1000000.com/",
+        },
+        {
+            name: "sapphic",
+            engTitle: "Sapphic Lasers",
+            arabicTitle: "",
+            imgUrl: "/images/sapphic.jpeg",
+            get: "/sapphic.json",
+            web: "https://www.sapphiclasers.com/",
         },
         {
             name: "saye",
@@ -36,6 +55,7 @@ export default function Queer() {
             arabicTitle: "",
             imgUrl: "/images/saye.jpg",
             get: "/saye.json",
+            web: "https://sayeskye.com",
         },
         {
             name: "rae",
@@ -43,6 +63,7 @@ export default function Queer() {
             arabicTitle: "",
             imgUrl: "/images/rae.jpg",
             get: "/rae.json",
+            web: "www.raespoon.com",
         },
     ];
 

@@ -41,6 +41,22 @@ export default function Wilad() {
             get: "/kiddy.json",
             web: "https://www.facebook.com/Ilovekiddysmile",
         },
+        {
+            name: "cazuza",
+            engTitle: "Cazuza",
+            arabicTitle: "",
+            imgUrl: "/images/cazuza.jpg",
+            get: "/cazuza.json",
+            web: "https://www.facebook.com/cazuzaoficiall",
+        },
+        {
+            name: "jaloo",
+            engTitle: "Jaloo",
+            arabicTitle: "",
+            imgUrl: "/images/jaloo.jpg",
+            get: "/jaloo.json",
+            web: "https://www.facebook.com/JalooMusic",
+        },
     ];
 
     const handleclick = (e) => {

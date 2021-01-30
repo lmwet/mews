@@ -90,12 +90,44 @@ export default function BlackPride() {
             web: "https://www.facebook.com/LousAndTheYakuza/",
         },
         {
+            name: "charlotte",
+            engTitle: "Charlotte Adigery",
+            arabicTitle: "",
+            imgUrl: "/images/charlotte.jpg",
+            get: "/charlotte.json",
+            web: "https://www.facebook.com/charlotteadigery/",
+        },
+        {
             name: "lizzo",
             engTitle: "Lizzo",
             arabicTitle: "",
             imgUrl: "/images/lizzo.jpg",
             get: "/lizzo.json",
             web: "https://www.lizzomusic.com/",
+        },
+        {
+            name: "saroc",
+            engTitle: "Sa-Roc",
+            arabicTitle: "",
+            imgUrl: "/images/saroc.jpg",
+            get: "/saroc.json",
+            web: "https://sa-roc.com/",
+        },
+        {
+            name: "oumou",
+            engTitle: "Oumou Sangare",
+            arabicTitle: "",
+            imgUrl: "/images/oumou.jpg",
+            get: "/oumou.json",
+            web: "https://www.facebook.com/oumousangareofficiel/",
+        },
+        {
+            name: "fatoumata",
+            engTitle: "Fatoumata Diawara",
+            arabicTitle: "",
+            imgUrl: "/images/fatoumata.jpg",
+            get: "/fatoumata.json",
+            web: "http://fatoumatadiawara.com/",
         },
     ];
 
@@ -145,7 +177,13 @@ export default function BlackPride() {
 
     return (
         <div className="component-container">
-            <img id="nothing" src="/images/nothing.png" />
+            <a
+                title="Discover AfroPunk Mixtapes"
+                href="https://afropunk.com/festival/all/mixtapes-2/"
+            >
+                {" "}
+                <img id="nothing" src="/images/nothing.png" />
+            </a>
             <h1 className="cpnt-title">Black and African Prides</h1>
 
             <Defile artists={artists} />
@@ -160,7 +198,7 @@ export default function BlackPride() {
                 ) : null}
             </div>
 
-            <a title="back-to-top" className="to-top" href="devil-dykes">
+            <a title="back-to-top" className="to-top" href="black-pride">
                 <span className="glyphicon glyphicon-chevron-up"></span>
             </a>
 

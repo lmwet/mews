@@ -50,6 +50,25 @@ devilDykesRouter.get("/obinrin.json", async (req, res) => {
     }
 });
 
+devilDykesRouter.get("/lovie.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "2IadbCgYP2Oj0LHFoSBh68",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in lovie",
+            err.message
+        );
+    }
+});
+
 devilDykesRouter.get("/koffee.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();
@@ -121,6 +140,44 @@ devilDykesRouter.get("/muthoni.json", async (req, res) => {
     } catch (err) {
         console.log(
             "Unfortunately, something has gone wrong in muthoni",
+            err.message
+        );
+    }
+});
+
+devilDykesRouter.get("/melissa.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "5Vby8ALwGN41v2nXpu2TSO",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in melissa",
+            err.message
+        );
+    }
+});
+
+devilDykesRouter.get("/sapphic.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "09eK3GpyFOWQrDADnrWD12",
+            "BR"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in sapphic",
             err.message
         );
     }

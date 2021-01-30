@@ -51,6 +51,44 @@ legendsRouter.get("/beverly.json", async (req, res) => {
     }
 });
 
+legendsRouter.get("/catia.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "0Pn49e9KBqcekfXpSAGgAM",
+            "BR"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in catia",
+            err.message
+        );
+    }
+});
+
+legendsRouter.get("/lovie.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "2IadbCgYP2Oj0LHFoSBh68",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in lovie",
+            err.message
+        );
+    }
+});
+
 legendsRouter.get("/joan.json", async (req, res) => {
     try {
         const grant = await spotifyApi.clientCredentialsGrant();

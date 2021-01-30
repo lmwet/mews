@@ -5,6 +5,8 @@ const SpotifyWebApi = require("spotify-web-api-node");
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
+// const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("../secrets.json");
+
 const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID || process.env.CLIENT_ID,
     clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
@@ -57,7 +59,7 @@ blackPrideRouter.get("/bia.json", async (req, res) => {
         );
         const topTen = await spotifyApi.getArtistTopTracks(
             "0Aj4m8El9TdnqyVHhkuloa",
-            "BR"
+            "FR"
         );
         res.json(topTen.body.tracks);
     } catch (err) {
@@ -234,6 +236,82 @@ blackPrideRouter.get("/yugen.json", async (req, res) => {
     } catch (err) {
         console.log(
             "Unfortunately, something has gone wrong in yugen",
+            err.message
+        );
+    }
+});
+
+blackPrideRouter.get("/saroc.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "2tjZzUU3KKhsxlmNjV3VZg",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in saroc",
+            err.message
+        );
+    }
+});
+
+blackPrideRouter.get("/oumou.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "65CKKZilbcSKkAPC9a5Mvh",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in oumou",
+            err.message
+        );
+    }
+});
+
+blackPrideRouter.get("/fatoumata.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "4G5ZJny3HvX6Il7eHVfnNC",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in oumou",
+            err.message
+        );
+    }
+});
+
+blackPrideRouter.get("/charlotte.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "0h1gX589xBKUCijeC8Bewy",
+            "EG"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in charlotte",
             err.message
         );
     }

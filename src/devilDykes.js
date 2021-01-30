@@ -5,7 +5,6 @@ import MyPlaylists from "./myPlaylists";
 
 export default function DevilDykes() {
     const [currentTrack, setCurrentTrack] = useState("");
-    const [addedTrack, setAddedTrack] = useState("");
     const [showModal, setShowmodal] = useState(false);
     const [newPlaylist, setNewPlaylist] = useState([]);
 
@@ -41,6 +40,14 @@ export default function DevilDykes() {
             imgUrl: "/images/obinrin.jpeg",
             get: "/obinrin.json",
             web: "https://www.facebook.com/ObinrinTrio/",
+        },
+        {
+            name: "lovie",
+            engTitle: "Lovie Austin",
+            arabicTitle: "",
+            imgUrl: "/images/lovie.jpg",
+            get: "/lovie.json",
+            web: "https://en.wikipedia.org/wiki/Lovie_Austin/",
         },
         {
             name: "internet",
@@ -113,6 +120,22 @@ export default function DevilDykes() {
             imgUrl: "/images/chocolate.jpg",
             get: "/chocolate.json",
             web: "https://www.facebook.com/chocolateremixoficial/",
+        },
+        {
+            name: "melissa",
+            engTitle: "Melissa Laveaux",
+            arabicTitle: "",
+            imgUrl: "/images/melissa.jpg",
+            get: "/melissa.json",
+            web: "https://myspace.com/melissalaveaux",
+        },
+        {
+            name: "sapphic",
+            engTitle: "Sapphic Lasers",
+            arabicTitle: "",
+            imgUrl: "/images/sapphic.jpeg",
+            get: "/chocolate.json",
+            web: "https://www.sapphiclasers.com/",
         },
     ];
 

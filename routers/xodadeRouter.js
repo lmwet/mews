@@ -2,9 +2,11 @@ const express = require("express");
 const xodadeRouter = express.Router();
 
 const SpotifyWebApi = require("spotify-web-api-node");
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = process.env.REDIRECT_URI;
+// const CLIENT_ID = process.env.CLIENT_ID;
+// const CLIENT_SECRET = process.env.CLIENT_SECRET;
+// const REDIRECT_URI = process.env.REDIRECT_URI;
+const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require("../secrets.json");
+
 const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID || process.env.CLIENT_ID,
     clientSecret: CLIENT_SECRET || process.env.CLIENT_SECRET,
@@ -82,6 +84,101 @@ xodadeRouter.get("/yugen.json", async (req, res) => {
     } catch (err) {
         console.log(
             "Unfortunately, something has gone wrong in yugen",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/mariem.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "6uDfHkEF9G0FoBa97NTr4O",
+            "AL"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in mariem",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/ahmerahsu.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "6uCILdubNJBlEvfxOCDluy",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in ahmerahsu",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/rosinha.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "3PaJldxyhusOBLFXRkI36B",
+            "BR"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in rosinha",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/tami.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "1rlC0qRy1Ndg2uAoFoFlyJ",
+            "US"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in tami",
+            err.message
+        );
+    }
+});
+
+xodadeRouter.get("/aziza.json", async (req, res) => {
+    try {
+        const grant = await spotifyApi.clientCredentialsGrant();
+        const token = await spotifyApi.setAccessToken(
+            grant.body["access_token"]
+        );
+        const topTen = await spotifyApi.getArtistTopTracks(
+            "6uDfHkEF9G0FoBa97NTr4O",
+            "AL"
+        );
+        res.json(topTen.body.tracks);
+    } catch (err) {
+        console.log(
+            "Unfortunately, something has gone wrong in aziza",
             err.message
         );
     }
