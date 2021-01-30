@@ -110,7 +110,7 @@ export default function Xodade() {
             arabicTitle: "دينا الوديدي‎",
             imgUrl: "/images/dina.jpg",
             get: "/dina.json",
-            web: "",
+            web: "https://dinaelwedidi.com/",
         },
         {
             name: "takako",
